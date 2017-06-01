@@ -1,0 +1,40 @@
+class AddDocsToProcedure < ActiveRecord::Migration[5.1]
+  def change
+    add_column :procedures, :passport, :string
+    add_column :procedures, :passport_spouse, :string
+    add_column :procedures, :passport_children, :string
+    add_column :procedures, :identity, :string
+    add_column :procedures, :identity_spouse, :string
+    add_column :procedures, :identity_children, :string
+    add_column :procedures, :acte_naissance, :string
+    add_column :procedures, :acte_naissance_spouse, :string
+    add_column :procedures, :acte_naissance_children, :string
+    add_column :procedures, :livret, :string
+    add_column :procedures, :acte_mariage, :string
+    add_column :procedures, :contract_mariage, :string
+    add_column :procedures, :taxe_habitation, :string
+    add_column :procedures, :taxe_fonciere, :string
+    add_column :procedures, :rent, :string
+    add_column :procedures, :bills, :string
+    add_column :procedures, :insurance_vehicle, :string
+    add_column :procedures, :life_insurance, :string
+    add_column :procedures, :insurance_other, :string
+    add_column :procedures, :scolarite, :string
+    add_column :procedures, :caf, :string
+    add_column :procedures, :payroll, :string
+    add_column :procedures, :payroll_spouse, :string
+    add_column :procedures, :payroll_dec, :string
+    add_column :procedures, :payroll_spouse_dec, :string
+    add_column :procedures, :bilan_company, :string
+    add_column :procedures, :unemployment, :string
+    add_column :procedures, :unemployment_spouse, :string
+    add_column :procedures, :pro_revenu, :string
+    add_column :procedures, :pro_revenu_spouse, :string
+    add_column :procedures, :taxes, :string
+    add_column :procedures, :taxes_spouse, :string
+    add_column :procedures, :property, :string
+    add_column :procedures, :revenu_foncier, :string
+    add_column :procedures, :bank_account, :string
+    add_column :procedures, :carte_grise, :string
+  end
+end
