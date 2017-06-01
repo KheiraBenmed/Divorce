@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601134159) do
+ActiveRecord::Schema.define(version: 20170601150115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "procedures", force: :cascade do |t|
+    t.integer "child_nb"
+    t.integer "owner_nb"
+    t.integer "renter_nb"
+    t.string "status_pro"
+    t.integer "bank_account_nb"
+    t.integer "credit_nb"
+    t.integer "insurance_nb"
+    t.integer "vehicle_nb"
+    t.string "contract_type"
+    t.string "status_pro_conjoint"
+    t.boolean "marriage_contract"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.index ["user_id"], name: "index_procedures_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +52,5 @@ ActiveRecord::Schema.define(version: 20170601134159) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "procedures", "users"
 end
