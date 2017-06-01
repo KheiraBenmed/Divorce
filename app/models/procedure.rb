@@ -11,4 +11,5 @@ class Procedure < ApplicationRecord
   validates :status_pro_conjoint, inclusion: { in: STATUSES }
   MARIAGES = ["Communauté de biens réduite aux acquêts", "Séparation de biens, participation aux acquêts", "communauté universelle", "Je ne sais pas" ]
   validates :marriage_contract, inclusion: { in: MARIAGES }
+  # mount_uploader :passport, DocumentUploader
 end

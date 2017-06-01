@@ -1,3 +1,26 @@
-<div class="container">
+<div class="container text-center">
+ <div class="row">
+   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+     <div class="form-post">
+       <h1>Allez on attaque </h1>
 
+       <%= simple_form_for (@procedure) do |f| %>
+          <%= f.input :first_name, placeholder: "Vanessaaaaaaa"  %>
+         <%= f.input :last_name, placeholder: "Paradiiiiiiiiis"  %>
+         <%= f.input :child_nb, collection: Procedure::CHILDREN, prompt: "Combien d'enfants" %>
+         <%= f.input :marriage_contract, collection: Procedure::MARIAGES, prompt: "dlfkjlsdkf" %>
+         <%= f.input :contract_type %>
+         <%= f.input :status_pro %>
+         <%= f.input :status_pro_conjoint %>
+         <%= f.input :bank_account_nb %>
+         <%= f.input :vehicle_nb  %>
+         <%= f.input :renter_nb  %>
+         <%= f.input :owner_nb  %>
+         <%= f.input :credit_nb  %>
+         <%= f.input :insurance_nb  %>
+         <%= f.submit "Ok" %>
+       <% end %>
+     </div>
+   </div>
+ </div>
 </div>
