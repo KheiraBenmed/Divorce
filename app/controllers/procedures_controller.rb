@@ -31,6 +31,49 @@ class ProceduresController < ApplicationController
     redirect_to root_path
   end
 
+  # def calcul_champs_remplis
+  #   champ_done = 0
+  #   if current_user.procedure.child_nb.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.owner_nb.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.renter_nb.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.status_pro.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.bank_account_nb.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.credit_nb.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.insurance_nb.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.vehicle_nb.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.contract_type.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.status_pro_contact.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.marriage_contract.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.first_name.nil?
+  #     champ_done =+ 1
+  #   end
+  #   if current_user.procedure.last_name.nil?
+  #     champ_done =+ 1
+  #   end
+  # end
+
   private
 
   def set_procedure
