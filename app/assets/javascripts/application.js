@@ -1,4 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require cloudinary/jquery.cloudinary
+//= require gmaps/google
 //= require_tree .
