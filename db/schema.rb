@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601150115) do
+ActiveRecord::Schema.define(version: 20170601162219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,42 @@ ActiveRecord::Schema.define(version: 20170601150115) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "passport"
+    t.string "passport_spouse"
+    t.string "passport_children"
+    t.string "identity"
+    t.string "identity_spouse"
+    t.string "identity_children"
+    t.string "acte_naissance"
+    t.string "acte_naissance_spouse"
+    t.string "acte_naissance_children"
+    t.string "livret"
+    t.string "acte_mariage"
+    t.string "contract_mariage"
+    t.string "taxe_habitation"
+    t.string "taxe_fonciere"
+    t.string "rent"
+    t.string "bills"
+    t.string "insurance_vehicle"
+    t.string "life_insurance"
+    t.string "insurance_other"
+    t.string "scolarite"
+    t.string "caf"
+    t.string "payroll"
+    t.string "payroll_spouse"
+    t.string "payroll_dec"
+    t.string "payroll_spouse_dec"
+    t.string "bilan_company"
+    t.string "unemployment"
+    t.string "unemployment_spouse"
+    t.string "pro_revenu"
+    t.string "pro_revenu_spouse"
+    t.string "taxes"
+    t.string "taxes_spouse"
+    t.string "property"
+    t.string "revenu_foncier"
+    t.string "bank_account"
+    t.string "carte_grise"
     t.index ["user_id"], name: "index_procedures_on_user_id"
   end
 
