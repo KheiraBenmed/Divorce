@@ -1,8 +1,11 @@
-<div class="searchbar">
-  <%= form_tag(avocats_path, :method => :get) do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Adresse" %>
-  <%= submit_tag "Trouvez", class:"btn-primary" %>
-<% end %>
+<div class="wrapper">
+  <div class="searchbar">
+    <%= form_tag(avocats_path, :method => :get) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Adresse" %>
+    <%= submit_tag "Trouvez", class:"btn-primary" %>
+    <% end %>
+  </div>
+  </div>
 
 <div id="map"></div>
 
