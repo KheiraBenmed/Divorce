@@ -1,7 +1,12 @@
+<div id="search_bar" style="width: 100vw; height: 20vh;">
+ <div class="row text-center">
+        <%=form_tag avocats_search_path(anchor: "map-container"), method: 'get' do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Type your address', class: "navbar-wagon-search-input" %>
+          <%= submit_tag 'Find', class: "btn" %>
+        <% end %>
+  </div>
 
-<div id="search_bar" style="width: 100vw; height: 20vh;"></div>
 <div id="map"></div>
-
 
 
 <% content_for(:after_js) do %>

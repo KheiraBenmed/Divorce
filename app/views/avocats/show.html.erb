@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row" class="media-body">
+      <div class="col-xs-8 col-sm-8">
+        <div class="row">
+          <div class="avocat-name">
+            <h2><%= @avocat.name %></h4>
+            </div>
+            <h4><%= @avocat.address %></h4>
+            <%= link_to "Back", avocats_path %>
+          </div>
+        </div>
+        <div id="map" style="width: 362px; height: 400px; margin-top: 10px; margin-bottom: 10px"></div>
+            </div>
+
+
+
+    <% content_for(:after_js) do %>
+    <script>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          provider: {
+            scrollwheel :false
+          }
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      })
+    </script>
+    <% end %>
