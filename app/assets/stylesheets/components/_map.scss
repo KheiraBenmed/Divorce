@@ -1,0 +1,16 @@
+#map {
+  z-index: 1000;
+  margin: auto;
+  width: 100vw;
+  height: calc(80vh);
+}
+
+#searchbar {
+    width: 100vh;
+    height: 20vh;
+    position: relative;
+}
+
+.position-fixed {
+  position: fixed !important;
+}

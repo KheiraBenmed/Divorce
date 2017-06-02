@@ -33,15 +33,15 @@ img {
 // Global
 // ======================== */
 
-// body {
-//   color: #444;
-//   font-family: Roboto, sans-serif;
-//   font-size: 18px;
-//   font-weight: 300;
-//   line-height: 1;
-//   margin: 0;
-//   padding: 0;
-// }
+body {
+  // color: #444;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
 
 // h1, h2, h3, h4, h5, h6, ul, ol, p {
 //   margin-top: 0;
@@ -79,8 +79,7 @@ img {
 // ======================== */
 
 .splash {
-  background: linear-gradient(rgba(44, 62, 80, 0.65), rgba(52, 152, 219, 0.65)),
-        url("road-sky-clouds-cloudy.jpg") no-repeat fixed center;
+  background: no-repeat fixed center;
   background-size: cover;
   color: #fff;
 }
@@ -160,7 +159,7 @@ img {
 }
 
 .portfolio {
-  background-color: #3498DB;
+  background-color: #E28D8D;
   color: #fff;
 }
 
