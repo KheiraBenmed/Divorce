@@ -30,22 +30,159 @@
     </div>
   </div> -->
 
-  <p>Vous avez rempli champs du questionnaire</p>
-  <p>Vous avez rempli % du questionnaire</p>
+  <p>Il vous manque <%= @champ_not_done %> champs du questionnaire à remplir</p>
+  <p>Vous avez rempli <%= (13 - @champ_not_done)*100/13 %>% du questionnaire</p>
 
   <%= link_to "Accès au questionnaire", edit_procedure_path, class: "btn btn-primary" %>
 
 
   <h1>Listing de tous vos documents</h1>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+  <div class="container_docs text-left">
+    <ul>
+      <% if @procedure.first_name.nil? || @procedure.last_name.nil? %>
+      <% else %>
+        <li>Passport</li>
+        <li>Passport conjoint</li>
+      <% end %>
 
-    <%= link_to "Accès aux avocats", avocats_path, class: "btn btn-primary" %>
+      <% if @procedure.child_nb.nil? %>
+      <% else %>
+        <% if @procedure.child_nb > 0 %>
+          <% for i in 1..(@procedure.child_nb) %>
+            <li>Passeport du <%= i %>er enfant </li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <!-- ID exemple -->
+      <% if @procedure.first_name.nil? || @procedure.last_name.nil? %>
+      <% else %>
+        <li>Carte d’Identite</li>
+        <li>Carte d’Identite conjoint</li>
+      <% end %>
+
+      <% if @procedure.child_nb.nil? %>
+      <% else %>
+        <% if @procedure.child_nb > 0 %>
+          <% for i in 1..(@procedure.child_nb) %>
+            <li>Carte d'identité du <%= i %>er enfant </li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <!-- acte de naissance exemple -->
+      <% if @procedure.first_name.nil? || @procedure.last_name.nil? %>
+      <% else %>
+        <li>Acte de Naissance</li>
+        <li>Acte de Naissance conjoint</li>
+      <% end %>
+
+      <% if @procedure.child_nb.nil? %>
+      <% else %>
+        <% if @procedure.child_nb > 0 %>
+          <% for i in 1..(@procedure.child_nb) %>
+            <li>Carte d'identité du <%= i %>er enfant </li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <!-- acte de naissance exemple -->
+      <% if @procedure.first_name.nil? || @procedure.last_name.nil? %>
+      <% else %>
+        <li>Livret de Famille </li>
+        <li>Acte de Mariage</li>
+      <% end %>
+
+      <% if @procedure.marriage_contract.nil? %>
+      <% else %>
+        <% if @procedure.marriage_contract == true %>
+          <li>Contrat de Mariage </li>
+        <% end %>
+      <% end %>
+
+    <!--   listing du revenu -->
+      <% if @procedure.status_pro.nil? %>
+      <% else %>
+        <% if @procedure.status_pro == "Salarié" %>
+          <li>Dernier Bulletin de Salaire</li>
+          <li>Bulletin de Salaire du mois de décembre de l’année précédente</li>
+        <% elsif @procedure.status_pro == "Chef d'entreprise" %>
+          <li>Trois derniers Bilan Entreprise</li>
+        <% elsif @procedure.status_pro == "Sans emploi" %>
+          <li>Attestation Chômage (check exact document) </li>
+        <% elsif @procedure.status_pro == "Libéral" %>
+          <li>Trois dernières Déclaration de Revenus professionnels </li>
+        <% end %>
+      <% end %>
+
+      <% if @procedure.status_pro_conjoint.nil? %>
+      <% else %>
+        <% if @procedure.status_pro_conjoint == "Salarié" %>
+          <li>Dernier Bulletin de Salaire du conjoint </li>
+          <li>Bulletin de Salaire du mois de décembre de l’année précédente du conjoint </li>
+        <% elsif @procedure.status_pro_conjoint == "Chef d'entreprise" %>
+          <li>Trois derniers Bilan Entreprise du conjoint </li>
+        <% elsif @procedure.status_pro_conjoint == "Sans emploi" %>
+          <li>Attestation Chômage (check exact document) du conjoint </li>
+        <% elsif @procedure.status_pro_conjoint == "Libéral" %>
+          <li>Trois dernières Déclaration de Revenus professionnels du conjoint </li>
+        <% end %>
+      <% end %>
+
+      <li>Trois derniers avis d’imposition</li>
+      <li>Titre de propriété </li>
+      <li>Revenues Fonciers </li>
+
+      <% if @procedure.bank_account_nb.nil? %>
+      <% else %>
+        <% if @procedure.bank_account_nb > 0 %>
+          <% for i in 1..(@procedure.bank_account_nb) %>
+            <li>Relevés du <%= i %>er compte</li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if @procedure.child_nb.nil? %>
+      <% else %>
+        <% if @procedure.child_nb > 0 %>
+          <li>Relevé de la CAF</li>
+        <% end %>
+      <% end %>
+
+      <% if @procedure.vehicle_nb.nil? %>
+      <% else %>
+        <% if @procedure.vehicle_nb > 0 %>
+          <% for i in 1..(@procedure.vehicle_nb) %>
+            <li>Carte Grise de votre <%= i %>er véhicule</li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <li>Factures (EDF, eau, tel…) </li>
+
+      <% if @procedure.credit_nb.nil? %>
+      <% else %>
+        <% if @procedure.credit_nb > 0 %>
+          <% for i in 1..(@procedure.credit_nb) %>
+            <li>Plan de remboursement du <%= i %>er crédit</li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <li>Taxe habitation</li>
+      <li>Taxe foncière</li>
+      <li>Quittance Loyer</li>
+      <li>Certificats scolarité</li>
+      <li>Assurance véhicule</li>
+      <li>Assurance vie</li>
+      <li>Assurance autres</li>
+    </ul>
+
+  </div>
+
+
+  <%= link_to "Accès aux avocats", avocats_path, class: "btn btn-primary" %>
 
 </div>
 

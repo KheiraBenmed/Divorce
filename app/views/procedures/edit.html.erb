@@ -7,9 +7,9 @@
        <%= simple_form_for (@procedure) do |f| %>
        <%= f.input :first_name, placeholder: "Vanessaaaaaaa"  %>
        <%= f.input :last_name, placeholder: "Paradiiiiiiiiis"  %>
-       <%= f.input :child_nb, collection: Procedure::CHILDREN, prompt: "Combien d'enfants" %>
-       <%= f.input :marriage_contract, collection: Procedure::MARIAGES, prompt: "dlfkjlsdkf" %>
-       <%= f.input :contract_type %>
+       <%= f.input :child_nb, collection: Procedure::CHILDREN %>
+       <%= f.input :marriage_contract %>
+       <%= f.input :contract_type, collection: Procedure::MARIAGES %>
        <%= f.input :status_pro %>
        <%= f.input :status_pro_conjoint %>
        <%= f.input :bank_account_nb %>

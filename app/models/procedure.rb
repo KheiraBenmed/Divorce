@@ -2,15 +2,15 @@ class Procedure < ApplicationRecord
   belongs_to :user
   # GENDERS = ["Homme", "Femme"]
   # validates :gender, inclusion: { in: GENDERS }
-  CHILDREN = [0..10]
+  CHILDREN = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   validates :child_nb, inclusion: { in: CHILDREN }, :allow_nil => true
   STATUSES = ["Salarié", "Chef d'entreprise", "Sans Emploi", "Libéral", ""]
   validates :status_pro, inclusion: { in: STATUSES}, :allow_nil => true
-  BANKS = [1..10]
+  BANKS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   validates :bank_account_nb, inclusion: { in: BANKS }, :allow_nil => true
   validates :status_pro_conjoint, inclusion: { in: STATUSES }, :allow_nil => true
-  MARIAGES = ["Communauté de biens réduite aux acquêts", "Séparation de biens, participation aux acquêts", "communauté universelle", "Je ne sais pas" ]
-  validates :marriage_contract, inclusion: { in: MARIAGES }, :allow_nil => true
+  MARIAGES = ["Communauté de biens réduite aux acquêts", "Séparation de biens, Participation aux acquêts", "Communauté universelle", "Je ne sais pas", ""]
+  validates :contract_type, inclusion: { in: MARIAGES }
 
   mount_uploader :passport, DocumentUploader
   mount_uploader :passport_spouse, DocumentUploader
