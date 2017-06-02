@@ -1,6 +1,5 @@
 <div class="container text-center">
   <br>
-  <h1>Recap de votre application</h1>
 
   <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <div class="progress">
@@ -30,17 +29,22 @@
     </div>
   </div> -->
 
-  <p>Il vous manque <%= @champ_not_done %> champs du questionnaire à remplir</p>
-  <p>Vous avez rempli <%= (13 - @champ_not_done)*100/13 %>% du questionnaire</p>
+   <div class="container_recap">
+    <div class="recap" style="border-color: #F0F4F8; border-radius: 20px; border-width: 1px; border-style: solid; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30); padding: 20px; margin: 10px">
+      <h1>Recap de votre application</h1>
+      <p>Il vous manque <%= @champ_not_done %> champs du questionnaire à remplir</p>
+      <p>Vous avez rempli <%= (13 - @champ_not_done)*100/13 %>% du questionnaire</p>
 
-  <%= link_to "Accès au questionnaire", edit_procedure_path, class: "btn btn-primary" %>
+      <%= link_to "Accès au questionnaire", edit_procedure_path, class: "btn btn-primary" %>
+    </div>
+  </div>
 
 
-  <h1>Listing de tous vos documents</h1>
 
   <div class="container_docs text-left">
-    <div class="docs" style="border-color: grey; border-radius: 20px; border-width: 1px; border-style: solid; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30); height: 800px; padding: 20px; margin: 10px">
+    <div class="docs" style="border-color: #F0F4F8; border-radius: 20px; border-width: 1px; border-style: solid; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30); padding: 20px; margin: 10px">
       <ul>
+        <h3>Listing de tous vos documents</h3>
         <% if @procedure.first_name.nil? || @procedure.last_name.nil? %>
         <% else %>
           <li>Passport</li>
