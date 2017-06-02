@@ -32,6 +32,16 @@ class AvocatsController < ApplicationController
     end
   end
 
+  #  def search
+  #   @search = params[:search]
+  #   if params[:search] =! ""
+  #     @users = User.near("#{params[:search]}", 5)
+  #     @avocats = find_avocates_by_location(@users)
+  #   else
+  #     @avocats = Avocat.all
+  #   end
+  # end
+
   def destroy
   end
 
@@ -44,5 +54,19 @@ class AvocatsController < ApplicationController
   def avocat_params
     params.require(:avocat).permit(:name, :address)
   end
+
+   # def find_avocats_by_location(users)
+  #   avocats_array = []
+  #   user_avocats_array = []
+  #   users.each do |user|
+  #   user.avocats.each do |avocat|
+  #     user_avocats_array << avocat
+  #     end
+  #   end
+  #   user_avocats_array.each do |avocat|
+  #     avocats_array << avocat
+  #   end
+  #   return avocats_array
+  # end
 end
 
