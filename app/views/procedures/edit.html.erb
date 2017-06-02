@@ -6,350 +6,350 @@
 
        <%= simple_form_for (@procedure) do |f| %>
 
-       <div id="js-first_name">
+         <div id="js-first_name">
           <%= f.input :first_name, placeholder: "Vanessaaaaaaa" %>
-       </div>
+        </div>
 
-       <div id="js-last_name">
+        <div id="js-last_name">
           <%= f.input :last_name, placeholder: "Paradiiiiiiiiis"  %>
-       </div>
+        </div>
 
-       <div id="js-child_nb">
+        <div id="js-child_nb">
           <%= f.input :child_nb, collection: Procedure::CHILDREN, prompt: "Combien d'enfants" %>
-       </div>
+        </div>
 
-       <div id="js-marriage_contract">
+        <div id="js-marriage_contract">
           <%= f.input :marriage_contract, collection: Procedure::MARIAGES, prompt: "dlfkjlsdkf" %>
-       </div>
+        </div>
 
-       <div id="js-contract_type">
+        <div id="js-contract_type">
           <%= f.input :contract_type %>
-       </div>
+        </div>
 
-       <div id="js-status_pro">
+        <div id="js-status_pro">
           <%= f.input :status_pro %>
-       </div>
+        </div>
 
-       <div id="js-status_pro_conjoint">
+        <div id="js-status_pro_conjoint">
           <%= f.input :status_pro_conjoint %>
-       </div>
+        </div>
 
-       <div id="js-bank_account_nb">
+        <div id="js-bank_account_nb">
           <%= f.input :bank_account_nb %>
-       </div>
+        </div>
 
-       <div id="js-vehicle_nb">
+        <div id="js-vehicle_nb">
           <%= f.input :vehicle_nb  %>
-       </div>
+        </div>
 
-       <div id="js-renter_nb">
+        <div id="js-renter_nb">
           <%= f.input :renter_nb  %>
-       </div>
+        </div>
 
-       <div id="js-owner_nb">
+        <div id="js-owner_nb">
           <%= f.input :owner_nb  %>
-       </div>
+        </div>
 
-       <div id="js-credit_nb">
+        <div id="js-credit_nb">
           <%= f.input :credit_nb  %>
-       </div>
+        </div>
 
-       <div id="js-insurance_nb">
+        <div id="js-insurance_nb">
           <%= f.input :insurance_nb  %>
-       </div>
+        </div>
 
-       <div id="js-passport">
+        <div id="js-passport">
           <%= f.input :passport %>
-       </div>
+        </div>
 
-       <div id="js-passport_cache">
+        <div id="js-passport_cache">
           <%= f.input :passport_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-passport_spouse">
+        <div id="js-passport_spouse">
           <%= f.input :passport_spouse%>
-       </div>
+        </div>
 
-       <div id="js-passport_spouse_cache">
+        <div id="js-passport_spouse_cache">
           <%= f.input :passport_spouse_cache, as: :hidden%>
-       </div>
+        </div>
 
-       <div id="js-passport_children">
+        <div id="js-passport_children">
           <%= f.input :passport_children%>
-       </div>
+        </div>
 
-       <div id="js-passport_children_cache">
+        <div id="js-passport_children_cache">
           <%= f.input :passport_children_cache, as: :hidden%>
-       </div>
+        </div>
 
-       <div id="js-identity">
+        <div id="js-identity">
           <%= f.input :identity %>
-       </div>
+        </div>
 
-       <div id="js-identity_cache">
+        <div id="js-identity_cache">
           <%= f.input :identity_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-identity_spouse">
+        <div id="js-identity_spouse">
           <%= f.input :identity_spouse %>
-       </div>
+        </div>
 
-       <div id="js-identity_spouse_cache">
+        <div id="js-identity_spouse_cache">
           <%= f.input :identity_spouse_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-identity_children">
+        <div id="js-identity_children">
           <%= f.input :identity_children %>
-       </div>
+        </div>
 
-       <div id="js-identity_children_cache">
+        <div id="js-identity_children_cache">
           <%= f.input :identity_children_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-acte_naissance">
+        <div id="js-acte_naissance">
           <%= f.input :acte_naissance %>
-       </div>
+        </div>
 
-       <div id="js-acte_naissance_cache">
+        <div id="js-acte_naissance_cache">
           <%= f.input :acte_naissance_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-acte_naissance_spouse">
+        <div id="js-acte_naissance_spouse">
           <%= f.input :acte_naissance_spouse %>
-       </div>
+        </div>
 
-       <div id="js-acte_naissance_spouse_cache">
+        <div id="js-acte_naissance_spouse_cache">
           <%= f.input :acte_naissance_spouse_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-acte_naissance_children">
+        <div id="js-acte_naissance_children">
           <%= f.input :acte_naissance_children %>
-       </div>
+        </div>
 
-       <div id="js-acte_naissance_children_cache">
+        <div id="js-acte_naissance_children_cache">
           <%= f.input :acte_naissance_children_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-livret">
+        <div id="js-livret">
           <%= f.input :livret %>
-       </div>
+        </div>
 
-       <div id="js-livret_cache">
+        <div id="js-livret_cache">
           <%= f.input :livret_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-acte_mariage">
+        <div id="js-acte_mariage">
           <%= f.input :acte_mariage %>
-       </div>
+        </div>
 
-       <div id="js-acte_mariage_cache">
+        <div id="js-acte_mariage_cache">
           <%= f.input :acte_mariage_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-contract_mariage">
+        <div id="js-contract_mariage">
           <%= f.input :contract_mariage %>
-       </div>
+        </div>
 
-       <div id="js-contract_mariage_cache">
+        <div id="js-contract_mariage_cache">
           <%= f.input :contract_mariage_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-taxe_habitation">
+        <div id="js-taxe_habitation">
           <%= f.input :taxe_habitation %>
-       </div>
+        </div>
 
-       <div id="js-taxe_habitation_cache">
+        <div id="js-taxe_habitation_cache">
           <%= f.input :taxe_habitation_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-taxe_fonciere">
+        <div id="js-taxe_fonciere">
           <%= f.input :taxe_fonciere %>
-       </div>
+        </div>
 
-       <div id="js-taxe_fonciere_cache">
+        <div id="js-taxe_fonciere_cache">
           <%= f.input :taxe_fonciere_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-rent">
+        <div id="js-rent">
           <%= f.input :rent %>
-       </div>
+        </div>
 
-       <div id="js-rent_cache">
+        <div id="js-rent_cache">
           <%= f.input :rent_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-bills">
+        <div id="js-bills">
           <%= f.input :bills %>
-       </div>
+        </div>
 
-       <div id="js-bills_cache">
+        <div id="js-bills_cache">
           <%= f.input :bills_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-insurance_vehicle">
+        <div id="js-insurance_vehicle">
           <%= f.input :insurance_vehicle %>
-       </div>
+        </div>
 
-       <div id="js-insurance_vehicle_cache">
+        <div id="js-insurance_vehicle_cache">
           <%= f.input :insurance_vehicle_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-life_insurance">
+        <div id="js-life_insurance">
           <%= f.input :life_insurance %>
-       </div>
+        </div>
 
-       <div id="js-life_insurance_cache">
+        <div id="js-life_insurance_cache">
           <%= f.input :life_insurance_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-insurance_other">
+        <div id="js-insurance_other">
           <%= f.input :insurance_other %>
-       </div>
+        </div>
 
-       <div id="js-insurance_other_cache">
+        <div id="js-insurance_other_cache">
           <%= f.input :insurance_other_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-scolarite">
+        <div id="js-scolarite">
           <%= f.input :scolarite %>
-       </div>
+        </div>
 
-       <div id="js-scolarite_cache">
+        <div id="js-scolarite_cache">
           <%= f.input :scolarite_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-caf">
+        <div id="js-caf">
           <%= f.input :caf %>
-       </div>
+        </div>
 
-       <div id="js-caf_cache">
+        <div id="js-caf_cache">
           <%= f.input :caf_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-payroll">
+        <div id="js-payroll">
           <%= f.input :payroll %>
-       </div>
+        </div>
 
-       <div id="js-payroll_cache">
+        <div id="js-payroll_cache">
           <%= f.input :payroll_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-payroll_spouse">
+        <div id="js-payroll_spouse">
           <%= f.input :payroll_spouse %>
-       </div>
+        </div>
 
-       <div id="js-payroll_spouse_cache">
+        <div id="js-payroll_spouse_cache">
           <%= f.input :payroll_spouse_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-payroll_dec">
+        <div id="js-payroll_dec">
           <%= f.input :payroll_dec %>
-       </div>
+        </div>
 
-       <div id="js-payroll_dec_cache">
+        <div id="js-payroll_dec_cache">
           <%= f.input :payroll_dec_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-payroll_spouse_dec">
+        <div id="js-payroll_spouse_dec">
           <%= f.input :payroll_spouse_dec %>
-       </div>
+        </div>
 
-       <div id="js-payroll_spouse_dec_cache">
+        <div id="js-payroll_spouse_dec_cache">
           <%= f.input :payroll_spouse_dec_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-bilan_company">
+        <div id="js-bilan_company">
           <%= f.input :bilan_company %>
-       </div>
+        </div>
 
-       <div id="js-bilan_company_cache">
+        <div id="js-bilan_company_cache">
           <%= f.input :bilan_company_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-unemployment">
+        <div id="js-unemployment">
           <%= f.input :unemployment %>
-       </div>
+        </div>
 
-       <div id="js-unemployment_cache">
+        <div id="js-unemployment_cache">
           <%= f.input :unemployment_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-unemployment_spouse">
+        <div id="js-unemployment_spouse">
           <%= f.input :unemployment_spouse %>
-       </div>
+        </div>
 
-       <div id="js-unemployment_spouse_cache">
+        <div id="js-unemployment_spouse_cache">
           <%= f.input :unemployment_spouse_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-pro_revenu">
+        <div id="js-pro_revenu">
           <%= f.input :pro_revenu %>
-       </div>
+        </div>
 
-       <div id="js-pro_revenu_cache">
+        <div id="js-pro_revenu_cache">
           <%= f.input :pro_revenu_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-pro_revenu_spouse">
+        <div id="js-pro_revenu_spouse">
           <%= f.input :pro_revenu_spouse %>
-       </div>
+        </div>
 
-       <div id="js-pro_revenu_spouse_cache">
+        <div id="js-pro_revenu_spouse_cache">
           <%= f.input :pro_revenu_spouse_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-taxes">
+        <div id="js-taxes">
           <%= f.input :taxes %>
-       </div>
+        </div>
 
-       <div id="js-taxes_cache">
+        <div id="js-taxes_cache">
           <%= f.input :taxes_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-taxes_spouse">
+        <div id="js-taxes_spouse">
           <%= f.input :taxes_spouse %>
-       </div>
+        </div>
 
-       <div id="js-taxes_spouse_cache">
+        <div id="js-taxes_spouse_cache">
           <%= f.input :taxes_spouse_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-property">
+        <div id="js-property">
           <%= f.input :property %>
-       </div>
+        </div>
 
-       <div id="js-property_cache">
+        <div id="js-property_cache">
           <%= f.input :property_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-revenu_foncier">
+        <div id="js-revenu_foncier">
           <%= f.input :revenu_foncier %>
-       </div>
+        </div>
 
-       <div id="js-revenu_foncier_cache">
+        <div id="js-revenu_foncier_cache">
           <%= f.input :revenu_foncier_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-bank_account">
+        <div id="js-bank_account">
           <%= f.input :bank_account %>
-       </div>
+        </div>
 
-       <div id="js-bank_account_cache">
+        <div id="js-bank_account_cache">
           <%= f.input :bank_account_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <div id="js-carte_grise">
+        <div id="js-carte_grise">
           <%= f.input :carte_grise %>
-       </div>
+        </div>
 
-       <div id="js-carte_grise_cache">
+        <div id="js-carte_grise_cache">
           <%= f.input :carte_grise_cache, as: :hidden %>
-       </div>
+        </div>
 
-       <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
-       <% end %>
-     </div>
-   </div>
- </div>
+        <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>
 
