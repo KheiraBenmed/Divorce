@@ -1,10 +1,43 @@
-<div class="searchbar">
-  <%= form_tag(avocats_path, :method => :get) do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Adresse" %>
-  <%= submit_tag "Trouvez", class:"btn-primary" %>
-<% end %>
+<div class="wrapper">
+  <div class="searchbar">
+    <%= form_tag(avocats_path, :method => :get) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Adresse" %>
+    <%= submit_tag "Trouvez", class:"btn-primary" %>
+    <% end %>
+  </div>
+  </div>
 
 <div id="map"></div>
+
+
+<div class="text-center padded">
+    <div class="row">
+      <div class="col-xs-8 col-sm-8">
+        <div class="row">
+          <% @avocats.each do |avocat| %>
+            <div class="col-xs-6">
+              <!-- On récupère l'url de la photo -->
+              <!-- On crée la card-->
+              <div class="card">
+                <div class="card-description">
+                  <h2><%= avocat.name %></h2>
+                    <p><%= avocat.address %></p>
+                </div>
+                <%= link_to " ", avocat_path(avocat), class: 'card-link' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="position-fixed">
+          <h3 class="text-center" style="color: #0060BF;">Trouvez votre sauveur</h3>
+          <div id="map" style="width: 400px; height: 500px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <% content_for(:after_js) do %>
