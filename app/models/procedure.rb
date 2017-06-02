@@ -10,11 +10,10 @@ class Procedure < ApplicationRecord
   BANKS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   validates :bank_account_nb, inclusion: { in: BANKS }, :allow_nil => true
   validates :status_pro_conjoint, inclusion: { in: STATUSES }, :allow_nil => true
-  MARIAGES = ["Communauté de biens réduite aux acquêts", "Séparation de biens, participation aux acquêts", "communauté universelle", "Je ne sais pas" ]
+  MARIAGES = ["Communauté de biens réduite aux acquêts", "Séparation de biens, participation aux acquêts", "communauté universelle", "Je ne sais pas", "" ]
   validates :contract_type, inclusion: { in: MARIAGES }
-  YN = ["Yes", "No"]
-  validates :marriage_contract, inclusion: { in: YN }, :allow_nil => true
-
+  # YN = ["Yes", "No"]
+  # validates :marriage_contract, inclusion: { in: YN }, :allow_nil => true
 
   mount_uploader :passport, DocumentUploader
   mount_uploader :passport_spouse, DocumentUploader
