@@ -13,7 +13,6 @@ gem "coffee-rails"
 gem "gmaps4rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
-gem 'jquery-steps-rails'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -26,6 +25,7 @@ gem 'autoprefixer-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
+  gem "rails-assets-jquery-steps"
 end
 
 group :development, :test do
