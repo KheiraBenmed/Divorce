@@ -7,7 +7,11 @@ class AvocatsController < ApplicationController
   end
 
   def index
+    if params[:search] && params[:search] != ""
+      @avocats = Avocat.near(params[:search],2)
+    else
     @avocats = Avocat.where.not(latitude: nil, longitude: nil)
+  end
     @hash = Gmaps4rails.build_markers(@avocats) do |avocat, marker|
       marker.lat avocat.latitude
       marker.lng avocat.longitude
@@ -31,16 +35,6 @@ class AvocatsController < ApplicationController
       render :new
     end
   end
-
-  #  def search
-  #   @search = params[:search]
-  #   if params[:search] =! ""
-  #     @users = User.near("#{params[:search]}", 5)
-  #     @avocats = find_avocates_by_location(@users)
-  #   else
-  #     @avocats = Avocat.all
-  #   end
-  # end
 
   def destroy
   end
