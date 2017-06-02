@@ -32,7 +32,7 @@
     <div class="recap" style="border-color: #F0F4F8; border-radius: 20px; border-width: 1px; border-style: solid; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30); padding: 20px; margin: 10px">
       <h1>Recap de votre application</h1>
       <p>Il vous manque <%= @champ_not_done %> champs du questionnaire à remplir</p>
-      <p>Vous avez rempli <%= (13 - @champ_not_done)*100/13 %>% du questionnaire</p>
+      <p>Vous avez rempli <%= (12 - @champ_not_done)*100/12 %>% du questionnaire</p>
 
       <%= link_to "Accès au questionnaire", edit_procedure_path, class: "btn btn-primary" %>
     </div>
@@ -44,10 +44,10 @@
     <div class="docs" style="border-color: #F0F4F8; border-radius: 20px; border-width: 1px; border-style: solid; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30); padding: 20px; margin: 10px">
       <ul>
         <h3>Listing de tous vos documents</h3>
-        <% if @procedure.passport.nil? %>
-          <p>pas de passeport</p>
+        <% if @procedure.first_name == "" || @procedure.last_name == "" %>
         <% else %>
           <li>Passport</li>
+
           <li>Passport conjoint</li>
         <% end %>
 
@@ -61,7 +61,7 @@
         <% end %>
 
         <!-- ID exemple -->
-        <% if @procedure.first_name.nil? || @procedure.last_name.nil? %>
+        <% if @procedure.first_name == "" || @procedure.last_name == "" %>
         <% else %>
           <li>Carte d’Identite</li>
           <li>Carte d’Identite conjoint</li>
@@ -77,7 +77,7 @@
         <% end %>
 
         <!-- acte de naissance exemple -->
-        <% if @procedure.first_name.nil? || @procedure.last_name.nil? %>
+        <% if @procedure.first_name == "" || @procedure.last_name == "" %>
         <% else %>
           <li>Acte de Naissance</li>
           <li>Acte de Naissance conjoint</li>
@@ -93,7 +93,7 @@
         <% end %>
 
         <!-- acte de naissance exemple -->
-        <% if @procedure.first_name.nil? || @procedure.last_name.nil? %>
+        <% if @procedure.first_name == "" || @procedure.last_name == "" %>
         <% else %>
           <li>Livret de Famille </li>
           <li>Acte de Mariage</li>
@@ -107,7 +107,7 @@
         <% end %>
 
       <!--   listing du revenu -->
-        <% if @procedure.status_pro.nil? %>
+        <% if @procedure.status_pro == "" %>
         <% else %>
           <% if @procedure.status_pro == "Salarié" %>
             <li>Dernier Bulletin de Salaire</li>
@@ -121,7 +121,7 @@
           <% end %>
         <% end %>
 
-        <% if @procedure.status_pro_conjoint.nil? %>
+        <% if @procedure.status_pro_conjoint == "" %>
         <% else %>
           <% if @procedure.status_pro_conjoint == "Salarié" %>
             <li>Dernier Bulletin de Salaire du conjoint </li>
