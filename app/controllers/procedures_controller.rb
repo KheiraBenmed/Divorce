@@ -42,7 +42,7 @@ class ProceduresController < ApplicationController
     if current_user.procedure.renter_nb.nil?
       champ_done =+ 1
     end
-    if current_user.procedure.status_pro.nil?
+    if current_user.procedure.status_pro = ""
       champ_done =+ 1
     end
     if current_user.procedure.bank_account_nb.nil?
@@ -60,7 +60,7 @@ class ProceduresController < ApplicationController
     if current_user.procedure.contract_type.nil?
       champ_done =+ 1
     end
-    if current_user.procedure.status_pro_contact.nil?
+    if current_user.procedure.status_pro_conjoint = ""
       champ_done =+ 1
     end
     if current_user.procedure.marriage_contract.nil?
