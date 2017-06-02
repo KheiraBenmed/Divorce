@@ -5,95 +5,179 @@
        <h1>Allez, on attaque </h1>
 
        <%= simple_form_for (@procedure) do |f| %>
-       <%= f.input :first_name, placeholder: "Vanessaaaaaaa"  %>
-       <%= f.input :last_name, placeholder: "Paradiiiiiiiiis"  %>
-       <%= f.input :child_nb, collection: Procedure::CHILDREN, prompt: "Combien d'enfants" %>
-       <%= f.input :marriage_contract %>
-       <%= f.input :contract_type, collection: Procedure::MARIAGES, prompt: "Quel type de contrat?" %>
-       <%= f.input :status_pro, collection: Procedure::STATUSES %>
-       <%= f.input :status_pro_conjoint, collection: Procedure::STATUSES, prompt: "Flemmard?" %>
-       <%= f.input :bank_account_nb, collection: Procedure::BANKS, prompt: "Combien de releves de comptes?"  %>
-       <%= f.input :vehicle_nb  %>
-       <%= f.input :renter_nb  %>
-       <%= f.input :owner_nb  %>
-       <%= f.input :credit_nb  %>
-       <%= f.input :insurance_nb  %>
-       <%=f.input :passport %>
-       <%=f.input :passport_cache, as: :hidden %>
-       <%=f.input :passport_spouse%>
-       <%=f.input :passport_spouse_cache, as: :hidden%>
-       <%=f.input :passport_children%>
-       <%=f.input :passport_children_cache, as: :hidden%>
-       <%=f.input :identity %>
-       <%=f.input :identity_cache, as: :hidden %>
-       <%=f.input :identity_spouse %>
-       <%=f.input :identity_spouse_cache, as: :hidden %>
-       <%=f.input :identity_children %>
-       <%=f.input :identity_children_cache, as: :hidden %>
-       <%=f.input :acte_naissance %>
-       <%=f.input :acte_naissance_cache, as: :hidden %>
-       <%=f.input :acte_naissance_spouse %>
-       <%=f.input :acte_naissance_spouse_cache, as: :hidden %>
-       <%=f.input :acte_naissance_children %>
-       <%=f.input :acte_naissance_children_cache, as: :hidden %>
-       <%=f.input :livret %>
-       <%=f.input :livret_cache, as: :hidden %>
-       <%=f.input :acte_mariage %>
-       <%=f.input :acte_mariage_cache, as: :hidden %>
-       <%=f.input :contract_mariage %>
-       <%=f.input :contract_mariage_cache, as: :hidden %>
-       <%=f.input :taxe_habitation %>
-       <%=f.input :taxe_habitation_cache, as: :hidden %>
-       <%=f.input :taxe_fonciere %>
-       <%=f.input :taxe_fonciere_cache, as: :hidden %>
-       <%=f.input :rent %>
-       <%=f.input :rent_cache, as: :hidden %>
-       <%=f.input :bills %>
-       <%=f.input :bills_cache, as: :hidden %>
-       <%=f.input :insurance_vehicle %>
-       <%=f.input :insurance_vehicle_cache, as: :hidden %>
-       <%=f.input :life_insurance %>
-       <%=f.input :life_insurance_cache, as: :hidden %>
-       <%=f.input :insurance_other %>
-       <%=f.input :insurance_other_cache, as: :hidden %>
-       <%=f.input :scolarite %>
-       <%=f.input :scolarite_cache, as: :hidden %>
-       <%=f.input :caf %>
-       <%=f.input :caf_cache, as: :hidden %>
-       <%=f.input :payroll %>
-       <%=f.input :payroll_cache, as: :hidden %>
-       <%=f.input :payroll_spouse %>
-       <%=f.input :payroll_spouse_cache, as: :hidden %>
-       <%=f.input :payroll_dec %>
-       <%=f.input :payroll_dec_cache, as: :hidden %>
-       <%=f.input :payroll_spouse_dec %>
-       <%=f.input :payroll_spouse_dec_cache, as: :hidden %>
-       <%=f.input :bilan_company %>
-       <%=f.input :bilan_company_cache, as: :hidden %>
-       <%=f.input :unemployment %>
-       <%=f.input :unemployment_cache, as: :hidden %>
-       <%=f.input :unemployment_spouse %>
-       <%=f.input :unemployment_spouse_cache, as: :hidden %>
-       <%=f.input :pro_revenu %>
-       <%=f.input :pro_revenu_cache, as: :hidden %>
-       <%=f.input :pro_revenu_spouse %>
-       <%=f.input :pro_revenu_spouse_cache, as: :hidden %>
-       <%=f.input :taxes %>
-       <%=f.input :taxes_cache, as: :hidden %>
-       <%=f.input :taxes_spouse %>
-       <%=f.input :taxes_spouse_cache, as: :hidden %>
-       <%=f.input :property %>
-       <%=f.input :property_cache, as: :hidden %>
-       <%=f.input :revenu_foncier %>
-       <%=f.input :revenu_foncier_cache, as: :hidden %>
-       <%=f.input :bank_account %>
-       <%=f.input :bank_account_cache, as: :hidden %>
-       <%=f.input :carte_grise %>
-       <%=f.input :carte_grise_cache, as: :hidden %>
-       <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
-       <% end %>
-     </div>
-   </div>
- </div>
+
+
+       <div id="wizard">
+       <h3 class="hidden">Prénom</h3>
+        <section>
+          <%= f.input :first_name, placeholder: "Vanessaaaaaaa" %>
+        </section>
+        <h3 style="display: none">Nom de Famille</h3>
+        <section>
+          <%= f.input :last_name, placeholder: "Paradiiiiiiiiis"  %>
+        </section>
+        <h3 style="display: none">Type de contrat</h3>
+        <section>
+          <%= f.input :marriage_contract, collection: Procedure::MARIAGES, prompt: "Quel type de contrat de mariage" %>
+        </section>
+
+        <h3 style="display: none">Documents Civils</h3>
+
+        <section>
+          <%= f.input :passport %>
+          <%= f.input :passport_cache, as: :hidden %>
+          <%= f.input :passport_spouse%>
+          <%= f.input :passport_spouse_cache, as: :hidden%>
+          <%= f.input :passport_children%>
+          <%= f.input :passport_children_cache, as: :hidden%>
+          <%= f.input :identity %>
+          <%= f.input :identity_cache, as: :hidden %>
+          <%= f.input :identity_spouse %>
+          <%= f.input :identity_spouse_cache, as: :hidden %>
+          <%= f.input :identity_children %>
+          <%= f.input :identity_children_cache, as: :hidden %>
+          <%= f.input :acte_naissance %>
+          <%= f.input :acte_naissance_cache, as: :hidden %>
+          <%= f.input :acte_naissance_spouse %>
+          <%= f.input :acte_naissance_spouse_cache, as: :hidden %>
+          <%= f.input :acte_naissance_children %>
+          <%= f.input :acte_naissance_children_cache, as: :hidden %>
+          <%= f.input :livret %>
+          <%= f.input :livret_cache, as: :hidden %>
+          <%= f.input :acte_mariage %>
+          <%= f.input :acte_mariage_cache, as: :hidden %>
+          <%= f.input :contract_mariage %>
+          <%= f.input :contract_mariage_cache, as: :hidden %>
+        </section>
+
+        <!-- Second section questions -->
+        <h3 style="display: none">Prénom</h3>
+        <section>
+          <%= f.input :status_pro %>
+        </section>
+        <h3 style="display: none">Prénom</h3>
+        <section>
+          <%= f.input :status_pro_conjoint %>
+        </section>
+        <h3 style="display: none">Prénom</h3>
+        <section>
+          <%= f.input :bank_account_nb %>
+        </section>
+        <h3 style="display: none">Prénom</h3>
+        <section>
+          <%= f.input :vehicle_nb  %>
+        </section>
+        <h3 style="display: none">Prénom</h3>
+        <section>
+          <%= f.input :renter_nb  %>
+        </section>
+        <h3 style="display: none">Prénom</h3>
+        <section>
+          <%= f.input :owner_nb  %>
+        </section>
+
+
+
+        <!-- Second section Documents -->
+        <h3 style="display: none">Prénom</h3>
+        <section>
+          <%= f.input :taxe_habitation %>
+          <%= f.input :taxe_habitation_cache, as: :hidden %>
+          <%= f.input :taxe_fonciere %>
+          <%= f.input :taxe_fonciere_cache, as: :hidden %>
+          <%= f.input :rent %>
+          <%= f.input :rent_cache, as: :hidden %>
+          <%= f.input :bills %>
+          <%= f.input :bills_cache, as: :hidden %>
+          <%= f.input :insurance_vehicle %>
+          <%= f.input :insurance_vehicle_cache, as: :hidden %>
+          <%= f.input :life_insurance %>
+          <%= f.input :life_insurance_cache, as: :hidden %>
+          <%= f.input :insurance_other %>
+          <%= f.input :insurance_other_cache, as: :hidden %>
+          <%= f.input :scolarite %>
+          <%= f.input :scolarite_cache, as: :hidden %>
+          <%= f.input :caf %>
+          <%= f.input :caf_cache, as: :hidden %>
+        </section>
+
+
+        <!-- Third section questions -->
+        <h3 style="display: none">Nombre de Crédit</h3>
+        <section>
+          <%= f.input :credit_nb  %>
+        </section>
+        <h3 style="display: none">Nombre de Crédit</h3>
+        <section>
+          <%= f.input :insurance_nb  %>
+        </section>
+        <!-- Third section documents -->
+        <h3 style="display: none">Nombre de Crédit</h3>
+        <section>
+          <%= f.input :payroll %>
+          <%= f.input :payroll_cache, as: :hidden %>
+          <%= f.input :payroll_spouse %>
+          <%= f.input :payroll_spouse_cache, as: :hidden %>
+          <%= f.input :payroll_dec %>
+          <%= f.input :payroll_dec_cache, as: :hidden %>
+          <%= f.input :payroll_spouse_dec %>
+          <%= f.input :payroll_spouse_dec_cache, as: :hidden %>
+          <%= f.input :bilan_company %>
+          <%= f.input :bilan_company_cache, as: :hidden %>
+          <%= f.input :unemployment %>
+          <%= f.input :unemployment_cache, as: :hidden %>
+          <%= f.input :unemployment_spouse %>
+          <%= f.input :unemployment_spouse_cache, as: :hidden %>
+          <%= f.input :pro_revenu %>
+          <%= f.input :pro_revenu_cache, as: :hidden %>
+          <%= f.input :pro_revenu_spouse %>
+          <%= f.input :pro_revenu_spouse_cache, as: :hidden %>
+          <%= f.input :taxes %>
+          <%= f.input :taxes_cache, as: :hidden %>
+          <%= f.input :taxes_spouse %>
+          <%= f.input :taxes_spouse_cache, as: :hidden %>
+          <%= f.input :property %>
+          <%= f.input :property_cache, as: :hidden %>
+          <%= f.input :revenu_foncier %>
+          <%= f.input :revenu_foncier_cache, as: :hidden %>
+          <%= f.input :bank_account %>
+          <%= f.input :bank_account_cache, as: :hidden %>
+          <%= f.input :carte_grise %>
+          <%= f.input :carte_grise_cache, as: :hidden %>
+        </section>
+
+
+
+      </div>
+      <% end %>
+
+
+
+
+    </div>
+  </div>
 </div>
+
+</div>
+
+
+<% content_for(:after_js) do %>
+<script>
+  $("#wizard").steps({
+    headerTag: "h3",
+    bodyTag: "section",
+    transitionEffect: "fade",
+      // onStepChanging: function(event, currentIndex){
+      //   console.log(currentIndex);
+
+      // },
+      onFinished: function(event, currentIndex){
+        $(".edit_procedure").submit();
+        console.log("Finished");
+      }
+    });
+  </script>
+  <% end %>
+
+
 
