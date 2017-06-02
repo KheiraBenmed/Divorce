@@ -1,0 +1,10 @@
+#map {
+  z-index: 1000;
+  margin: auto;
+  width: 100vw;
+  height: calc(80vh - 70px);
+}
+
+.position-fixed {
+  position: fixed !important;
+}
