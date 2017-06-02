@@ -10,6 +10,7 @@
   justify-content: space-between;
 }
 
+
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -40,8 +41,8 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: red;
+  font-size: 20px;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
@@ -65,67 +66,31 @@
   border-color: #ac2626;
 }
 
-/* Navbar search form */
-.navbar-wagon-search {
-  flex: 0 1 300px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 10px;
-  position: relative;
-}
-.navbar-wagon-search-btn {
-  line-height: 40px;
-  color: #E6E6E6;
-  border: none;
-  background: transparent;
-  position: absolute;
-  right: 14px;
-  top: -2px;
-  z-index: 1;
-}
-.navbar-wagon-search-input {
-  flex: 0 1 300px;
-  transition: all 0.15s ease;
-  line-height: 40px;
-  font-weight: lighter;
-  color: #666666;
-  border: 1px solid #E6E6E6;
-  border-radius: 5px;
-  padding: 0 10px;
-  font-size: 14px;
-  outline: none;
-}
-.navbar-wagon-search-input:focus  {
-  border: 1px solid #CCCCCC;
+#navbar-links {
+  text-decoration: none;
+    font-size: 20px;
+
+  color: red;
 }
 
-/* Navbar dropdown menu */
-.navbar-wagon-dropdown-menu {
-  margin-top: 15px;
-  box-shadow: 1px 1px 4px #E6E6E6;
-  border-color: #E6E6E6;
+#navbar-links a {
+  text-decoration: none;
+    font-size: 20px;
+  color: red;
 }
-.navbar-wagon-dropdown-menu li > a {
-  transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
-  padding: 10px 20px;
+
+#navbar-links a:hover {
+  text-decoration: none;
+    font-size: 20px;
+  color: black;
 }
-.navbar-wagon-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: black !important;
+#navbar-links-login {
+  text-decoration: none;
+  font-size: 20px;
+  color: red;
 }
-.navbar-wagon-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  right: 10px;
-  top: -6px;
-  background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
+#navbar-links-login a:hover {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
 }
