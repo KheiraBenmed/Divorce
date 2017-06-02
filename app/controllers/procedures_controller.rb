@@ -59,7 +59,7 @@ class ProceduresController < ApplicationController
     if current_user.procedure.vehicle_nb.nil?
       @champ_not_done += 1
     end
-    if current_user.procedure.contract_type.nil?
+    if current_user.procedure.contract_type == ""
       @champ_not_done += 1
     end
     if current_user.procedure.status_pro_conjoint == ""
@@ -68,10 +68,10 @@ class ProceduresController < ApplicationController
     if current_user.procedure.marriage_contract.nil?
       @champ_not_done += 1
     end
-    if current_user.procedure.first_name.nil?
+    if current_user.procedure.first_name == ""
       @champ_not_done += 1
     end
-    if current_user.procedure.last_name.nil?
+    if current_user.procedure.last_name == ""
       @champ_not_done += 1
     end
     return @champ_not_done
