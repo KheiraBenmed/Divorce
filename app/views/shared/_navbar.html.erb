@@ -10,6 +10,9 @@
     <% if user_signed_in? %>
 
       <div id="navbar-links">
+        <%= link_to "Questionnaire", edit_procedure_path(current_user.procedure) %>
+        <%= link_to "Recap", procedure_path(current_user.procedure) %>
+        <%= link_to "Avocats", avocats_path %>
         <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
       </div>
     <% else %>
