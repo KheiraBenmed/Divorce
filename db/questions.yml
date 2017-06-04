@@ -27,6 +27,44 @@
   field_type: "file"
   answers: []
   photo_cache: true
-
-
+- column: "passport_spouse"
+  question_text: "TELECHARGEZ OU SCANNEZ LE PASSPORT DE VOTRE CONJOINT(E)"
+  field_type: "file"
+  answers: []
+  photo_cache: true
+- column: "passport_children"
+  question_text: "TELECHARGEZ OU SCANNEZ LE(S) PASSPORT(S) DE VOTRE(VOS) ENFANT(S)"
+  field_type: "file"
+  answers: []
+  photo_cache: true
+- column: "identity"
+  question_text: "TELECHARGEZ OU SCANNEZ VOTRE CARTE D'IDENTITE"
+  field_type: "file"
+  answers: []
+  photo_cache: true
+- column: "identity_spouse"
+  question_text: "TELECHARGEZ OU SCANNEZ LA CARTE D'IDENTITE DE VOTRE CONJOINT(E)"
+  field_type: "file"
+  answers: []
+  photo_cache: true
+- column: "identity_children"
+  question_text: "TELECHARGEZ OU SCANNEZ LA(LES) CARTE(S) D'IDENTITE DE VOTRE(VOS) ENFANT(S)"
+  field_type: "file"
+  answers: []
+  photo_cache: true
+- column: "acte_naissance"
+  question_text: "TELECHARGEZ OU SCANNEZ VOTRE ACTE DE NAISSANCE"
+  field_type: "file"
+  answers: []
+  photo_cache: true
+- column: "acte_naissance_spouse"
+  question_text: "TELECHARGEZ OU SCANNEZ L'ACTE DE NAISSANCE DE VOTRE CONJOINT(E)"
+  field_type: "file"
+  answers: []
+  photo_cache: true
+- column: "acte_naissance_children"
+  question_text: "TELECHARGEZ OU SCANNEZ L'(LES) ACTE(S) DE NAISSANCE DE VOTRE(VOS) ENFANT(S)"
+  field_type: "file"
+  answers: []
+  photo_cache: true
 
