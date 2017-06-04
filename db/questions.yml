@@ -1,0 +1,32 @@
+- column: "full_name"
+  question_text: "Quel est votre nom ?"
+  field_type: "text"
+  answers: []
+- column: "marriage_contract"
+  question_text: "Avez-vous un contrat de mariage ?"
+  field_type: "hidden"
+  answers:
+    - input_text: "true"
+      displayed_text: "Oui"
+    - input_text: "false"
+      displayed_text: "Non"
+- column: "contract_type"
+  question_text: "Selectionnez votre type de contrat :"
+  field_type: "hidden"
+  answers:
+    - input_text: "Commnunauté de biens réduites aux acquêts"
+      displayed_text: "Communauté de biens"
+    - input_text: "Séparation de biens, participation aux acquêts"
+      displayed_text: "Séparation de biens"
+    - input_text: "Communauté universelle"
+      displayed_text: "Communauté universelle"
+    - input_text: "Participation aux acquêts"
+      displayed_text: "Participation aux acquêts"
+- column: "passport"
+  question_text: "Téléchargez ou scannez votre Passeport"
+  field_type: "file"
+  answers: []
+  photo_cache: true
+
+
+

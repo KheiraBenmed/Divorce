@@ -3,31 +3,40 @@ body {
   font-size: 14px;
 }
 
-.form-post {
-  background: white;
-  margin-top: 50px;
-  padding: 30px;
-  border-radius: 5px;
-  h1 {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 30px
+#questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  .question-container {
+    height: calc(100vh - 70px);
+    width: 66vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .question {
+      width: 100%;
+      input[type='text'] {
+        width: 100%;
+        background: transparent;
+        border: transparent;
+        border-left: 3px solid white;
+        height: 67px;
+        &:hover,
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
   }
 }
 
-
-.steps {
-  display: none;
-}
-.actions ul {
-  display:inline;
-}
-
-.items-to-select {
+.answers {
   display: flex;
   justify-content: center;
-  .select-item {
+  .answer {
     padding: 30px;
     border: 1px solid #dae0f2;
     margin-right: 10px;
