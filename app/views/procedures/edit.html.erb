@@ -4,14 +4,14 @@
       <div class="question-container">
         <div class="prev">Precédent</div>
         <div class="question">
-          <div class="question-text"><%= question["question_text"] %> <span class="pull-right">toto</span></div>
+          <div class="question-text"><%= question["question_text"] %> <span class="pull-right">1/13</span></div>
           <!-- input -->
           <%= send("#{question["field_type"]}_field_tag", "procedure[#{question["column"]}]") %>
           <% if question["photo_cache"] %>
             <%= hidden_field_tag :passport_cache %>
           <% end %>
           <% unless question["answers"].empty? %>
-            <div class="answers">
+            <div class="answers text-justify">
               <% question["answers"].each do |answer| %>
                 <div class="answer" data-input="<%= answer["input_text"] %>">
                   <%= answer["displayed_text"] %>

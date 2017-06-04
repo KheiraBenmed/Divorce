@@ -1,17 +1,17 @@
 - column: "full_name"
-  question_text: "Quel est votre nom ?"
+  question_text: "QUEL EST VOTRE NOM ?"
   field_type: "text"
   answers: []
 - column: "marriage_contract"
-  question_text: "Avez-vous un contrat de mariage ?"
+  question_text: "AVEZ VOUS UN CONTRAT DE MARIAGE ?"
   field_type: "hidden"
   answers:
     - input_text: "true"
-      displayed_text: "Oui"
+      displayed_text: "OUI"
     - input_text: "false"
-      displayed_text: "Non"
+      displayed_text: "NON"
 - column: "contract_type"
-  question_text: "Selectionnez votre type de contrat :"
+  question_text: "SELECTIONNEZ VOTRE TYPE DE CONTRAT :"
   field_type: "hidden"
   answers:
     - input_text: "Commnunauté de biens réduites aux acquêts"
@@ -23,7 +23,7 @@
     - input_text: "Participation aux acquêts"
       displayed_text: "Participation aux acquêts"
 - column: "passport"
-  question_text: "Téléchargez ou scannez votre Passeport"
+  question_text: "TELECHARGEZ OU SCANNEZ VOTRE PASSPORT"
   field_type: "file"
   answers: []
   photo_cache: true
