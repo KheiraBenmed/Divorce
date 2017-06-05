@@ -1,5 +1,7 @@
 <div class="map_box">
   <h3><%= avocat.name %></h3>
   <p><%= avocat.address %></p>
-  <%= link_to "Avocat!", avocat_path(avocat), target: :blank, class: "btn btn-warning" %>
+  <p><%= avocat.phone_number%></p>
+  <%= link_to 'Envoyer la demande de divorce', avocat_contacts_path(avocat), method: :post, target: :blank, class: "btn btn-warning" %>
 </div>
+

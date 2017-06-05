@@ -20,6 +20,7 @@ class AvocatsController < ApplicationController
   end
 
    def show
+    @avocats = Avocat.all
     @hash = Gmaps4rails.build_markers(@avocat) do |avocat, marker|
       marker.lat avocat.latitude
       marker.lng avocat.longitude
@@ -36,6 +37,8 @@ class AvocatsController < ApplicationController
     end
   end
 
+
+
   def destroy
   end
 
@@ -46,21 +49,7 @@ class AvocatsController < ApplicationController
   end
 
   def avocat_params
-    params.require(:avocat).permit(:name, :address)
+    params.require(:avocat).permit(:name, :address, :email)
   end
-
-   # def find_avocats_by_location(users)
-  #   avocats_array = []
-  #   user_avocats_array = []
-  #   users.each do |user|
-  #   user.avocats.each do |avocat|
-  #     user_avocats_array << avocat
-  #     end
-  #   end
-  #   user_avocats_array.each do |avocat|
-  #     avocats_array << avocat
-  #   end
-  #   return avocats_array
-  # end
 end
 
