@@ -20,6 +20,7 @@ class ProceduresController < ApplicationController
 
   def edit
     set_procedure
+    @questions = Procedure::QUESTIONS
   end
 
   def update
@@ -68,12 +69,10 @@ class ProceduresController < ApplicationController
     if current_user.procedure.marriage_contract.nil?
       @champ_not_done += 1
     end
-    if current_user.procedure.first_name == ""
+    if current_user.procedure.full_name == ""
       @champ_not_done += 1
     end
-    if current_user.procedure.last_name == ""
-      @champ_not_done += 1
-    end
+
     return @champ_not_done
   end
 
@@ -84,8 +83,8 @@ class ProceduresController < ApplicationController
   end
 
   def procedure_params
-    params.require(:procedure).permit(:first_name,
-      :last_name,
+    params.require(:procedure).permit(
+      :full_name,
       :child_nb,
       :owner_nb,
       :renter_nb,
