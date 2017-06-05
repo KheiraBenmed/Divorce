@@ -1,13 +1,14 @@
 <div class="wrapper">
   <div class="searchbar">
     <%= form_tag(avocats_path, :method => :get) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Adresse" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Adresse", class: "address-autocomplete" %>
     <%= submit_tag "Trouvez", class:"btn-primary" %>
     <% end %>
   </div>
   </div>
 
 <div id="map"></div>
+
 
 
 <div class="text-center padded">
@@ -39,6 +40,10 @@
   </div>
 </div>
 
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
+<% end %>
 
 <% content_for(:after_js) do %>
   <script>
