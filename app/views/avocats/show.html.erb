@@ -8,8 +8,9 @@
           </div>
             <h4><%= @avocat.address %></h4>
             <h4><%= @avocat.phone_number %></h4>
-            <h4><%= @avocat.email %></h4>
-            <%= link_to "Back", avocats_path %>
+            <p>email:<%=mail_to @avocat.email %></p>
+
+            <p><%= link_to "Back", avocats_path %></p>
         </div>
       </div>
     </div>
