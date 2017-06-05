@@ -37,6 +37,8 @@ class AvocatsController < ApplicationController
     end
   end
 
+
+
   def destroy
   end
 
@@ -47,7 +49,7 @@ class AvocatsController < ApplicationController
   end
 
   def avocat_params
-    params.require(:avocat).permit(:name, :address)
+    params.require(:avocat).permit(:name, :address, :email)
   end
 end
 

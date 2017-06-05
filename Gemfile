@@ -13,6 +13,10 @@ gem "coffee-rails"
 gem "gmaps4rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'rubyzip'
+gem 'zip-zip' # will load compatibility for old rubyzip API.
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -21,6 +25,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+gem "letter_opener", group: :development
 
 
 source 'https://rails-assets.org' do

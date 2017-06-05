@@ -5,17 +5,10 @@
   height: calc(80vh);
 }
 
-#searchbar {
-    width: 100vw;
-    height: 20vh;
-    margin: 0px auto;
+.map_box {
+  border: #60919F;
+  border-radius: 20px;
 }
-
-.wrapper{
-width: 300px;
-margin: 0px auto;
-}
-
 .position-fixed {
   position: fixed !important;
 }

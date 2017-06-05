@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170604143307) do
-
+ActiveRecord::Schema.define(version: 20170605150720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +24,17 @@ ActiveRecord::Schema.define(version: 20170604143307) do
     t.float "longitude"
     t.string "phone_number"
     t.string "email"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "avocat_id"
+    t.bigint "procedure_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["avocat_id"], name: "index_contacts_on_avocat_id"
+    t.index ["procedure_id"], name: "index_contacts_on_procedure_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "procedures", force: :cascade do |t|
@@ -100,5 +109,8 @@ ActiveRecord::Schema.define(version: 20170604143307) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contacts", "avocats"
+  add_foreign_key "contacts", "procedures"
+  add_foreign_key "contacts", "users"
   add_foreign_key "procedures", "users"
 end

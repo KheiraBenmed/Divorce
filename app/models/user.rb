@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_one :procedure
 
+  after_create :send_email_avocat
 
+  private
 
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 end

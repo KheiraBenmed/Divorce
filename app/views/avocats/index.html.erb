@@ -1,49 +1,14 @@
 <div class="wrapper">
   <div class="searchbar">
     <%= form_tag(avocats_path, :method => :get) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Adresse", class: "address-autocomplete" %>
-    <%= submit_tag "Trouvez", class:"btn-primary" %>
+      <%= text_field_tag :search, params[:search], placeholder: "Adresse", class: "address-autocomplete" %>
+      <%= submit_tag "Trouvez le", class:"btn-primary" %>
     <% end %>
-  </div>
-  </div>
-
-<div id="map"></div>
-
-
-
-<div class="text-center padded">
-    <div class="row">
-      <div class="col-xs-8 col-sm-8">
-        <div class="row">
-          <% @avocats.each do |avocat| %>
-            <div class="col-xs-6">
-              <!-- On crée la card-->
-              <div class="card">
-                <div class="card-description">
-                  <h2><%= avocat.name %></h2>
-                    <p><%= avocat.address %></p>
-                    <p><%= avocat.phone_number %></p>
-                    <p><%= avocat.email %></p>
-                </div>
-                <%= link_to " ", avocat_path(avocat), class: 'card-link' %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-xs-4">
-        <div class="position-fixed">
-          <div id="map" style="width: 400px; height: 500px;"></div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
+<div id="map"></div>
 
-<%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
-<% end %>
 
 <% content_for(:after_js) do %>
   <script>
@@ -185,6 +150,7 @@
     }
 ];
     $(document).ready(function() {
+
       var handler = Gmaps.build('Google')
       handler.buildMap({ provider: {
           styles: styles
