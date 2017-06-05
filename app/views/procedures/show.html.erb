@@ -149,37 +149,37 @@
         <% if !@procedure.child_nb.nil? %>
           <% if @procedure.child_nb > 0 %>
             <% if @procedure[:caf].nil? %>
-              <li>Passeport de votre conjoint</li>
+              <li>Votre relevé de la CAF</li>
             <% end %>
           <% end %>
         <% end %>
 
         <% if @procedure[:payroll].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <li>Votre dernier bulletin de salaire</li>
         <% end %>
 
         <% if @procedure[:payroll_spouse].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <li>Le dernier bulletin de salaire de votre conjoint</li>
         <% end %>
 
         <% if @procedure[:payroll_dec].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <li>Le bulletin de salaire de décembre 2016</li>
         <% end %>
 
         <% if @procedure[:payroll_spouse_dec].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <li>Le bulletin de salaire de votre conjoint en décembre 2016</li>
         <% end %>
 
         <% if @procedure[:bilan_company].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <li>Les 3 derniers bilans de votre entreprise</li>
         <% end %>
 
         <% if @procedure[:unemployment].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <li>Un justificatif de sans emploi</li>
         <% end %>
 
         <% if @procedure[:unemployment_spouse].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <li>Le justificatif de sans emploi de votre conjoint</li>
         <% end %>
 
         <% if @procedure[:pro_revenu].nil? %>
