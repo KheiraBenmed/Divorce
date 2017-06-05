@@ -1,10 +1,17 @@
+<!-- progress-bar -->
+<div class="progress-bar">
+  <% for i in 1..48 do%>
+      <i class="fa progress-point <%= @procedure.full_name.nil? ? "fa-circle-thin" : (@procedure.full_name.blank? ? "fa-times-circle" : "fa-check-circle" ) %>" data-number="<%= i %>" aria-hidden="true"></i>
+  <% end %>
+</div>
+<!-- questionnaire -->
 <%= form_tag procedure_path(@procedure), method: :patch do %>
   <div id="questions">
-    <% @questions.each do |question| %>
-      <div class="question-container" data-number=>
+    <% @questions.each_with_index do |question, i| %>
+      <div class="question-container <%= i == 0 ? "active" : "" %>" id="question-<%=i %>" data-number="<%= i + 1 %>" >
         <div class="prev">PRECEDENT</div>
         <div class="question">
-          <div class="question-text"><%= question["question_text"] %> <span class="pull-right">1/13</span></div>
+          <div class="question-text"><%= question["question_text"] %> <span class="pull-right"><%= i + 1 %>/48</span></div>
           <!-- input -->
           <%= send("#{question["field_type"]}_field_tag", "procedure[#{question["column"]}]") %>
           <% if question["photo_cache"] %>
@@ -20,8 +27,14 @@
             </div>
           <% end %>
         </div>
-        <div class="next">SUIVANT</div>
+        <% end %>
       </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="next">SUIVANT</div>
   </div>
+  <% end %>
+</div>
 <% end %>
+
+
