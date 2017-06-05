@@ -79,28 +79,28 @@
 
 // design des tabs
 
-.wrapper {
+.wrapper-progress {
   margin:10px auto;
-  width:80%;
+  width: 80%;
   font-family:sans-serif;
   color: #60919F;
   font-size:14px;
   line-height:24px;
 }
 
-.wrapper h1 {
+.wrapper-progress  h1 {
   font-size:20px;
   font-weight:bold;
   text-align:center;
   text-transform:uppercase;
 }
 
-.wrapper h1 + p {
+.wrapper-progress  h1 + p {
   text-align:center;
   margin:20px 0;
   font-size:16px;
 }
-.wrapper ul {
+.wrapper-progress  ul {
   padding-left: 0;
   padding-right: 0;
   list-style: none;
