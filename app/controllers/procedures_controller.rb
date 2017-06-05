@@ -25,7 +25,10 @@ class ProceduresController < ApplicationController
 
   def update
     @procedure.update(procedure_params)
-    redirect_to procedure_path(@procedure)
+    respond_to do |format|
+      format.html { redirect_to procedure_path(@procedure) }
+      format.js
+    end
   end
 
   def destroy
