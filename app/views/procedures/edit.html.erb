@@ -3,7 +3,7 @@
   <% for i in 1..48 do %>
       <% if  @procedure.send(Procedure::QUESTIONS[i-1]['column']).nil? %>
       <i class="fa progress-point fa-circle-thin" data-number="<%= i %>" aria-hidden="true"></i>
-      <% elsif @procedure.send(Procedure::QUESTIONS[i]['column']).blank? %>
+      <% elsif @procedure.send(Procedure::QUESTIONS[i-1]['column']).blank? %>
       <i class="fa progress-point fa-times-circle" data-number="<%= i %>" aria-hidden="true"></i>
       <% else  %>
       <i class="fa progress-point fa-check-circle" data-number="<%= i %>" aria-hidden="true"></i>
