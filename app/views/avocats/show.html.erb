@@ -5,12 +5,18 @@
           <div class="avocat-name">
             <h2><%= @avocat.name %></h4>
             </div>
-            <h4><%= @avocat.address %></h4>
-            <%= link_to "Back", avocats_path %>
           </div>
+            <h4><%= @avocat.address %></h4>
+            <h4><%= @avocat.phone_number %></h4>
+            <p>email:<%=mail_to @avocat.email %></p>
+
+            <p><%= link_to "Back", avocats_path %></p>
         </div>
-        <div id="map" style="width: 362px; height: 400px; margin-top: 10px; margin-bottom: 10px"></div>
-            </div>
+      </div>
+    </div>
+
+<div id="map" style="width: 362px; height: 400px; margin-top: 10px; margin-bottom: 10px"></div>
+
 
 
 

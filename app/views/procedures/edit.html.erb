@@ -1,7 +1,7 @@
 <%= form_tag procedure_path(@procedure), method: :patch do %>
   <div id="questions">
     <% @questions.each do |question| %>
-      <div class="question-container">
+      <div class="question-container" data-number=>
         <div class="prev">PRECEDENT</div>
         <div class="question">
           <div class="question-text"><%= question["question_text"] %> <span class="pull-right">1/13</span></div>
