@@ -1,149 +1,205 @@
 <div class="container text-center">
-
-   <div class="container_recap">
+  <div class="container_recap">
+    <br>
+    <h1 style="color: #60919F; font-size: 22px">RECAPITULATIF DE VOTRE PROCEDURE</h1>
     <div class="recap">
 
-      <p>Il vous manque <%= @champ_not_done %> champs du questionnaire à remplir</p>
-      <p>Vous avez rempli <%= (12 - @champ_not_done)*100/12 %>% du questionnaire</p>
+      <div class="progress-wrap progress" data-progress-percent="25">
+        <div class="progress-bar progress"></div>
+      </div>
+      <h1><%= @procedure.full_name %></h1>
+      <div class="metrics">
+        <div class="metrics-question">
+          <i class="fa fa-question" style="font-size: 20px; margin: 5px" aria-hidden="true"></i>
+          <p><%= @champ_not_done %> champs à remplir</p>
+        </div>
 
-        <div class="progress-pie-chart" data-percent="43">
-          <div class="ppc-progress">
-            <div class="ppc-progress-fill"></div>
+        <div class="metrics-document">
+          <i class="fa fa-file-text-o" style="font-size: 20px ; margin: 5px" aria-hidden="true"></i>
+          <p><%= @doc_not_upload %> documents à uploader</p>
+        </div>
+      </div>
+
+      <div class="button-questionnaire">
+          <%= link_to "RETOUR AU QUESTIONNAIRE", edit_procedure_path, style: "color: #60919F" %>
+      </div>
+      <%= link_to "TROUVER MON AVOCAT", avocats_path, class: "btn btn-call-to-action" %>
+
+
+      <div class="wrapper">
+        <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+          <li><a href="#tab1" class="active">Situation familiale</a></li>
+          <li><a href="#tab2">Situation financière</a></li>
+          <li><a href="#tab3">Situation foncière</a></li>
+        </ul>
+        <section id="first-tab-group" class="tabgroup">
+          <div id="tab1">
+            <p>Nombre d'enfants: <%= @procedure.child_nb %></p>
+            <p>Contrat de mariage: <%= @procedure.contract_type %></p>
           </div>
-          <div class="ppc-percents">
-            <div class="pcc-percents-wrapper">
-              <span><%= (12 - @champ_not_done)*100/12 %>%</span>
+          <div id="tab2">
+            <div id="bis text-left">
+              <p>Votre siuation professionnelle: <%= @procedure.status_pro %></p>
+              <p>Siuation professionnelle de votre conjoint: <%= @procedure.status_pro_conjoint %></p>
+              </div>
+            <div id="bis text-left">
+              <p>Nombre de relevé bancaire: <%= @procedure.bank_account_nb %></p>
+              <p>Nombre de crédit: <%= @procedure.credit_nb %></p>
             </div>
           </div>
-        </div>
-      <div class="button-questionnaire">
-          <%= link_to "Retour au questionnaire", edit_procedure_path, class: "btn btn-primary" %>
+          <div id="tab3">
+            <div id="bis text-left">
+              <p>Nb de logements dont vous êtes propriétaire: <%= @procedure.owner_nb %></p>
+              <p>Nb de logements dont vous êtes locataire: <%= @procedure.renter_nb %></p>
+            </div>
+            <div id="ter text-left">
+              <p>Nb de véhicule en votre possesion: <%= @procedure.vehicle_nb %></p>
+              <p>Nb d'assurance en votre possesion: </p>
+            </div>
+
+          </div>
+        </section>
       </div>
     </div>
   </div>
 
 
-
   <div class="container_docs text-left">
-    <div class="docs" style="border-color: #F0F4F8; border-radius: 20px; border-width: 1px; border-style: solid; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30); padding: 20px; margin: 10px">
+    <p style="color: #60919F"><strong>DOCUMENTS EN ATTENTE DE TELECHARGEMENT</strong></p>
+    <div class="row">
       <ul>
-
-        <h3>Listing de tous vos documents restant à uploader</h3>
-
-        <% if @procedure.first_name != "" || @procedure.last_name != "" %>
-          <% if @procedure[:passport].nil? %>
-            <div class="doc">
-              <ol>Passeport</ol>
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
-          <% end %>
-        <% end %>
-
-
-        <% if @procedure.first_name != "" || @procedure.last_name != "" %>
-          <% if @procedure[:passport_spouse].nil? %>
-            <div class="doc">
-              <ol>Passeport de votre conjoint</ol>
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
-          <% end %>
-        <% end %>
-
-        <% if !@procedure.child_nb.nil? %>
-          <% if @procedure.child_nb > 0 %>
-            <% if @procedure[:passport_children].nil? %>
-              <div class="doc">
-                <ol>Passeport de vos <%= @procedure.child_nb %> enfants</ol>
-              </div>
+      <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="doc">
+          <% if @procedure.full_name != "" %>
+            <% if @procedure[:passport].nil? %>
+              <div class="doc-description"><ol>Passeport</ol></div>
             <% end %>
           <% end %>
-        <% end %>
+          <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+        </div>
+      </div>
 
-        <% if @procedure.first_name != "" || @procedure.last_name != "" %>
-          <% if @procedure[:identity].nil? %>
-            <div class="doc">
-              <ol>Votre carte d'identité</ol>
-            </div>
+      <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="doc">
+          <% if @procedure.full_name != "" %>
+            <% if @procedure[:passport_spouse].nil? %>
+              <div class="doc-description"><ol>Passeport de votre conjoint</ol></div>
+            <% end %>
           <% end %>
-        <% end %>
+          <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+        </div>
+      </div>
 
-        <% if @procedure.first_name != "" || @procedure.last_name != "" %>
+      <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="doc">
+          <% if !@procedure.child_nb.nil? %>
+            <% if @procedure.child_nb > 0 %>
+              <% if @procedure[:passport_children].nil? %>
+                <div class="doc-description"><ol>Passeport de vos <%= @procedure.child_nb %> enfants</ol></div>
+              <% end %>
+            <% end %>
+          <% end %>
+          <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="doc">
+          <% if @procedure.full_name != "" %>
+            <% if @procedure[:identity].nil? %>
+              <div class="doc-description"><ol>Votre carte d'identité</ol></div>
+            <% end %>
+          <% end %>
+          <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+        </div>
+      </div>
+
+
+      </ul>
+    </div>
+  </div>
+
+
+
+
+    <div class="docs">
+      <ul>
+
+        <% if @procedure.full_name != "" %>
           <% if @procedure[:identity_spouse].nil? %>
-            <div class="doc">
-              <ol>Carte d'identité de votre conjoint</ol>
-            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Carte d'identité de votre conjoint</ol></div></div>
           <% end %>
         <% end %>
 
         <% if !@procedure.child_nb.nil? %>
           <% if @procedure.child_nb > 0 %>
             <% if @procedure[:identity_children].nil? %>
-              <div class="doc"><ol>Carte d'identité de vos enfants</ol></div>
+              <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Carte d'identité de vos enfants</ol></div></div>
             <% end %>
           <% end %>
         <% end %>
 
-        <% if @procedure.first_name != "" || @procedure.last_name != "" %>
+        <% if @procedure.full_name != "" %>
           <% if @procedure[:acte_naissance].nil? %>
-            <div class="doc"><ol>Acte de naissance</ol></div>
+            <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Acte de naissance</ol></div></div>
           <% end %>
         <% end %>
 
-        <% if @procedure.first_name != "" || @procedure.last_name != "" %>
+        <% if @procedure.full_name != "" %>
           <% if @procedure[:acte_naissance_spouse].nil? %>
-            <div class="doc"><ol>Acte de naissance de votre conjoint</ol></div>
+            <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Acte de naissance de votre conjoint</ol></div></div>
           <% end %>
         <% end %>
 
         <% if !@procedure.child_nb.nil? %>
           <% if @procedure.child_nb > 0 %>
             <% if @procedure[:acte_naissance_children].nil? %>
-              <div class="doc"><ol>Acte de naissance de <%= @procedure.child_nb %> enfants</ol></div>
+              <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Acte de naissance de <%= @procedure.child_nb %> enfants</ol></div></div>
             <% end %>
           <% end %>
         <% end %>
 
         <% if @procedure[:livret].nil? %>
-          <div class="doc"><ol>Livret de famille</ol></div>
+          <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Livret de famille</ol></div></div>
         <% end %>
 
         <% if @procedure[:acte_mariage].nil? %>
-          <div class="doc"><ol>Acte de mariage</ol></div>
+          <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Acte de mariage</ol></div></div>
         <% end %>
 
         <% if @procedure[:contract_mariage].nil? %>
-          <div class="doc"><ol>Contrat de mariage</ol></div>
+          <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Contrat de mariage</ol></div></div>
         <% end %>
 
 
         <% if @procedure[:taxe_habitation].nil? %>
-          <ol>Taxe d'habitation de vos logements</ol>
+          <div class="col-xs-12 col-sm-6 col-lg-4"><div class="doc"><ol>Taxe d'habitation de vos logements</ol></div></div>
         <% end %>
 
         <% if @procedure[:taxe_fonciere].nil? %>
-          <ol>Taxe foncière</ol>
+          <div class="doc"><ol>Taxe foncière</ol></div>
         <% end %>
 
         <% if @procedure[:rent].nil? %>
-          <ol>Vos quittances de loyer</ol>
+          <div class="doc"><ol>Vos quittances de loyer</ol></div>
         <% end %>
 
         <% if @procedure[:bills].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Passeport de votre conjoint</ol></div>
         <% end %>
 
         <% if @procedure[:insurance_vehicle].nil? %>
-          <li>Votre assurance véhicule</li>
+          <div class="doc"><ol>Votre assurance véhicule</ol></div>
         <% end %>
 
         <% if @procedure[:insurance_other].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Passeport de votre conjoint</ol></div>
         <% end %>
 
         <% if !@procedure.child_nb.nil? %>
           <% if @procedure.child_nb > 0 %>
             <% if @procedure[:scolarite].nil? %>
-              <li>Les certificats de scolarité de vos <%= @procedure.child_nb %> enfants</li>
+              <div class="doc"><ol>Les certificats de scolarité de vos <%= @procedure.child_nb %> enfants</ol></div>
             <% end %>
           <% end %>
         <% end %>
@@ -151,69 +207,69 @@
         <% if !@procedure.child_nb.nil? %>
           <% if @procedure.child_nb > 0 %>
             <% if @procedure[:caf].nil? %>
-              <li>Votre relevé de la CAF</li>
+              <div class="doc"><ol>Votre relevé de la CAF</ol></div>
             <% end %>
           <% end %>
         <% end %>
 
         <% if @procedure[:payroll].nil? %>
-          <li>Votre dernier bulletin de salaire</li>
+          <div class="doc"><ol>Votre dernier bulletin de salaire</ol></div>
         <% end %>
 
         <% if @procedure[:payroll_spouse].nil? %>
-          <li>Le dernier bulletin de salaire de votre conjoint</li>
+          <div class="doc"><ol>Le dernier bulletin de salaire de votre conjoint</ol></div>
         <% end %>
 
         <% if @procedure[:payroll_dec].nil? %>
-          <li>Le bulletin de salaire de décembre 2016</li>
+          <div class="doc"><ol>Le bulletin de salaire de décembre 2016</ol></div>
         <% end %>
 
         <% if @procedure[:payroll_spouse_dec].nil? %>
-          <li>Le bulletin de salaire de votre conjoint en décembre 2016</li>
+          <div class="doc"><ol>Le bulletin de salaire de votre conjoint en décembre 2016</ol></div>
         <% end %>
 
         <% if @procedure[:bilan_company].nil? %>
-          <li>Les 3 derniers bilans de votre entreprise</li>
+          <div class="doc"><ol>Les 3 derniers bilans de votre entreprise</ol></div>
         <% end %>
 
         <% if @procedure[:unemployment].nil? %>
-          <li>Un justificatif de sans emploi</li>
+          <div class="doc"><ol>Un justificatif de sans emploi</ol></div>
         <% end %>
 
         <% if @procedure[:unemployment_spouse].nil? %>
-          <li>Le justificatif de sans emploi de votre conjoint</li>
+          <div class="doc"><ol>Le justificatif de sans emploi de votre conjooi</ol></div>
         <% end %>
 
         <% if @procedure[:pro_revenu].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Votre déclaration de revenu</ol></div>
         <% end %>
 
         <% if @procedure[:pro_revenu_spouse].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Déclaration de revenu de votre conjoint</ol></div>
         <% end %>
 
         <% if @procedure[:taxes].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Votre avis d'imposition</ol></div>
         <% end %>
 
         <% if @procedure[:taxes_spouse].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Avis d'imposition de votre conjoint</ol></div>
         <% end %>
 
         <% if @procedure[:property].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Titre de propriété de vos logements</ol></div>
         <% end %>
 
         <% if @procedure[:revenu_foncier].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Revenu foncier de vos propriétés</ol></div>
         <% end %>
 
         <% if @procedure[:bank_account].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Relevé bancaire de vos comptes bancaires</ol></div>
         <% end %>
 
         <% if @procedure[:carte_grise].nil? %>
-          <li>Passeport de votre conjoint</li>
+          <div class="doc"><ol>Carte grise de vos véhicule</ol></div>
         <% end %>
 
 
@@ -221,7 +277,7 @@
     </div>
   </div>
 
-  <%= link_to "Accès aux avocats", avocats_path, class: "btn btn-primary", style: "margin: 20px" %>
+
 
 </div>
 
