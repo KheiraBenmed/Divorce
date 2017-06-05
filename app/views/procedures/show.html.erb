@@ -73,9 +73,10 @@
           <% if @procedure.full_name != "" %>
             <% if @procedure[:passport].nil? %>
               <div class="doc-description"><ol>Passeport</ol></div>
+              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
             <% end %>
           <% end %>
-          <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
         </div>
       </div>
 
@@ -84,9 +85,10 @@
           <% if @procedure.full_name != "" %>
             <% if @procedure[:passport_spouse].nil? %>
               <div class="doc-description"><ol>Passeport de votre conjoint</ol></div>
+              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
             <% end %>
           <% end %>
-          <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
         </div>
       </div>
 
