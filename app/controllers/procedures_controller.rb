@@ -3,6 +3,8 @@ class ProceduresController < ApplicationController
 
   def show
     calcul_champs_non_remplis
+    calcul_doc_non_uploadés
+    @recap = @champ_not_done + @doc_not_upload
   end
 
   def new
@@ -77,6 +79,140 @@ class ProceduresController < ApplicationController
     end
 
     return @champ_not_done
+  end
+
+  def calcul_doc_non_uploadés
+    @doc_not_upload = 0
+    if current_user.procedure[:passport].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:passport_spouse].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:passport_children].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:identity].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:identity_spouse].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:identity_children].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:acte_naissance].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:acte_naissance_spouse].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:acte_naissance_children].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:livret].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:acte_mariage].nil?
+      @doc_not_upload += 1
+    end
+    if current_user.procedure[:contract_mariage].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:taxe_habitation].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:taxe_fonciere].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:rent].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:bills].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:insurance_vehicle].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:insurance_other].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:scolarite].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:caf].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:payroll].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:payroll_spouse].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:payroll_dec].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:payroll_spouse_dec].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:bilan_company].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:unemployment].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:unemployment_spouse].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:pro_revenu].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:pro_revenu_spouse].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:taxes].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:taxes_spouse].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:property].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:revenu_foncier].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:bank_account].nil?
+      @doc_not_upload += 1
+    end
+
+    if current_user.procedure[:carte_grise].nil?
+      @doc_not_upload += 1
+    end
+
+    return @doc_not_upload
   end
 
   private
