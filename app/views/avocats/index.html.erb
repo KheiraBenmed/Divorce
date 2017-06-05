@@ -2,7 +2,7 @@
   <div class="searchbar">
     <%= form_tag(avocats_path, :method => :get) do %>
       <%= text_field_tag :search, params[:search], placeholder: "Adresse", class: "address-autocomplete" %>
-      <%= submit_tag "Trouvez le", class:"btn-primary" %>
+      <%= submit_tag "Trouvez le", class:".btn-call-to-action" %>
     <% end %>
   </div>
 </div>
