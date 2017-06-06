@@ -1,7 +1,6 @@
 class Procedure < ApplicationRecord
   belongs_to :user
-  # GENDERS = ["Homme", "Femme"]
-  # validates :gender, inclusion: { in: GENDERS }
+  after_create :zip_procedure
 
   CHILDREN = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   validates :child_nb, inclusion: { in: CHILDREN }, :allow_nil => true
@@ -54,4 +53,11 @@ class Procedure < ApplicationRecord
   mount_uploader :revenu_foncier, DocumentUploader
   mount_uploader :bank_account, DocumentUploader
   mount_uploader :carte_grise, DocumentUploader
+  mount_uploader :archive, DocumentUploader
+
+  private
+
+  def zip_procedure
+    ProcedureToArchiveService.new(self).call
+  end
 end

@@ -13,10 +13,12 @@ gem "coffee-rails"
 gem "gmaps4rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave-base64'
+gem 'rmagick'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'rubyzip'
-gem 'zip-zip' # will load compatibility for old rubyzip API.
+gem 'zip-zip' # will load compatibility for old rubyzip API.'
 
 gem 'sass-rails'
 gem 'jquery-rails'

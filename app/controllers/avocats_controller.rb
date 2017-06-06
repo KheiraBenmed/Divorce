@@ -15,6 +15,11 @@ class AvocatsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@avocats) do |avocat, marker|
       marker.lat avocat.latitude
       marker.lng avocat.longitude
+       marker.picture({
+        url:('images/avocat.png'),
+        width:  50,
+        height: 50,
+      })
       marker.infowindow render_to_string(partial: "pages/avocat_map_box", locals: { avocat: avocat })
     end
   end

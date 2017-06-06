@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  root 'documents#index'
   resources :procedures
   resources :avocats do
     resources :contacts, only: [:create]
