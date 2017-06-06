@@ -22,7 +22,7 @@
       displayed_text: "Communauté universelle"
     - input_text: "Participation aux acquêts"
       displayed_text: "Participation aux acquêts"
-- column: "children_nb"
+- column: "child_nb"
   question_text: "COMBIEN AVEZ VOUS D'ENFANT(S) EN COMMUN :"
   field_type: "hidden"
   answers:
