@@ -24,7 +24,7 @@
           <% unless question["answers"].empty? %>
               <div class="answers text-justify">
               <% question["answers"].each do |answer| %>
-                  <div class="answer">
+                  <div class="answer" data-input="<%= answer["input_text"] %>">
                     <%= answer["displayed_text"] %>
                   </div>
                <% end %>

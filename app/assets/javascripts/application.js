@@ -5,5 +5,6 @@
 //= require jquery-steps
 //= require underscore
 //= require gmaps/google
+//= require jquery.remotipart
 //= require bootstrap-sprockets
 //= require_tree .
