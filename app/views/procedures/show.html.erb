@@ -78,17 +78,15 @@
             <%= hidden_field_tag :passport_from_camera %>
             <% if @procedure[:passport].nil? %>
               <button type="button" class="camBtn doc-category btn-call-to-action text-center" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_from_camera">
-               <i class="glyphicon glyphicon-camera"></i> Camera </button>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+               <i class="glyphicon glyphicon-camera"></i>SCANNER</button>
+              <div class="doc-category btn-call-to-action text-center">TELECHARGER</div>
               <div> <%= f.submit "Valider" %></div>
             <% else %>
               <div class="doc-category-if-done text-center">
                 <i class="fa fa-camera" aria-hidden="true"></i>
                 <i class="fa fa-upload" aria-hidden="true"></i>
               </div>
-              <div class="badge badge-green"><i class="fa fa-check" aria-hidden="true"></i></div>
-              <%= cl_image_tag @procedure.passport %>
+              <%= cl_image_tag @procedure.passport, class: "doc-preview" %>
             <% end %>
           </div>
         </div>
@@ -109,38 +107,16 @@
               <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
               <div> <%= f.submit "Valider" %></div>
             <% else %>
-              <div class="doc-category text-center">TELECHARGER UN NOUVEAU FICHIER</div>
-              <div class="badge badge-green"><i class="fa fa-check" aria-hidden="true"></i></div>
-              <%= cl_image_tag @procedure.passport_spouse %>
+              <div class="doc-category-if-done text-center">
+                <i class="fa fa-camera" aria-hidden="true"></i>
+                <i class="fa fa-upload" aria-hidden="true"></i>
+              </div>
+              <%= cl_image_tag @procedure.passport_spouse, class: "doc-preview" %>
             <% end %>
           </div>
         </div>
       <% end  %>
      <% end %>
-
-      <% if @procedure.full_name != "" %>
-      <%= simple_form_for @procedure do |f| %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="doc">
-            <div class="doc-description"><ol>Livret de famille</ol></div>
-            <%= hidden_field_tag :livret_from_camera %>
-            <% if @procedure[:livret].nil? %>
-              <button type="button" class="camBtn doc-category btn-call-to-action text-center" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="livret_from_camera">
-               <i class="glyphicon glyphicon-camera"></i> Camera </button>
-              <div class="doc-category btn-call-to-action text-center">TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <div> <%= f.submit "Valider" %></div>
-            <% else %>
-              <div class="doc-category text-center">TELECHARGER UN NOUVEAU FICHIER</div>
-              <div class="badge badge-green"><i class="fa fa-check" aria-hidden="true"></i></div>
-              <%= cl_image_tag @procedure.livret %>
-            <% end %>
-          </div>
-        </div>
-      <% end  %>
-     <% end %>
-
-
 
       <% if !@procedure.child_nb.nil? %>
         <% if @procedure.child_nb > 0 %>
@@ -164,13 +140,14 @@
             <div class="doc-description"><ol>Carte d'identité</ol></div>
             <%= hidden_field_tag :identity_from_camera %>
             <% if @procedure[:identity].nil? %>
-              <button type="button" class="camBtn doc-category btn-call-to-action text-center" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_from_camera">
-               <i class="glyphicon glyphicon-camera"></i> Camera </button>
-              <div class="doc-category btn-call-to-action text-center">TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <div> <%= f.submit "Valider" %></div>
+              <div class="doc-category-if-no">
+                <button type="button" class="camBtn doc-category btn-call-to-action text-center" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_from_camera">
+                <i class="glyphicon glyphicon-camera"></i>SCANNER</button>
+                <div class="btn-call-to-action text-center">TELECHARGER</div>
+                <div> <%= f.submit "Valider" %></div>
+              </div>
             <% else %>
-              <div class="doc-category text-center">TELECHARGER UN NOUVEAU FICHIER</div>
+              <div class="doc-category-if-done text-center">TELECHARGER UN NOUVEAU FICHIER</div>
               <div class="badge badge-green"><i class="fa fa-check" aria-hidden="true"></i></div>
               <%= cl_image_tag @procedure.identity %>
             <% end %>
@@ -254,19 +231,26 @@
       <% end %>
 
       <% if @procedure.full_name != "" %>
+      <%= simple_form_for @procedure do |f| %>
         <div class="col-xs-12 col-sm-6 col-lg-4">
           <div class="doc">
-              <div class="doc-description"><ol>Livret de famille</ol></div>
-              <% if @procedure[:livret].nil? %>
-                <div class="doc-description"><ol>Livret de famille</ol></div>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
+            <div class="doc-description"><ol>Livret de famille</ol></div>
+            <%= hidden_field_tag :livret_from_camera %>
+            <% if @procedure[:livret].nil? %>
+              <button type="button" class="camBtn doc-category btn-call-to-action text-center" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="livret_from_camera">
+               <i class="glyphicon glyphicon-camera"></i> Camera </button>
+              <div class="doc-category btn-call-to-action text-center">TELECHARGER</div>
+              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <div> <%= f.submit "Valider" %></div>
+            <% else %>
+              <div class="doc-category text-center">TELECHARGER UN NOUVEAU FICHIER</div>
+              <div class="badge badge-green"><i class="fa fa-check" aria-hidden="true"></i></div>
+              <%= cl_image_tag @procedure.livret %>
+            <% end %>
           </div>
         </div>
+      <% end  %>
       <% end %>
-
-
 
       <% if @procedure.full_name != "" %>
       <div class="col-xs-12 col-sm-6 col-lg-4">
