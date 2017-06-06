@@ -3,7 +3,6 @@
     <% if answer.is_a? DocumentUploader %>
       <% answer = @procedure.send(question['column'] + "_url") %>
     <% end %>
-    <% p answer %>
 
     <% if answer.nil? %>
       <i class="fa progress-point fa-circle-thin" data-number="<%= index + 1 %>" aria-hidden="true"></i>
