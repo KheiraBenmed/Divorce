@@ -21,8 +21,8 @@ body {
     justify-content: space-around;
     .question {
       width: 100%;
-      input[type='text'] {
-        width: 100%;
+      input[type='text'].form-control {
+        box-shadow: none;
         background: transparent;
         border: transparent;
         border-left: 3px solid white;

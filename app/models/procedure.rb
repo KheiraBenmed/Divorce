@@ -12,7 +12,7 @@ class Procedure < ApplicationRecord
   validates :status_pro_conjoint, inclusion: { in: STATUSES }, :allow_nil => true
   MARIAGES = ["Communauté de biens", "Séparation de biens, participation aux acquêts", "Communauté universelle", "Participation aux acquets", "Je ne sais pas" ]
 
-  validates :contract_type, inclusion: { in: MARIAGES }
+  validates :contract_type, inclusion: { in: MARIAGES }, allow_blank: true
   # YN = ["Yes", "No"]
   # validates :marriage_contract, inclusion: { in: YN }, :allow_nil => true
 

@@ -9,7 +9,6 @@ $(document).ready(function() {
     });
 
     // navigation dans les questions => faire du toggleClass 'active'
-
     $('.next').on('click', function() {
       var question = $('.question-container.active');
       $('.active').removeClass('active');
@@ -41,13 +40,23 @@ $(document).ready(function() {
           }, 100);
         };
       }
-
-    //$('.question-container[data-number="'+question_number+'"]').addClass('active');
-
     });
 
     // ecoute l'event change sur chaque input
       // au change $.ajax => trigger procedures_controller#update
+
+   $(.'answer').on('change', function() {
+      var value = $(this).data('input');
+      $.ajax({
+            url : 'procdedures/'+ current_user.procedure.id,
+            type : 'patch',
+            data : value
+            success :
+            error:
+            }
+        });
+   });
+
   }
 })
 
