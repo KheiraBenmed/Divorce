@@ -27,6 +27,20 @@ class ProceduresController < ApplicationController
 
   def update
     @questions = Procedure::QUESTIONS
+
+    if params[:passport_from_camera].present?
+      @procedure.passport = convert_data_uri_to_upload(params[:passport_from_camera])
+    end
+    if params[:passport_spouse_from_camera].present?
+      @procedure.passport_spouse = convert_data_uri_to_upload(params[:passport_spouse_from_camera])
+    end
+    if params[:identity_from_camera].present?
+      @procedure.identity = convert_data_uri_to_upload(params[:identity_from_camera])
+    end
+    if params[:identity_spouse_from_camera].present?
+      @procedure.identity_spouse = convert_data_uri_to_upload(params[:identity_spouse_from_camera])
+    end
+
     @procedure.update(procedure_params)
     respond_to do |format|
       format.html { redirect_to procedure_path(@procedure) }
@@ -226,6 +240,7 @@ class ProceduresController < ApplicationController
   end
 
   def procedure_params
+    return {} unless params[:procedure]
     params.require(:procedure).permit(
       :full_name,
       :child_nb,
