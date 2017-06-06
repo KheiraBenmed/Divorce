@@ -39,6 +39,9 @@ class ProceduresController < ApplicationController
     redirect_to root_path
   end
 
+  def testcamera
+  end
+
   def calcul_champs_non_remplis
     @champ_not_done = 0
     if current_user.procedure.child_nb.nil?
