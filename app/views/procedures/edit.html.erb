@@ -32,7 +32,7 @@
           <% end %>
         </div>
         <% if i ==  @questions.size - 1 %>
-          <div class="next"><%= link_to "TERMINER", procedure_path %> </div>
+          <div class="next"><%= link_to "TERMINER", procedure_path, class: "next" %> </div>
         <% else %>
           <div class="next">SUIVANT</div>
         <% end %>
