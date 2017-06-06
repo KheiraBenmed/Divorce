@@ -27,6 +27,11 @@ class ProceduresController < ApplicationController
 
   def update
     @questions = Procedure::QUESTIONS
+    if params[:file]
+      @procedure.update!(procedure_params_for_files)
+    else
+      @procedure.update!(procedure_params)
+    end
 
     if params[:passport_from_camera].present?
       @procedure.passport = convert_data_uri_to_upload(params[:passport_from_camera])
@@ -42,6 +47,7 @@ class ProceduresController < ApplicationController
     end
 
     @procedure.update(procedure_params)
+
     respond_to do |format|
       format.html { redirect_to procedure_path(@procedure) }
       format.js
@@ -237,6 +243,47 @@ class ProceduresController < ApplicationController
 
   def set_procedure
     @procedure = Procedure.find(params[:id])
+  end
+
+  def procedure_params_for_files
+    params.permit(
+      :passport,
+      :passport_spouse,
+      :passport_children,
+      :identity,
+      :identity_spouse,
+      :identity_children,
+      :acte_naissance,
+      :acte_naissance_spouse,
+      :acte_naissance_children,
+       :livret,
+       :acte_mariage,
+       :contract_mariage,
+       :taxe_habitation,
+       :taxe_fonciere,
+       :rent,
+       :bills,
+       :insurance_vehicle,
+       :life_insurance,
+       :insurance_other,
+       :scolarite,
+       :caf,
+       :payroll,
+       :payroll_spouse,
+       :payroll_dec,
+       :payroll_spouse_dec,
+       :bilan_company,
+       :unemployment,
+       :unemployment_spouse,
+       :pro_revenu,
+       :pro_revenu_spouse,
+       :taxes,
+       :taxes_spouse,
+       :property,
+       :revenu_foncier,
+       :bank_account,
+       :carte_grise
+    )
   end
 
   def procedure_params
