@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :contacts, only: [:create]
   end
   get 'avocats/search' => 'avocats#search'
+  get 'testcamera' => 'procedures#testcamera'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
