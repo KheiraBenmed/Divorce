@@ -2,7 +2,7 @@ $(document).ready(function() {
   if ($('#questions').length > 0) {
     // réponses des questions à choix multiple
     $('.answer').on('click', function() {
-      $('.select').removeClass('select');
+      $('.form-control').removeClass('select').addClass('hover');
       $(this).addClass('select');
       var value = $(this).data('input');
       $(this).parent().prev().children('input').val(value);
@@ -45,21 +45,20 @@ $(document).ready(function() {
     // ecoute l'event change sur chaque input
       // au change $.ajax => trigger procedures_controller#update
 
-   $('.answer').on('click', function() {
+   $('input').on('change', function() {
       var column = $(this).data('column');
-      var value = $(this).data('input');
+      var value = $(this).val();
       var procedure_id = $("#questions").data("procedure-id");
-
       var params = {};
       params[column] = value;
-
-      console.log("coucou1");
+      // console.log("coucou3");
+      // debugger
       $.ajax({
         url: '/procedures/' + procedure_id + '.js',
         type: 'patch',
         data: { procedure: params },
         success: function(data) {
-          console.log("coucou2");
+          console.log("coucou4");
         }
       });
    });

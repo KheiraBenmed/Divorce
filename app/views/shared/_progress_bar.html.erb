@@ -1,0 +1,10 @@
+ <% @questions.each_with_index do | question, index | %>
+    <% if  @procedure.send(question['column']).nil? %>
+      <i class="fa progress-point fa-circle-thin" data-number="<%= index + 1 %>" aria-hidden="true"></i>
+    <% elsif @procedure.send(question['column']).blank? %>
+      <i class="fa progress-point fa-times-circle" data-number="<%= index + 1 %>" aria-hidden="true"></i>
+    <% else  %>
+      <i class="fa progress-point fa-check-circle" data-number="<%= index + 1 %>" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
+

@@ -26,6 +26,8 @@ class ProceduresController < ApplicationController
   end
 
   def update
+    binding.pry
+    @questions = Procedure::QUESTIONS
     @procedure.update(procedure_params)
     respond_to do |format|
       format.html { redirect_to procedure_path(@procedure) }

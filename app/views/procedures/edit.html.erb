@@ -1,17 +1,6 @@
 <!-- progress-bar -->
 <div class="progress-bar">
-
-
-  <% @questions.each_with_index do | question, index | %>
-    <% if  @procedure.send(question['column']).nil? %>
-      <i class="fa progress-point fa-circle-thin" data-number="<%= index + 1 %>" aria-hidden="true"></i>
-    <% elsif @procedure.send(question['column']).blank? %>
-      <i class="fa progress-point fa-times-circle" data-number="<%= index + 1 %>" aria-hidden="true"></i>
-    <% else  %>
-      <i class="fa progress-point fa-check-circle" data-number="<%= index + 1 %>" aria-hidden="true"></i>
-    <% end %>
-  <% end %>
-
+ <%= render 'shared/progress_bar' %>
 </div>
  <!-- questionnaire -->
 <%= simple_form_for @procedure do |f| %>
@@ -22,15 +11,21 @@
         <div class="question">
           <div class="question-text"><%= question["question_text"] %> <span class="pull-right"><%= i + 1 %>/<%= @questions.size %></span></div>
           <!-- input -->
-          <%= f.input question["column"], as: question["field_type"], label: false %>
+          <%= f.input question["column"],
+            as: question["field_type"],
+            label: false,
+            input_html: {
+              data: { column: question["column"] }
+            } %>
+          <!-- end of input -->
           <% if question["photo_cache"] %>
               <%= hidden_field_tag "#{question["column"]}_cache" %>
           <% end %>
           <% unless question["answers"].empty? %>
               <div class="answers text-justify">
               <% question["answers"].each do |answer| %>
-                  <div class="answer" data-column="<%= question["column"] %>" data-input="<%= answer["input_text"] %>">
-                  <%= answer["displayed_text"] %>
+                  <div class="answer">
+                    <%= answer["displayed_text"] %>
                   </div>
                <% end %>
               </div>
