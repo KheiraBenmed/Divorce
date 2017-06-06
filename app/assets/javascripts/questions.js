@@ -23,7 +23,7 @@ $(document).ready(function() {
       $(this).parent().prev().slideDown().css('display', 'flex');
     });
 
-    $('.progress-point').on('click', function () {
+   $('.progress-point').on('click', function () {
       var question_target = $(this).data('number');
       var question_current = $('.active').data('number')
       var n = question_target - question_current
@@ -40,25 +40,31 @@ $(document).ready(function() {
           }, 100);
         };
       }
-    });
+   });
 
     // ecoute l'event change sur chaque input
       // au change $.ajax => trigger procedures_controller#update
 
-   $(.'answer').on('change', function() {
+   $('.answer').on('click', function() {
+      var column = $(this).data('column');
       var value = $(this).data('input');
-      $.ajax({
-            url : 'procdedures/'+ current_user.procedure.id,
-            type : 'patch',
-            data : value
-            success :
-            error:
-            }
-        });
-   });
+      var procedure_id = $("#questions").data("procedure-id");
 
+      var params = {};
+      params[column] = value;
+
+      console.log("coucou1");
+      $.ajax({
+        url: '/procedures/' + procedure_id + '.js',
+        type: 'patch',
+        data: { procedure: params },
+        success: function(data) {
+          console.log("coucou2");
+        }
+      });
+   });
   }
-})
+});
 
 
 function navigateup() {

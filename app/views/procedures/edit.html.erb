@@ -15,7 +15,7 @@
 </div>
  <!-- questionnaire -->
 <%= simple_form_for @procedure do |f| %>
-<div id="questions">
+<div id="questions" data-procedure-id="<%= current_user.procedure.id %>">
    <% @questions.each_with_index do |question, i| %>
       <div class="question-container <%= i == 0 ? "active" : "" %>" id="question-<%=i %>" data-number="<%= i + 1 %>" >
         <div class="prev">PRECEDENT</div>
@@ -29,7 +29,7 @@
           <% unless question["answers"].empty? %>
               <div class="answers text-justify">
               <% question["answers"].each do |answer| %>
-                  <div class="answer" data-input="<%= answer["input_text"] %>">
+                  <div class="answer" data-column="<%= question["column"] %>" data-input="<%= answer["input_text"] %>">
                   <%= answer["displayed_text"] %>
                   </div>
                <% end %>
