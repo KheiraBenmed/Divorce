@@ -68,323 +68,466 @@
     <p style="color: #60919F"><strong>DOCUMENTS EN ATTENTE DE TELECHARGEMENT</strong></p>
     <div class="row">
       <ul>
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if @procedure.full_name != "" %>
-            <% if @procedure[:passport].nil? %>
-              <div class="doc-description"><ol>Passeport</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
 
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if @procedure.full_name != "" %>
-            <% if @procedure[:passport_spouse].nil? %>
-              <div class="doc-description"><ol>Passeport de votre conjoint</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if !@procedure.child_nb.nil? %>
-            <% if @procedure.child_nb > 0 %>
-              <% if @procedure[:passport_children].nil? %>
-                <div class="doc-description"><ol>Passeport de vos <%= @procedure.child_nb %> enfants</ol></div>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if @procedure.full_name != "" %>
-            <% if @procedure[:identity].nil? %>
-              <div class="doc-description"><ol>Votre carte d'identité</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if @procedure.full_name != "" %>
-            <% if @procedure[:identity_spouse].nil? %>
-              <div class="doc-description"><ol>Carte d'identité de votre conjoint</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if !@procedure.child_nb.nil? %>
-            <% if @procedure.child_nb > 0 %>
-              <% if @procedure[:identity_childen].nil? %>
-                <div class="doc-description"><ol>Carte d'identité de vos enfants</ol></div>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if @procedure.full_name != "" %>
-            <% if @procedure[:acte_naissance].nil? %>
-              <div class="doc-description"><ol>Votre Acte de naissance</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if @procedure.full_name != "" %>
-            <% if @procedure[:acte_naissance_spouse].nil? %>
-              <div class="doc-description"><ol>Acte de naissance de votre conjoint</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if !@procedure.child_nb.nil? %>
-            <% if @procedure.child_nb > 0 %>
-              <% if @procedure[:acte_naissance_children].nil? %>
-                <div class="doc-description"><ol>Acte de naissance de vos enfants</ol></div>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-            <% if @procedure[:livret].nil? %>
-              <div class="doc-description"><ol>Livret de famille</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-            <% if @procedure[:acte_mariage].nil? %>
-              <div class="doc-description"><ol>Livret de famille</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if @procedure.marriage_contract == true %>
-            <% if @procedure[:contract_mariage].nil? %>
-              <div class="doc-description"><ol>Contrat de marriage</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <% if !@procedure.renter_nb.nil? %>
+      <% if @procedure.full_name != "" %>
         <div class="col-xs-12 col-sm-6 col-lg-4">
           <div class="doc">
-              <% if @procedure.renter_nb > 0 %>
-                <% if @procedure[:taxe_habitation].nil? %>
-                  <div class="doc-description"><ol>Taxe d'habitation</ol></div>
-                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <% end %>
+            <div class="doc-description"><ol>Passeport</ol></div>
+            <% if @procedure[:passport].nil? %>
+              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <% else %>
+              <div class="doc-category text-center">SCANNER OU TELECHARGER UN NOUVEAU FICHIER</div>
+              <div class="badge badge-green"><i class="fa fa-check" aria-hidden="true"></i></div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @procedure.full_name != "" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+              <div class="doc-description"><ol>Passeport de votre conjoint</ol></div>
+              <% if @procedure[:passport_spouse].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
               <% end %>
           </div>
         </div>
       <% end %>
 
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if !@procedure.owner_nb.nil? %>
-            <% if @procedure.owner_nb > 0 %>
-              <% if @procedure[:taxe_fonciere].nil? %>
-                <div class="doc-description"><ol>Taxe foncière</ol></div>
+      <% if !@procedure.child_nb.nil? %>
+        <% if @procedure.child_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+                  <div class="doc-description"><ol>Passeport de vos <%= @procedure.child_nb %> enfants</ol></div>
+                  <% if @procedure[:passport_children].nil? %>
+                    <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if @procedure.full_name != "" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+              <div class="doc-description"><ol>Votre carte d'identité</ol></div>
+              <% if @procedure[:identity].nil? %>
                 <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
                 <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
               <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
 
-      <% if !@procedure.renter_nb.nil? %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @procedure.full_name != "" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+              <div class="doc-description"><ol>Carte d'identité de votre conjoint</ol></div>
+              <% if @procedure[:identity_spouse].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if !@procedure.child_nb.nil? %>
+        <% if @procedure.child_nb > 0 %>
           <div class="col-xs-12 col-sm-6 col-lg-4">
             <div class="doc">
-              <% if @procedure.renter_nb > 0 %>
-                <% if @procedure[:rent].nil? %>
-                  <div class="doc-description"><ol>Taxe d'habitation</ol></div>
+                  <div class="doc-description"><ol>Carte d'identité de vos enfants</ol></div>
+                  <% if @procedure[:identity_childen].nil? %>
+                    <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                    <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if @procedure.full_name != "" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+              <div class="doc-description"><ol>Votre Acte de naissance</ol></div>
+              <% if @procedure[:acte_naissance].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @procedure.full_name != "" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+              <div class="doc-description"><ol>Acte de naissance de votre conjoint</ol></div>
+              <% if @procedure[:acte_naissance_spouse].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if !@procedure.child_nb.nil? %>
+        <% if @procedure.child_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+                  <div class="doc-description"><ol>Acte de naissance de vos enfants</ol></div>
+                  <% if @procedure[:acte_naissance_children].nil? %>
+                    <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                    <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if @procedure.full_name != "" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+              <div class="doc-description"><ol>Livret de famille</ol></div>
+              <% if @procedure[:livret].nil? %>
+                <div class="doc-description"><ol>Livret de famille</ol></div>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+
+
+
+      <% if @procedure.full_name != "" %>
+      <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="doc">
+            <div class="doc-description"><ol>Acte de marriage</ol></div>
+            <% if @procedure[:acte_mariage].nil? %>
+              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <% end %>
+        </div>
+      </div>
+      <% end %>
+
+      <% if @procedure.marriage_contract == true %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+              <div class="doc-description"><ol>Contrat de marriage</ol></div>
+              <% if @procedure[:contract_mariage].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if !@procedure.status_pro.nil? %>
+
+          <% if @procedure.status_pro = "Salarié" %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>3 derniers Bulletins de salaires</ol></div>
+                <% if @procedure[:payroll].nil? %>
                   <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
                   <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
                 <% end %>
               </div>
             </div>
-        <% end %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>Bulletin de salaires de décembre</ol></div>
+                <% if @procedure[:payroll_dec].nil? %>
+                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                <% end %>
+              </div>
+            </div>
+
+          <% elsif @procedure.status_pro = "Chef d'enterprise" %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>3 derniers bilans de l'entreprise</ol></div>
+                <% if @procedure[:bilan_company].nil? %>
+                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                <% end %>
+              </div>
+            </div>
+
+          <% elsif @procedure.status_pro = "Libéral" %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>Déclaration de revenu professionnel</ol></div>
+                  <% if @procedure[:pro_revenu].nil? %>
+                    <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                    <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  <% end %>
+              </div>
+            </div>
+
+          <% else %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>Justification d'allocation chomage</ol></div>
+                  <% if @procedure[:unemploymenT].nil? %>
+                    <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                    <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  <% end %>
+              </div>
+            </div>
+          <% end %>
       <% end %>
 
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-          <% if !@procedure.renter_nb.nil? %>
-            <% if @procedure.renter_nb > 0 %>
-              <% if @procedure[:bills].nil? %>
-                <div class="doc-description"><ol>Bills</ol></div>
+      <% if !@procedure.status_pro.nil? %>
+
+          <% if @procedure.status_pro = "Salarié" %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>3 derniers Bulletins de salaires</ol></div>
+                <% if @procedure[:payroll_spouse].nil? %>
+                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>Bulletin de salaires de décembre</ol></div>
+                <% if @procedure[:payroll_spouse_dec].nil? %>
+                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                <% end %>
+              </div>
+            </div>
+
+          <% elsif @procedure.status_pro = "Libéral" %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>Déclaration de revenu professionnel</ol></div>
+                  <% if @procedure[:pro_revenu_spouse].nil? %>
+                    <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                    <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  <% end %>
+              </div>
+            </div>
+
+          <% else %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <div class="doc">
+                <div class="doc-description"><ol>Justification d'allocation chomage</ol></div>
+                  <% if @procedure[:unemployment_spouse].nil? %>
+                    <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                    <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  <% end %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+
+      <% if !@procedure.bank_account_nb.nil? %>
+        <% if @procedure.bank_account_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <% if @procedure[:bank_account].nil? %>
+                <div class="doc-description"><ol>Relevés bancaires de vos comptes</ol></div>
                 <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
                 <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
               <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if !@procedure.full_name == "" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+            <% if @procedure[:taxes].nil? %>
+              <div class="doc-description"><ol>Bills</ol></div>
+              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
             <% end %>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
+      <% if !@procedure.full_name == "" %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="doc">
+            <% if @procedure[:taxes_spouse].nil? %>
+              <div class="doc-description"><ol>Bills</ol></div>
+              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+
+      <% if !@procedure.owner_nb.nil? %>
+        <% if @procedure.owner_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Taxe foncière</ol></div>
+              <% if @procedure[:taxe_fonciere].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+      <% if !@procedure.owner_nb.nil? %>
+        <% if @procedure.owner_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Titre de propriété</ol></div>
+              <% if @procedure[:property].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if !@procedure.owner_nb.nil? %>
+        <% if @procedure.owner_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Justificatifs de vos revenus fonciers</ol></div>
+              <% if @procedure[:revenu_foncier].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+      <% if !@procedure.renter_nb.nil? %>
+        <% if @procedure.renter_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+                <div class="doc-description"><ol>Taxe d'habitation</ol></div>
+                <% if @procedure[:taxe_habitation].nil? %>
+                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+      <% if !@procedure.renter_nb.nil? %>`
+        <% if @procedure.renter_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+                <div class="doc-description"><ol>Quittance de loyer</ol></div>
+                <% if @procedure[:rent].nil? %>
+                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+                <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if !@procedure.child_nb.nil? %>
+        <% if @procedure.child_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Certificats de scolarité</ol></div>
+              <% if @procedure[:scolarite].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if !@procedure.child_nb.nil? %>
+        <% if @procedure.child_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Relevé de la CAF</ol></div>
+              <% if @procedure[:caf].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if !@procedure.vehicle_nb.nil? %>
+        <% if @procedure.vehicle_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Carte grise de vos véhicules</ol></div>
+              <% if @procedure[:carte_grise].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if !@procedure.vehicle_nb.nil? %>
+        <% if @procedure.vehicle_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Assurance véhicule</ol></div>
+              <% if @procedure[:insurance_vehicle].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+      <% if !@procedure.renter_nb.nil? && !@procedure.owner_nb.nil? %>
+        <% if @procedure.renter_nb > 0 && @procedure.owner_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Justificatif de domicile - Facture EDF ou telephone</ol></div>
+              <% if @procedure[:bills].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if !@procedure.insurance_nb.nil? %>
+        <% if @procedure.insurance_nb > 0 %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="doc">
+              <div class="doc-description"><ol>Justificatifs d'Assurance</ol></div>
+              <% if @procedure[:insurance_other].nil? %>
+                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
+                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
 
       </ul>
     </div>
   </div>
-
-
-
-
-    <div class="docs">
-      <ul>
-
-
-
-        <% if @procedure[:taxe_fonciere].nil? %>
-          <div class="doc"><ol>Taxe foncière</ol></div>
-        <% end %>
-
-        <% if @procedure[:rent].nil? %>
-          <div class="doc"><ol>Vos quittances de loyer</ol></div>
-        <% end %>
-
-        <% if @procedure[:bills].nil? %>
-          <div class="doc"><ol>Passeport de votre conjoint</ol></div>
-        <% end %>
-
-        <% if @procedure[:insurance_vehicle].nil? %>
-          <div class="doc"><ol>Votre assurance véhicule</ol></div>
-        <% end %>
-
-        <% if @procedure[:insurance_other].nil? %>
-          <div class="doc"><ol>Passeport de votre conjoint</ol></div>
-        <% end %>
-
-        <% if !@procedure.child_nb.nil? %>
-          <% if @procedure.child_nb > 0 %>
-            <% if @procedure[:scolarite].nil? %>
-              <div class="doc"><ol>Les certificats de scolarité de vos <%= @procedure.child_nb %> enfants</ol></div>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <% if !@procedure.child_nb.nil? %>
-          <% if @procedure.child_nb > 0 %>
-            <% if @procedure[:caf].nil? %>
-              <div class="doc"><ol>Votre relevé de la CAF</ol></div>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <% if @procedure[:payroll].nil? %>
-          <div class="doc"><ol>Votre dernier bulletin de salaire</ol></div>
-        <% end %>
-
-        <% if @procedure[:payroll_spouse].nil? %>
-          <div class="doc"><ol>Le dernier bulletin de salaire de votre conjoint</ol></div>
-        <% end %>
-
-        <% if @procedure[:payroll_dec].nil? %>
-          <div class="doc"><ol>Le bulletin de salaire de décembre 2016</ol></div>
-        <% end %>
-
-        <% if @procedure[:payroll_spouse_dec].nil? %>
-          <div class="doc"><ol>Le bulletin de salaire de votre conjoint en décembre 2016</ol></div>
-        <% end %>
-
-        <% if @procedure[:bilan_company].nil? %>
-          <div class="doc"><ol>Les 3 derniers bilans de votre entreprise</ol></div>
-        <% end %>
-
-        <% if @procedure[:unemployment].nil? %>
-          <div class="doc"><ol>Un justificatif de sans emploi</ol></div>
-        <% end %>
-
-        <% if @procedure[:unemployment_spouse].nil? %>
-          <div class="doc"><ol>Le justificatif de sans emploi de votre conjooi</ol></div>
-        <% end %>
-
-        <% if @procedure[:pro_revenu].nil? %>
-          <div class="doc"><ol>Votre déclaration de revenu</ol></div>
-        <% end %>
-
-        <% if @procedure[:pro_revenu_spouse].nil? %>
-          <div class="doc"><ol>Déclaration de revenu de votre conjoint</ol></div>
-        <% end %>
-
-        <% if @procedure[:taxes].nil? %>
-          <div class="doc"><ol>Votre avis d'imposition</ol></div>
-        <% end %>
-
-        <% if @procedure[:taxes_spouse].nil? %>
-          <div class="doc"><ol>Avis d'imposition de votre conjoint</ol></div>
-        <% end %>
-
-        <% if @procedure[:property].nil? %>
-          <div class="doc"><ol>Titre de propriété de vos logements</ol></div>
-        <% end %>
-
-        <% if @procedure[:revenu_foncier].nil? %>
-          <div class="doc"><ol>Revenu foncier de vos propriétés</ol></div>
-        <% end %>
-
-        <% if @procedure[:bank_account].nil? %>
-          <div class="doc"><ol>Relevé bancaire de vos comptes bancaires</ol></div>
-        <% end %>
-
-        <% if @procedure[:carte_grise].nil? %>
-          <div class="doc"><ol>Carte grise de vos véhicule</ol></div>
-        <% end %>
-
-
-      </ul>
-    </div>
-  </div>
-
-
-
 </div>
 
