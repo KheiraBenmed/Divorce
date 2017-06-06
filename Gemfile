@@ -26,6 +26,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "letter_opener", group: :development
+gem 'remotipart', '~> 1.2'
 
 
 source 'https://rails-assets.org' do
