@@ -4,7 +4,7 @@
     <h1 style="color: #60919F; font-size: 22px">RECAPITULATIF DE VOTRE PROCEDURE</h1>
     <div class="recap">
 
-      <div class="progress-wrap progress" data-progress-percent="25">
+      <div class="progress-wrap progress" data-progress-percent="<%= (12 - @champ_not_done)*100/12 %>">
         <div class="progress-bar progress"></div>
       </div>
       <h1><%= @procedure.full_name %></h1>
@@ -34,27 +34,28 @@
         </ul>
         <section id="first-tab-group" class="tabgroup">
           <div id="tab1">
-            <p>Nombre d'enfants: <%= @procedure.child_nb %></p>
-            <p>Contrat de mariage: <%= @procedure.contract_type %></p>
+            <p>Enfants: <%= @procedure.child_nb %></p>
+            <p>Type de Contrat de Mariage: <%= @procedure.contract_type %></p>
           </div>
           <div id="tab2">
             <div id="bis text-left">
-              <p>Votre siuation professionnelle: <%= @procedure.status_pro %></p>
-              <p>Siuation professionnelle de votre conjoint: <%= @procedure.status_pro_conjoint %></p>
+              <p>Votre Siuation Professionnelle: <%= @procedure.status_pro %></p>
+              <p>La Siuation Professionnelle de Votre Conjoint: <%= @procedure.status_pro_conjoint %></p>
               </div>
             <div id="bis text-left">
-              <p>Nombre de relevé bancaire: <%= @procedure.bank_account_nb %></p>
-              <p>Nombre de crédit: <%= @procedure.credit_nb %></p>
+              <p>Relevé bancaire: <%= @procedure.bank_account_nb %></p>
+              <p>Crédit bancaire: <%= @procedure.credit_nb %></p>
+
             </div>
           </div>
           <div id="tab3">
             <div id="bis text-left">
-              <p>Nb de logements dont vous êtes propriétaire: <%= @procedure.owner_nb %></p>
-              <p>Nb de logements dont vous êtes locataire: <%= @procedure.renter_nb %></p>
+              <p>Logements dont vous êtes propriétaire: <%= @procedure.owner_nb %></p>
+              <p>Logements dont vous êtes locataire: <%= @procedure.renter_nb %></p>
             </div>
             <div id="ter text-left">
-              <p>Nb de véhicule en votre possesion: <%= @procedure.vehicle_nb %></p>
-              <p>Nb d'assurance en votre possesion: </p>
+              <p>Véhicule: <%= @procedure.vehicle_nb %></p>
+              <p>Assurance: <%= @procedure.insurance_nb %></p>
             </div>
 
           </div>
