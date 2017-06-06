@@ -2,14 +2,13 @@ $(document).ready(function() {
   if ($('#questions').length > 0) {
     // réponses des questions à choix multiple
     $('.answer').on('click', function() {
-      $('.select').removeClass('select');
+      $('.form-control').removeClass('select').addClass('hover');
       $(this).addClass('select');
       var value = $(this).data('input');
       $(this).parent().prev().children('input').val(value);
     });
 
     // navigation dans les questions => faire du toggleClass 'active'
-
     $('.next').on('click', function() {
       var question = $('.question-container.active');
       $('.active').removeClass('active');
@@ -24,7 +23,7 @@ $(document).ready(function() {
       $(this).parent().prev().slideDown().css('display', 'flex');
     });
 
-    $('.progress-point').on('click', function () {
+   $('.progress-point').on('click', function () {
       var question_target = $(this).data('number');
       var question_current = $('.active').data('number')
       var n = question_target - question_current
@@ -41,15 +40,30 @@ $(document).ready(function() {
           }, 100);
         };
       }
-
-    //$('.question-container[data-number="'+question_number+'"]').addClass('active');
-
-    });
+   });
 
     // ecoute l'event change sur chaque input
       // au change $.ajax => trigger procedures_controller#update
+
+   $('input').on('change', function() {
+      var column = $(this).data('column');
+      var value = $(this).val();
+      var procedure_id = $("#questions").data("procedure-id");
+      var params = {};
+      params[column] = value;
+      // console.log("coucou3");
+      // debugger
+      $.ajax({
+        url: '/procedures/' + procedure_id + '.js',
+        type: 'patch',
+        data: { procedure: params },
+        success: function(data) {
+          console.log("coucou4");
+        }
+      });
+   });
   }
-})
+});
 
 
 function navigateup() {
