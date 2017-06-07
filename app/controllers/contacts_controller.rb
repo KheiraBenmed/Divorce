@@ -4,8 +4,10 @@ class ContactsController < ApplicationController
     @avocat = Avocat.find(params[:avocat_id])
     @procedure = current_user.procedure
     @contact = Contact.new(user: current_user, avocat: @avocat, procedure: @procedure)
+
     if @contact.save
-       flash[:notice] = "Votre demande a été envoyé."
+      ZipJob.perform_later(@procedure.id)
+      flash[:notice] = "Votre demande a été envoyé."
     else
       flash[:alert] = "Votre demande n'a pu être envoyé."
     end

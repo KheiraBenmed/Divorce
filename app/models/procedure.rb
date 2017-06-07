@@ -1,5 +1,6 @@
 class Procedure < ApplicationRecord
   belongs_to :user
+  has_many :contacts
   #after_update :zip_procedure
   # GENDERS = ["Homme", "Femme"]
   # validates :gender, inclusion: { in: GENDERS }
