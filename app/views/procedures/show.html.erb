@@ -192,16 +192,20 @@
       <%= simple_form_for @procedure do |f| %>
         <div class="col-xs-12 col-sm-6 col-lg-4">
             <%= hidden_field_tag :identity_from_camera %>
-            <% if @procedure[:identity].nil? %>
               <div class="cards">
                   <div class="card-nil text-center">
-                    <div class="card__preview" style="background-image: url('<%= image_path('add-file.png')%>');">
-                    </div>
+                    <% if @procedure[:identity].nil? %>
+                      <div class="card__preview" style="background-image: url('<%= image_path('add-file.png')%>');">
+                      </div>
+                    <% else %>
+                      <div class="card__preview">
+                        <%= cl_image_tag @procedure.identity, class: "doc-preview" %>
+                      </div>
+                    <% end %>
                     <div class="card__info">
                         <div class="doc-des">Votre carte d'identité</div>
 
                         <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                        <%= f.submit "Valider", style: "font-size: 8px" %>
 
                         <%#= button_tag(type: 'submit', class: "camBtn", data: {toggle: 'modal', type:"1", target: "#camMod"}) do %>
                           <!--  <i class="fa fa-camera" aria-hidden="true"></i>
@@ -209,9 +213,9 @@
 
 
                         <label for="procedure_identity"><i class="fa fa-upload" aria-hidden="true"></i></label>
-                        <%= f.file_field :identity, style: "font-size: 6px; display: none"%>
+                        <%= f.file_field :identity, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
                         <%= f.hidden_field :identity_cache %>
-                        <%= f.submit "Telécharger", style: "font-size: 6px" %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
 
                         <%#= button_tag(type: 'submit', class: "btn-none") do %>
                            <!-- <i class="fa fa-upload"></i> -->
@@ -222,21 +226,6 @@
                     </div>
                   </div>
                 </div>
-              <% else %>
-                <div class="cards">
-                  <div class="card text-center">
-                    <h3 class="card__title doc-description text-center">Votre carte d'identité</h3>
-                    <div class="card__preview">
-                      <%= cl_image_tag @procedure.identity, class: "doc-preview" %>
-                    </div>
-                    <div class="card__info">
-                      <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                      <i class="fa fa-upload" aria-hidden="true"></i>
-                      <i class="fa fa-eye"></i>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
         </div>
       <% end  %>
       <% end %>
