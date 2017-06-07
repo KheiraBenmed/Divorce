@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "letter_opener", group: :development
 gem 'remotipart', '~> 1.2'
+gem 'postmark-rails'
 
 
 source 'https://rails-assets.org' do
