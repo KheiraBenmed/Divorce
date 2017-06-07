@@ -24,14 +24,18 @@
           <% unless question["answers"].empty? %>
               <div class="answers text-justify">
               <% question["answers"].each do |answer| %>
-                  <div class="answer" data-input="<%= answer["input_text"] %>">
+                  <div class="answer <%= answer["input_text"] == @procedure[question["column"]].to_s ? "select" : "" %>" data-input="<%= answer["input_text"] %>">
                     <%= answer["displayed_text"] %>
                   </div>
                <% end %>
               </div>
           <% end %>
         </div>
-        <div class="next">SUIVANT</div>
+        <% if i ==  @questions.size - 1 %>
+          <div class="next"><%= link_to "TERMINER", procedure_path, class: "next" %> </div>
+        <% else %>
+          <div class="next">SUIVANT</div>
+        <% end %>
       </div>
     <% end %>
 </div>

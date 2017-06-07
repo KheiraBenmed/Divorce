@@ -1,10 +1,12 @@
-<div class="wrapper">
-  <div class="searchbar">
-    <%= form_tag(avocats_path, :method => :get) do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Adresse", class: "address-autocomplete" %>
-      <%= submit_tag "Trouvez le", class:".btn-call-to-action" %>
-    <% end %>
-  </div>
+<div class="headerContainer">
+    <div id="find">
+      <span class="InputContainer">
+        <%= form_tag(avocats_path, :method => :get) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "N° Rue Ville", class: "address-autocomplete" %>
+        <%= submit_tag "Trouvez votre avocat", class:"btn-search" %>
+        <% end %>
+     </span>
+    </div>
 </div>
 
 <div id="map"></div>
@@ -14,35 +16,17 @@
   <script>
   var styles = [
     {
-        "featureType": "landscape.man_made",
-        "elementType": "geometry",
         "stylers": [
             {
-                "color": "#f7f1df"
+                "saturation": -100
+            },
+            {
+                "gamma": 1
             }
         ]
     },
     {
-        "featureType": "landscape.natural",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#d0e3b4"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.natural.terrain",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "labels",
+        "elementType": "labels.text.stroke",
         "stylers": [
             {
                 "visibility": "off"
@@ -51,7 +35,7 @@
     },
     {
         "featureType": "poi.business",
-        "elementType": "all",
+        "elementType": "labels.text",
         "stylers": [
             {
                 "visibility": "off"
@@ -59,92 +43,88 @@
         ]
     },
     {
-        "featureType": "poi.medical",
-        "elementType": "geometry",
+        "featureType": "poi.business",
+        "elementType": "labels.icon",
         "stylers": [
             {
-                "color": "#fbd3da"
+                "visibility": "off"
             }
         ]
     },
     {
-        "featureType": "poi.park",
-        "elementType": "geometry",
+        "featureType": "poi.place_of_worship",
+        "elementType": "labels.text",
         "stylers": [
             {
-                "color": "#bde6ab"
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.place_of_worship",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
             }
         ]
     },
     {
         "featureType": "road",
-        "elementType": "geometry.stroke",
+        "elementType": "geometry",
         "stylers": [
             {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#ffe15f"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#efd151"
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "road.local",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "black"
-            }
-        ]
-    },
-    {
-        "featureType": "transit.station.airport",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#cfb2db"
+                "visibility": "simplified"
             }
         ]
     },
     {
         "featureType": "water",
-        "elementType": "geometry",
         "stylers": [
             {
-                "color": "#a2daf2"
+                "visibility": "on"
+            },
+            {
+                "saturation": 50
+            },
+            {
+                "gamma": 0
+            },
+            {
+                "hue": "#50a5d1"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.neighborhood",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#333333"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "weight": 0.5
+            },
+            {
+                "color": "#333333"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "gamma": 1
+            },
+            {
+                "saturation": 50
             }
         ]
     }

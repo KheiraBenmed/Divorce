@@ -1,5 +1,6 @@
 class Procedure < ApplicationRecord
   belongs_to :user
+  #after_update :zip_procedure
   # GENDERS = ["Homme", "Femme"]
   # validates :gender, inclusion: { in: GENDERS }
 
@@ -54,4 +55,10 @@ class Procedure < ApplicationRecord
   mount_uploader :revenu_foncier, DocumentUploader
   mount_uploader :bank_account, DocumentUploader
   mount_uploader :carte_grise, DocumentUploader
+  mount_uploader :archive, DocumentUploader
+
+  # private
+  #   def zip_procedure
+  #     ProcedureToArchiveService.new(self).call
+  #   end
 end
