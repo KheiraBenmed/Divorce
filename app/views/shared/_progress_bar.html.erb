@@ -6,9 +6,7 @@
 
     <% if answer.nil? %>
       <i class="fa progress-point fa-circle-thin" data-number="<%= index + 1 %>" aria-hidden="true"></i>
-    <% elsif answer.blank? %>
-      <i class="fa progress-point fa-times-circle" data-number="<%= index + 1 %>" aria-hidden="true"></i>
-    <% else %>
+    <% else answer.blank? && ![ true, false ].include?(answer) %>
       <i class="fa progress-point fa-check-circle" data-number="<%= index + 1 %>" aria-hidden="true"></i>
     <% end %>
   <% end %>

@@ -4,4 +4,6 @@
 
   // Reset the form
 $('.progress-bar').html("<%= j render 'shared/progress_bar'%>");
-progressBarEvents();
+setTimeout(function() {
+  progressBarEvents();
+}, 100);
