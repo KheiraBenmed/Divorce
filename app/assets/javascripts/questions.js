@@ -1,8 +1,11 @@
 function progressBarEvents() {
   $('.progress-point').on('click', function () {
     var question_target = $(this).data('number');
+    console.log(question_target);
     var question_current = $('.active').data('number')
+    console.log(question_current);
     var n = question_target - question_current
+    console.log(n);
     if (n > 0) {
       for (var i = 0; i < n; i += 1) {
         setTimeout(function() {
@@ -10,7 +13,7 @@ function progressBarEvents() {
         }, 100);
       };
     } else {
-      for (var i = 0; i < -(n - 1); i += 1) {
+      for (var i = 0; i > n; i -= 1) {
         setTimeout(function() {
           navigatedown();
         }, 100);
@@ -20,7 +23,12 @@ function progressBarEvents() {
 }
 
 $(document).ready(function() {
-
+  $('.prev').on('click', function() {
+    navigatedown();
+  })
+  $('.next').on('click', function() {
+    navigateup();
+  })
 
   $(document).keydown(function (e)
   {
@@ -44,22 +52,6 @@ $(document).ready(function() {
       var value = $(this).data('input');
       $(this).parent().prev().children('input').val(value).trigger("change");
     });
-
-    // navigation dans les questions => faire du toggleClass 'active'
-    $('.next').on('click', function() {
-      var question = $('.question-container.active');
-      $('.active').removeClass('active');
-      question.next().addClass('active');
-      $(this).parent().slideUp();
-    });
-
-    $('.prev').on('click', function() {
-      var question = $('.question-container.active');
-      $('.active').removeClass('active');
-      question.prev().addClass('active');
-      $(this).parent().prev().slideDown().css('display', 'flex');
-    });
-
 
     progressBarEvents();
 
@@ -117,7 +109,7 @@ function navigatedown() {
   var question = $('.question-container.active');
   $('.active').removeClass('active');
   question.prev().addClass('active');
-  question.slideDown().css('display', 'flex');
+  question.prev().slideDown().css('display', 'flex');
 }
 
 
