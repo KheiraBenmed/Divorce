@@ -52,6 +52,10 @@ class ProceduresController < ApplicationController
       @procedure.identity_children = convert_data_uri_to_upload(params[:identity_children_from_camera])
     end
 
+    if params[:acte_naissance_from_camera].present?
+      @procedure.acte_naissance = convert_data_uri_to_upload(params[:acte_naissance_from_camera])
+    end
+
     @procedure.update(procedure_params)
     ProcedureToArchiveService.new(@procedure).call
 
