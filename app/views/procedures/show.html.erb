@@ -7,7 +7,7 @@
       <div class="progress-wrap progress" data-progress-percent="<%= (12 - @champ_not_done)*100/12 %>">
         <div class="progress-bar progress"></div>
       </div>
-      <h1><%= @procedure.full_name %></h1>
+      <h3><%= @procedure.full_name.upcase %></h3>
       <div class="metrics">
         <div class="metrics-question">
           <i class="fa fa-question" style="font-size: 20px; margin: 5px" aria-hidden="true"></i>
@@ -66,7 +66,7 @@
 
 
   <div class="container_docs text-left">
-    <h4 style="color: #60919F; padding-left: 15px;"><strong>DOCUMENTS EN ATTENTE DE TELECHARGEMENT</strong></h4>
+    <h4 style="color: #60919F; padding-left: 15px;">DOCUMENTS EN ATTENTE DE TELECHARGEMENT</h4>
     <div class="row">
       <ul>
 
