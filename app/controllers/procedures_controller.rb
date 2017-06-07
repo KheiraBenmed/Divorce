@@ -51,10 +51,52 @@ class ProceduresController < ApplicationController
     if params[:identity_children_from_camera].present?
       @procedure.identity_children = convert_data_uri_to_upload(params[:identity_children_from_camera])
     end
-
     if params[:acte_naissance_from_camera].present?
       @procedure.acte_naissance = convert_data_uri_to_upload(params[:acte_naissance_from_camera])
     end
+    if params[:acte_naissance_spouse_from_camera].present?
+      @procedure.acte_naissance_spouse = convert_data_uri_to_upload(params[:acte_naissance_spouse_from_camera])
+    end
+    if params[:livret_from_camera].present?
+      @procedure.livret = convert_data_uri_to_upload(params[:livret_from_camera])
+    end
+    if params[:acte_mariage_from_camera].present?
+      @procedure.acte_mariage = convert_data_uri_to_upload(params[:acte_mariage_from_camera])
+    end
+    if params[:contract_mariage_from_camera].present?
+      @procedure.contract_mariage = convert_data_uri_to_upload(params[:contract_mariage_from_camera])
+    end
+    if params[:payroll_from_camera].present?
+      @procedure.payroll = convert_data_uri_to_upload(params[:payroll_from_camera])
+    end
+    if params[:payroll_dec_from_camera].present?
+      @procedure.payroll_dec = convert_data_uri_to_upload(params[:payroll_dec_from_camera])
+    end
+    if params[:pro_revenu_spouse_from_camera].present?
+      @procedure.pro_revenu_spouse = convert_data_uri_to_upload(params[:pro_revenu_spouse_from_camera])
+    end
+    if params[:bank_account_from_camera].present?
+      @procedure.bank_account = convert_data_uri_to_upload(params[:bank_account_from_camera])
+    end
+    if params[:taxes_from_camera].present?
+      @procedure.taxes = convert_data_uri_to_upload(params[:taxes_from_camera])
+    end
+    if params[:taxes_spouse_from_camera].present?
+      @procedure.taxes_spouse = convert_data_uri_to_upload(params[:taxes_spouse_from_camera])
+    end
+    if params[:taxe_habitation_from_camera].present?
+      @procedure.taxe_habitation = convert_data_uri_to_upload(params[:taxe_habitation_from_camera])
+    end
+    if params[:rent_from_camera].present?
+      @procedure.rent = convert_data_uri_to_upload(params[:rent_from_camera])
+    end
+    if params[:bills_from_camera].present?
+      @procedure.bills = convert_data_uri_to_upload(params[:bills_from_camera])
+    end
+    if params[:insurance_other_from_camera].present?
+      @procedure.insurance_other = convert_data_uri_to_upload(params[:insurance_other_from_camera])
+    end
+
 
     @procedure.update(procedure_params)
     #ZipJob.perform_later(@procedure.id)
