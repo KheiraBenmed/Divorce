@@ -2,7 +2,7 @@
   z-index: 1000;
   margin: auto;
   width: 100vw;
-  height: calc(80vh);
+  height: calc(100vh - 70px);
 }
 
 .map_box {
@@ -11,4 +11,7 @@
 }
 .position-fixed {
   position: fixed !important;
+}
+.gm-style-mtc {
+  display: none;
 }

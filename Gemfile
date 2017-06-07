@@ -17,6 +17,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'rubyzip'
 gem 'zip-zip' # will load compatibility for old rubyzip API.
+gem 'sidekiq'
+gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -27,6 +29,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "letter_opener", group: :development
 gem 'remotipart', '~> 1.2'
+gem 'postmark-rails'
 
 
 source 'https://rails-assets.org' do

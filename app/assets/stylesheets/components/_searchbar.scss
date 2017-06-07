@@ -4,8 +4,10 @@
     height: 62px;
     min-width: 710px;
     padding: 5px 0;
-    position: relative;
-    background-color: #f2f4f7;
+    position: absolute;
+    top: 107px;
+    left: 30px;
+    z-index: 300000;
   }
 
 #find .inputContainer {
@@ -32,4 +34,13 @@
   text-decoration: none;
   font-size: 20px;
   font-size: bold;
+  border: none;
+  border-radius: 5px;
 }
+
+.btn-search:hover {
+  text-decoration: none;
+  color: #60919F;
+  background-color: #F3C600;
+}
+

@@ -57,7 +57,7 @@ class ProceduresController < ApplicationController
     end
 
     @procedure.update(procedure_params)
-    ProcedureToArchiveService.new(@procedure).call
+    #ZipJob.perform_later(@procedure.id)
 
     respond_to do |format|
       format.html { redirect_to procedure_path(@procedure) }
