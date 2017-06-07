@@ -3,7 +3,7 @@
  <%= render 'shared/progress_bar' %>
 </div>
  <!-- questionnaire -->
-<%= simple_form_for @procedure do |f| %>
+<%= simple_form_for @procedure, :html => { :class => "questionnaire-form" } do |f| %>
 <div id="questions" data-procedure-id="<%= current_user.procedure.id %>">
    <% @questions.each_with_index do |question, i| %>
       <div class="question-container <%= i == 0 ? "active" : "" %>" id="question-<%=i %>" data-number="<%= i + 1 %>" >

@@ -66,45 +66,40 @@
 
 
   <div class="container_docs text-left">
-    <h4 style="color: #60919F; padding-left: 15px;">DOCUMENTS EN ATTENTE DE TELECHARGEMENT</h4>
+    <h4 style="color: #60919F; padding-left: 15px;">MES DOCUMENTS</h4>
     <div class="row">
-      <ul>
 
+    <ul>
 
       <!-- passeport -->
       <% if @procedure.full_name != "" %>
         <%= simple_form_for @procedure do |f| %>
           <div class="col-xs-12 col-sm-6 col-lg-4">
-              <%= hidden_field_tag :passport_from_camera %>
-              <% if @procedure[:passport].nil? %>
+              <%= hidden_field_tag :passeport_from_camera %>
                 <div class="cards">
-                  <div class="card-nil text-center">
-                    <h3 class="card__title doc-description-nil text-center">Votre Passeport</h3>
-                    <div class="card__preview" style="background-image: url('<%= cl_image_tag('add-file.png')%>');">
-                    </div>
-                    <div class="card__info">
-                      <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_from_camera"><i class="fa fa-camera"></i></div>
-                      <%= f.submit "Valider", class: "btn-validate" %>
-                      <i class="fa fa-upload"></i>
-                      <i class="fa fa-eye"></i>
+                    <div class="card-nil text-center">
+                      <% if @procedure[:passport].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.passport, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Votre passeport</div>
+
+                        <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                        <label for="procedure_passport"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :passport, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :passport_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
                     </div>
                   </div>
-                </div>
-              <% else %>
-                <div class="cards">
-                  <div class="card text-center">
-                    <h3 class="card__title doc-description text-center">Votre Passeport</h3>
-                    <div class="card__preview">
-                      <%= cl_image_tag @procedure.passport, class: "doc-preview" %>
-                    </div>
-                    <div class="card__info">
-                      <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                      <i class="fa fa-upload" aria-hidden="true"></i>
-                      <i class="fa fa-eye"></i>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
           </div>
         <% end  %>
       <% end %>
@@ -113,35 +108,31 @@
       <% if @procedure.full_name != "" %>
         <%= simple_form_for @procedure do |f| %>
           <div class="col-xs-12 col-sm-6 col-lg-4">
-              <%= hidden_field_tag :passport_spouse_from_camera %>
-              <% if @procedure[:passport_spouse].nil? %>
+              <%= hidden_field_tag :passeport_spouse_from_camera %>
                 <div class="cards">
-                  <div class="card-nil text-center">
-                    <h3 class="card__title doc-description-nil text-center">Passeport de votre conjoint</h3>
-                    <div class="card__preview" style="background-image: url('<%= image_path('add-file.png')%>');">
-                    </div>
-                    <div class="card__info">
-                      <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_spouse_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                      <i class="fa fa-upload" aria-hidden="true"></i>
-                      <i class="fa fa-eye"></i>
+                    <div class="card-nil text-center">
+                      <% if @procedure[:passport_spouse].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.passport_spouse, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Passeport de votre conjoint</div>
+
+                        <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_spouse_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                        <label for="procedure_passport_spouse"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :passport_spouse, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :passport_spouse_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
                     </div>
                   </div>
-                </div>
-              <% else %>
-                <div class="cards">
-                  <div class="card text-center">
-                    <h3 class="card__title doc-description text-center">Passeport de votre conjoint</h3>
-                    <div class="card__preview">
-                      <%= cl_image_tag @procedure.passport_spouse, class: "doc-preview" %>
-                    </div>
-                    <div class="card__info">
-                      <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_spouse_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                      <i class="fa fa-upload" aria-hidden="true"></i>
-                      <i class="fa fa-eye"></i>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
           </div>
         <% end  %>
       <% end %>
@@ -152,37 +143,31 @@
         <% if @procedure.child_nb > 0 %>
         <%= simple_form_for @procedure do |f| %>
           <div class="col-xs-12 col-sm-6 col-lg-4">
-              <%= hidden_field_tag :passport_children_from_camera %>
-              <% if @procedure[:passport_children].nil? %>
+              <%= hidden_field_tag :passeport_children_from_camera %>
                 <div class="cards">
-                  <div class="card-nil text-center">
-                    <h3 class="card__title doc-description-nil text-center">Passeport de vos enfants</h3>
-                    <div class="card__preview" style="background-image: url('<%= image_path('add-file.png')%>');">
-                    </div>
-                    <div class="card__info">
+                    <div class="card-nil text-center">
+                      <% if @procedure[:passport_children].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.passport_children, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Passeport de vos enfants</div>
 
                         <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_children_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                        <i class="fa fa-upload" aria-hidden="true"></i>
-                        <i class="fa fa-eye"></i>
-                    </div>
-                  </div>
-                </div>
-              <% else %>
-                <div class="cards">
-                  <div class="card text-center">
-                    <h3 class="card__title doc-description text-center">Passeport de vos enfants</h3>
-                    <div class="card__preview">
-                      <%= cl_image_tag @procedure.passport_children, class: "doc-preview" %>
-                    </div>
-                    <div class="card__info">
-                      <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="passport_children_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                      <i class="fa fa-upload" aria-hidden="true"></i>
-                      <i class="fa fa-eye"></i>
-                    </div>
-                  </div>
-                </div>
 
-              <% end %>
+                        <label for="procedure_passport_children"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :passport_children, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :passport_children_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
+                    </div>
+                  </div>
           </div>
         <% end  %>
         <% end %>
@@ -190,109 +175,172 @@
 
 <!-- identité de la personne-->
       <% if @procedure.full_name != "" %>
-      <%= simple_form_for @procedure do |f| %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-            <%= hidden_field_tag :identity_from_camera %>
-            <% if @procedure[:identity].nil? %>
-              <div class="cards">
-                  <div class="card-nil text-center">
-                    <h3 class="card__title doc-description-nil text-center">Votre carte d'identité</h3>
-                    <div class="card__preview" style="background-image: url('<%= image_path('add-file.png')%>');">
-                    </div>
-                    <div class="card__info">
+        <%= simple_form_for @procedure do |f| %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :identity_from_camera %>
+                <div class="cards">
+                    <div class="card-nil text-center">
+                      <% if @procedure[:identity].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.identity, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Votre carte d'identité</div>
 
                         <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                        <i class="fa fa-upload" aria-hidden="true"></i>
-                        <i class="fa fa-eye"></i>
+
+                        <label for="procedure_identity"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :identity, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :identity_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
                     </div>
                   </div>
-                </div>
-              <% else %>
-                <div class="cards">
-                  <div class="card text-center">
-                    <h3 class="card__title doc-description text-center">Votre carte d'identité</h3>
-                    <div class="card__preview">
-                      <%= cl_image_tag @procedure.identity, class: "doc-preview" %>
-                    </div>
-                    <div class="card__info">
-                      <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
-                      <i class="fa fa-upload" aria-hidden="true"></i>
-                      <i class="fa fa-eye"></i>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-        </div>
-      <% end  %>
+          </div>
+        <% end  %>
       <% end %>
 
 <!-- identité de votre conjoint-->
       <% if @procedure.full_name != "" %>
-      <%= simple_form_for @procedure do |f| %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="doc">
-            <div class="doc-description"><ol>Carte d'identité de votre conjoint</ol></div>
-            <%= hidden_field_tag :identity_spouse_from_camera %>
-            <% if @procedure[:identity_spouse].nil? %>
-              <div type="button" class="camBtn btn-upload text-center" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_spouse_from_camera"><i class="fa fa-camera"></i>Scanner</div>
-              <div type="button" class="btn-upload text-center"><i class="fa fa-cloud-upload"></i>
-              <%= f.label "Télécharger", class: "upload" %></div>
-              <%= f.file_field :identity_spouse, class: "btn-file" %>
-              <%= f.file_field :identity_spouse_cache, as: :hidden, class: "btn-file" %>
-              <%= f.submit "Telécharger", class: "btn-file" %>
-              <%= f.submit "Valider", class: "btn-validate" %>
-            <% else %>
-              <div class="doc-category text-center">TELECHARGER</div>
-              <div class="badge badge-green"><i class="fa fa-check" aria-hidden="true"></i></div>
-              <%= cl_image_tag @procedure.identity_spouse %>
-            <% end %>
+        <%= simple_form_for @procedure do |f| %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :identity_spouse_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:identity_spouse].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.identity_spouse, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Carte d'identité de votre conjoint</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_spouse_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_identity_spouse"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :identity_spouse, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :identity_spouse_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
-      <% end  %>
+        <% end  %>
       <% end %>
 
+<!-- identité des enfants-->
       <% if !@procedure.child_nb.nil? %>
         <% if @procedure.child_nb > 0 %>
         <%= simple_form_for @procedure do |f| %>
           <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="doc">
-              <div class="doc-description"><ol>Carte d'identité de vos enfants</ol></div>
               <%= hidden_field_tag :identity_children_from_camera %>
-              <% if @procedure[:identity_childen].nil? %>
-                <div type="button" class="camBtn btn-upload text-center" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_children_from_camera"><i class="fa fa-camera"></i>Scanner</div>
-                <div type="button" class="camBtn btn-upload text-center"><i class="fa fa-cloud-upload"></i>Télécharger</div>
-                <%= f.submit "Valider", class: "btn-validate" %>
-              <% end %>
-            </div>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:identity_children].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.identity_children, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Carte d'identité de vos enfants</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="identity_children_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_identity_children"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :identity_children, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :identity_children_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
           </div>
         <% end %>
         <% end %>
       <% end %>
 
+<!-- Acte de naissance-->
       <% if @procedure.full_name != "" %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="doc">
-              <div class="doc-description"><ol>Votre Acte de naissance</ol></div>
-              <% if @procedure[:acte_naissance].nil? %>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
+        <%= simple_form_for @procedure do |f| %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :acte_naissance_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:acte_naissance].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.acte_naissance, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Votre acte de naissance</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="acte_naissance_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_acte_naissance"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :acte_naissance, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :acte_naissance_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
+<!-- Acte de naissance de votre conjoint-->
       <% if @procedure.full_name != "" %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="doc">
-              <div class="doc-description"><ol>Acte de naissance de votre conjoint</ol></div>
-              <% if @procedure[:acte_naissance_spouse].nil? %>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
+        <%= simple_form_for @procedure do |f| %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :acte_naissance_spouse_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:acte_naissance_spouse].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.acte_naissance_spouse, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Acte de naissance de votre conjoint</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="acte_naissance_spouse_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_acte_naissance_spouse"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :acte_naissance_spouse, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :acte_naissance_spouse_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
+<!-- Acte de naissance de vos enfants-->
       <% if !@procedure.child_nb.nil? %>
         <% if @procedure.child_nb > 0 %>
           <div class="col-xs-12 col-sm-6 col-lg-4">
@@ -307,70 +355,166 @@
         <% end %>
       <% end %>
 
+<!-- Livret de famille-->
       <% if @procedure.full_name != "" %>
-      <%= simple_form_for @procedure do |f| %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="doc">
-            <div class="doc-description"><ol>Livret de famille</ol></div>
-            <%= hidden_field_tag :livret_from_camera %>
-            <% if @procedure[:livret].nil? %>
-                <div type="button" class="camBtn btn-upload text-center" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="livret_from_camera"><i class="fa fa-camera"></i>Scanner</div>
-                <div type="button" class="camBtn btn-upload text-center"><i class="fa fa-cloud-upload"></i>Télécharger</div>
-                <%= f.submit "Valider", class: "btn-validate" %>
-            <% else %>
-              <div class="doc-category text-center">TELECHARGER UN NOUVEAU FICHIER</div>
-              <%= cl_image_tag @procedure.livret %>
-            <% end %>
+        <%= simple_form_for @procedure do |f| %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :livret_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:livret].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.livret, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Livret de famille</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="livret_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_livret"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :livret, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :livret_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
-      <% end  %>
+        <% end %>
       <% end %>
 
+<!-- Acte de marriage-->
       <% if @procedure.full_name != "" %>
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="doc">
-            <div class="doc-description"><ol>Acte de marriage</ol></div>
-            <% if @procedure[:acte_mariage].nil? %>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-        </div>
-      </div>
+        <%= simple_form_for @procedure do |f| %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :acte_mariage_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:acte_mariage].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.acte_mariage, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Votre acte de mariage</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="acte_mariage_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_acte_mariage"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :acte_mariage, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :acte_mariage_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
+          </div>
+        <% end %>
       <% end %>
 
+<!-- Contrat de marriage-->
       <% if @procedure.marriage_contract == true %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="doc">
-              <div class="doc-description"><ol>Contrat de marriage</ol></div>
-              <% if @procedure[:contract_mariage].nil? %>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
+        <%= simple_form_for @procedure do |f| %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :contract_mariage_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:contract_mariage].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.contract_mariage, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Contrat de Mariage</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="contract_mariage_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_contract_mariage"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :contract_mariage, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :contract_mariage_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
+<!-- Statut pro du current user-->
       <% if !@procedure.status_pro.nil? %>
-
           <% if @procedure.status_pro = "Salarié" %>
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-              <div class="doc">
-                <div class="doc-description"><ol>3 derniers Bulletins de salaires</ol></div>
-                <% if @procedure[:payroll].nil? %>
-                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <% end %>
+            <%= simple_form_for @procedure do |f| %>
+              <div class="col-xs-12 col-sm-6 col-lg-4">
+                  <%= hidden_field_tag :payroll_from_camera %>
+                  <div class="cards">
+                    <div class="card-nil text-center">
+                      <% if @procedure[:payroll].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.payroll, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Vos 3 derniers bulletins de salaire</div>
+
+                        <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="payroll_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                        <label for="procedure_payroll"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :payroll, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :payroll_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
+                    </div>
+                  </div>
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-              <div class="doc">
-                <div class="doc-description"><ol>Bulletin de salaires de décembre</ol></div>
-                <% if @procedure[:payroll_dec].nil? %>
-                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <% end %>
+            <% end %>
+            <%= simple_form_for @procedure do |f| %>
+              <div class="col-xs-12 col-sm-6 col-lg-4">
+                  <%= hidden_field_tag :payroll_dec_from_camera %>
+                  <div class="cards">
+                    <div class="card-nil text-center">
+                      <% if @procedure[:payroll_dec].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.payroll_dec, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Votre bulletin de Décembre Dernier</div>
+
+                        <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="payroll_dec_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                        <label for="procedure_payroll_dec"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :payroll_dec, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :payroll_dec_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
+                    </div>
+                  </div>
               </div>
-            </div>
+            <% end %>
 
           <% elsif @procedure.status_pro = "Chef d'enterprise" %>
             <div class="col-xs-12 col-sm-6 col-lg-4">
@@ -407,9 +551,9 @@
           <% end %>
       <% end %>
 
-      <% if !@procedure.status_pro.nil? %>
-
-          <% if @procedure.status_pro = "Salarié" %>
+<!-- Statut pro du conjoint-->
+      <% if !@procedure.status_pro_conjoint.nil? %>
+          <% if @procedure.status_pro_conjoint == "Salarié" %>
             <div class="col-xs-12 col-sm-6 col-lg-4">
               <div class="doc">
                 <div class="doc-description"><ol>3 derniers Bulletins de salaires</ol></div>
@@ -429,16 +573,36 @@
               </div>
             </div>
 
-          <% elsif @procedure.status_pro = "Liberal" %>
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-              <div class="doc">
-                <div class="doc-description"><ol>Déclaration de revenu professionnel</ol></div>
-                  <% if @procedure[:pro_revenu_spouse].nil? %>
-                    <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                    <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-                  <% end %>
+          <% elsif @procedure.status_pro_conjoint == "Libéral" %>
+            <%= simple_form_for @procedure do |f| %>
+              <div class="col-xs-12 col-sm-6 col-lg-4">
+                  <%= hidden_field_tag :pro_revenu_spouse_from_camera %>
+                  <div class="cards">
+                    <div class="card-nil text-center">
+                      <% if @procedure[:pro_revenu_spouse].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.pro_revenu_spouse, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Déclaration de revenu pro de votre conjoint</div>
+
+                        <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="pro_revenu_spouse_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                        <label for="procedure_pro_revenu_spouse"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :pro_revenu_spouse, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :pro_revenu_spouse_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
+                    </div>
+                  </div>
               </div>
-            </div>
+            <% end %>
 
           <% else %>
             <div class="col-xs-12 col-sm-6 col-lg-4">
@@ -453,42 +617,105 @@
           <% end %>
       <% end %>
 
+<!-- Relevé bancaire des comptes -->
       <% if !@procedure.bank_account_nb.nil? %>
         <% if @procedure.bank_account_nb > 0 %>
+          <%= simple_form_for @procedure do |f| %>
+              <div class="col-xs-12 col-sm-6 col-lg-4">
+                  <%= hidden_field_tag :bank_account_from_camera %>
+                  <div class="cards">
+                    <div class="card-nil text-center">
+                      <% if @procedure[:bank_account].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.bank_account, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Relevé bancaire de vos comptes</div>
+
+                        <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="bank_account_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                        <label for="procedure_bank_account"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :bank_account, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :bank_account_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <% end %>
+        <% end %>
+      <% end %>
+
+<!-- Avis d'imposition -->
+      <% if @procedure.full_name != "" %>
+        <%= simple_form_for @procedure do |f| %>
           <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="doc">
-              <% if @procedure[:bank_account].nil? %>
-                <div class="doc-description"><ol>Relevés bancaires de vos comptes</ol></div>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
-            </div>
+                  <%= hidden_field_tag :taxes_from_camera %>
+                  <div class="cards">
+                    <div class="card-nil text-center">
+                      <% if @procedure[:taxes].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.taxes, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Votre avis d'imposition</div>
+
+                        <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="taxes_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                        <label for="procedure_taxes"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :taxes, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :taxes_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
+                    </div>
+                  </div>
           </div>
         <% end %>
       <% end %>
 
-      <% if !@procedure.full_name == "" %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="doc">
-            <% if @procedure[:taxes].nil? %>
-              <div class="doc-description"><ol>Avis d'impositions</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+<!-- Avis d'imposition de votre conjoint-->
+      <% if @procedure.full_name != "" %>
+        <%= simple_form_for @procedure do |f| %>
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+                  <%= hidden_field_tag :taxes_spouse_from_camera %>
+                  <div class="cards">
+                    <div class="card-nil text-center">
+                      <% if @procedure[:taxes_spouse].nil? %>
+                        <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                        </div>
+                      <% else %>
+                        <div class="card__preview">
+                          <%= cl_image_tag @procedure.taxes_spouse, class: "doc-preview" %>
+                        </div>
+                      <% end %>
+                      <div class="card__info">
+                        <div class="doc-des">Avis d'imposition de votre conjoint</div>
 
-      <% if !@procedure.full_name == "" %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="doc">
-            <% if @procedure[:taxes_spouse].nil? %>
-              <div class="doc-description"><ol>Avis d'imposition de votre conjoint</ol></div>
-              <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-              <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <% end %>
+                        <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="taxes_spouse_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                        <label for="procedure_taxes_spouse"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                        <%= f.file_field :taxes_spouse, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                        <%= f.hidden_field :taxes_spouse_cache %>
+                        <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                        <!-- <i class="fa fa-eye"></i> -->
+                      </div>
+                    </div>
+                  </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
 
@@ -521,35 +748,76 @@
         <% end %>
       <% end %>
 
-
+<!-- Taxe d'habitation -->
       <% if !@procedure.renter_nb.nil? %>
         <% if @procedure.renter_nb > 0 %>
-          <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="doc">
-                <div class="doc-description"><ol>Taxe d'habitation</ol></div>
-                <% if @procedure[:taxe_habitation].nil? %>
-                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <% end %>
+          <%= simple_form_for @procedure do |f| %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :taxe_habitation_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:taxes_habitation].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                            <%= cl_image_tag @procedure.taxe_habitation, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Votre dernière taxe d'habitation</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="taxe_habitation_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_taxe_habitation"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :taxe_habitation, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :taxe_habitation_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
 
-
-      <% if !@procedure.renter_nb.nil? %>`
+<!-- Quittance de loyer -->
+      <% if !@procedure.renter_nb.nil? %>
         <% if @procedure.renter_nb > 0 %>
-          <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="doc">
-                <div class="doc-description"><ol>Quittance de loyer</ol></div>
-                <% if @procedure[:rent].nil? %>
-                  <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                  <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <% end %>
+          <%= simple_form_for @procedure do |f| %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :rent_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:rent].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                            <%= cl_image_tag @procedure.rent, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Vos 3 dernières quittances de loyer</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="rent_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_rent"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :rent, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :rent_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
+
 
       <% if !@procedure.child_nb.nil? %>
         <% if @procedure.child_nb > 0 %>
@@ -607,32 +875,71 @@
         <% end %>
       <% end %>
 
+<!-- Facture EDF -->
+      <% if @procedure.full_name != "" %>
+          <%= simple_form_for @procedure do |f| %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :bills_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:bills].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.bills, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Un justificatif de domicile</div>
 
-      <% if !@procedure.renter_nb.nil? && !@procedure.owner_nb.nil? %>
-        <% if @procedure.renter_nb > 0 && @procedure.owner_nb > 0 %>
-          <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="doc">
-              <div class="doc-description"><ol>Justificatif de domicile - Facture EDF ou telephone</ol></div>
-              <% if @procedure[:bills].nil? %>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="bills_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_rent"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :bills, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :bills_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
       <% end %>
 
+<!-- Assurance justif -->
       <% if !@procedure.insurance_nb.nil? %>
         <% if @procedure.insurance_nb > 0 %>
-          <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="doc">
-              <div class="doc-description"><ol>Justificatifs d'Assurance</ol></div>
-              <% if @procedure[:insurance_other].nil? %>
-                <div class="doc-category btn-call-to-action text-center">SCANNER OU TELECHARGER</div>
-                <div class="badge badge-red"><i class="fa fa-times" aria-hidden="true"></i></div>
-              <% end %>
+          <%= simple_form_for @procedure do |f| %>
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+              <%= hidden_field_tag :insurance_other_from_camera %>
+              <div class="cards">
+                <div class="card-nil text-center">
+                  <% if @procedure[:insurance_other].nil? %>
+                    <div class="card__preview__nil" style="background-image: url('<%= image_path('add-file.png')%>');">
+                    </div>
+                  <% else %>
+                    <div class="card__preview">
+                      <%= cl_image_tag @procedure.insurance_other, class: "doc-preview" %>
+                    </div>
+                  <% end %>
+                  <div class="card__info">
+                    <div class="doc-des">Justificatif de votre assurance</div>
+
+                    <div type="button" class="camBtn" data-toggle="modal" data-type="1" data-target="#camMod" data-camera-snapshot-field="insurance_other_from_camera"><i class="fa fa-camera" aria-hidden="true"></i></div>
+
+                    <label for="procedure_insurance_other"><i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <%= f.file_field :insurance_other, class: "recap-file-upload", style: "font-size: 6px; display: none"%>
+                    <%= f.hidden_field :insurance_other_cache %>
+                    <%#= f.submit "Telécharger", style: "font-size: 6px" %>
+
+                    <!-- <i class="fa fa-eye"></i> -->
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
 
@@ -653,7 +960,7 @@
       </div>
       <div class="modal-body" style="padding: 0px">
         <video id="video" width="100%" height="480" autoplay></video>
-        <canvas id="canvas" width="100%" height="480" class="hide"></canvas>
+        <canvas id="canvas" width="100%" height="200" class="hide"></canvas>
         <div class="text-center">
           <a class="btn btn-primary" style="margin: 10px" id="snap" data-type='1'>Snap Photo</a>
         </div>
@@ -663,69 +970,161 @@
 </div>
 
 
-<!-- <div class="dashboard">
+<ul>
+  <% if !@procedure.full_name.nil? %>
+    <% if !@procedure[:passport].nil? || !@procedure[:passport_spouse].nil? %>
+      <li>Passport</li>
+      <li>Passport conjoint</li>
+    <% end %>
+  <% end %>
 
-  <div class="overview-nav">
+  <% if !@procedure.child_nb.nil? %>
+    <% if @procedure.child_nb > 0 %>
+      <% for i in 1..(@procedure.child_nb) %>
+        <li>Passeport du <%= i %>er enfant </li>
+      <% end %>
+    <% end %>
+  <% end %>
 
-  </div>
+  <!-- ID exemple -->
+  <% if !@procedure.full_name == "" %>
+    <% if !@procedure[:identity].nil? || !@procedure[:identity_spouse].nil? %>
+      <li>Carte d’Identite</li>
+      <li>Carte d’Identite conjoint</li>
+    <% end %>
+  <% end %>
 
-  <section class="overview">
-    <div class="wrapper">
-      <div class="overview-container">
-        <div class="campaign-search">
-          <h2>Search</h2>
-        </div>
-        <div class="dashboard-overview">
-          <div class="location-card--wrap">
-            <div class="location-card">
-              <div class="status offline">
-                <span class="">offline</span>
-              </div>
-              <div class="preview">
-                <div class="img-wrap">
-                  <div class="campaign-image"></div>
-                </div>
-            </div>
-              <div class="controls">
-                 <div class="edit-title">
-                    <svg viewBox="0 0 18 18" style="display: inline-block; color: rgba(0, 0, 0, 0.870588); fill: rgb(255, 255, 255); height: 25px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; user-select: none;"><g transform="translate(-51.000000, -27.000000)"><g transform="translate(48.000000, 24.000000)"><path d="M3,17.25 L3,21 L6.75,21 L17.81,9.94 L14.06,6.19 L3,17.25 L3,17.25 Z M20.71,7.04 C21.1,6.65 21.1,6.02 20.71,5.63 L18.37,3.29 C17.98,2.9 17.35,2.9 16.96,3.29 L15.13,5.12 L18.88,8.87 L20.71,7.04 L20.71,7.04 Z"></path></g></g></svg>
-                    <span>View Dashboard</span>
-                  </div>
-                <div class="campaign-title">
-                  <span class="title">Car Star – Location 1</span>
-                </div>
-                <div class="settings">
-                  <button>
-                    <span>test</span>
-                  </button>
-                </div>
+  <% if !@procedure.child_nb.nil? %>
+    <% if @procedure.child_nb > 0 %>
+      <% for i in 1..(@procedure.child_nb) %>
+        <li>Carte d'identité du <%= i %>er enfant </li>
+      <% end %>
+    <% end %>
+  <% end %>
 
-                </div>
-              <div class="hover-settings">
-                  <div class="row">
-                    <div class="set">
-                      <a href="http://ormtools.xyz/dashboard" class="tooltip" title="View Dashboard" tabindex="0" type="button">
-                        <svg viewBox="0 0 18 18" style="display: inline-block; color: rgba(0, 0, 0, 0.870588); fill: rgb(76, 83, 95); height: 16px; width: 16px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; user-select: none;"><g transform="translate(-51.000000, -27.000000)"><g transform="translate(48.000000, 24.000000)"><path d="M3,17.25 L3,21 L6.75,21 L17.81,9.94 L14.06,6.19 L3,17.25 L3,17.25 Z M20.71,7.04 C21.1,6.65 21.1,6.02 20.71,5.63 L18.37,3.29 C17.98,2.9 17.35,2.9 16.96,3.29 L15.13,5.12 L18.88,8.87 L20.71,7.04 L20.71,7.04 Z"></path></g></g></svg></a>
-                    </div>
-                    <div class="set">
-                      <a href="http://ormtools.xyz/dashboard/location/11" class="tooltip" title="Location Reports" tabindex="0" type="button">
-                        <svg viewBox="0 0 18 18" style="display: inline-block; color: rgba(0, 0, 0, 0.870588); fill: rgb(76, 83, 95); height: 16px; width: 16px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; user-select: none;"><g transform="translate(-195.000000, -363.000000)"><g transform="translate(192.000000, 360.000000)"><path d="M19,3 L5,3 C3.9,3 3,3.9 3,5 L3,19 C3,20.1 3.9,21 5,21 L19,21 C20.1,21 21,20.1 21,19 L21,5 C21,3.9 20.1,3 19,3 L19,3 Z M9,17 L7,17 L7,10 L9,10 L9,17 L9,17 Z M13,17 L11,17 L11,7 L13,7 L13,17 L13,17 Z M17,17 L15,17 L15,13 L17,13 L17,17 L17,17 Z"></path></g></g></svg></a>
-                    </div>
-                    <div class="set">
-                      <a href="http://carstarsoutheast.surveypanda.ca/" class="tooltip" title="View Funnel" tabindex="0" type="button">
-                        <svg viewBox="0 0 24 24" style="display: inline-block; color: rgba(0, 0, 0, 0.870588); fill: rgb(76, 83, 95); height: 16px; width: 16px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; user-select: none;"><path d="M12,4.5 C7,4.5 2.73,7.61 1,12 C2.73,16.39 7,19.5 12,19.5 C17,19.5 21.27,16.39 23,12 C21.27,7.61 17,4.5 12,4.5 L12,4.5 Z M12,17 C9.24,17 7,14.76 7,12 C7,9.24 9.24,7 12,7 C14.76,7 17,9.24 17,12 C17,14.76 14.76,17 12,17 L12,17 Z M12,9 C10.34,9 9,10.34 9,12 C9,13.66 10.34,15 12,15 C13.66,15 15,13.66 15,12 C15,10.34 13.66,9 12,9 L12,9 Z"></path></svg></a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
+  <!-- acte de naissance exemple -->
+  <% if !@procedure.full_name == "" %>
+    <% if !@procedure[:acte_naissance].nil? || !@procedure[:acte_naissance_spouse].nil? %>
+      <li>Acte de Naissance</li>
+      <li>Acte de Naissance conjoint</li>
+    <% end %>
+  <% end %>
 
-        </div>
+  <% if !@procedure.child_nb.nil? %>
+    <% if @procedure.child_nb > 0 %>
+      <% for i in 1..(@procedure.child_nb) %>
+        <li>Acte de naissance du <%= i %>er enfant </li>
+      <% end %>
+    <% end %>
+  <% end %>
 
-      </div>
-    </div>
+  <!-- contrat de mariage exemple -->
+  <% if !@procedure.full_name == "" %>
+    <% if !@procedure[:livret].nil? || !@procedure[:acte_mariage].nil? %>
+      <li>Livret de Famille </li>
+      <li>Acte de Mariage</li>
+    <% end %>
+  <% end %>
 
-  </section>
+  <% if !@procedure.marriage_contract.nil? %>
+    <% if @procedure.marriage_contract == true %>
+      <li>Contrat de Mariage </li>
+    <% end %>
+  <% end %>
 
-</div> -->
+  <!--   listing du revenu -->
+  <% if !@procedure.status_pro == "" %>
+      <% if @procedure.status_pro == "Salarié" %>
+        <li>Dernier Bulletin de Salaire</li>
+        <li>Bulletin de Salaire du mois de décembre de l’année précédente</li>
+      <% elsif @procedure.status_pro == "Chef d'entreprise" %>
+        <li>Trois derniers Bilan Entreprise</li>
+      <% elsif @procedure.status_pro == "Sans emploi" %>
+        <li>Attestation Chômage (check exact document) </li>
+      <% elsif @procedure.status_pro == "Libéral" %>
+        <li>Trois dernières Déclaration de Revenus professionnels </li>
+      <% end %>
+  <% end %>
 
+  <% if @procedure.status_pro_conjoint == "" %>
+  <% else %>
+    <% if @procedure.status_pro_conjoint == "Salarié" %>
+      <li>Dernier Bulletin de Salaire du conjoint </li>
+      <li>Bulletin de Salaire du mois de décembre de l’année précédente du conjoint </li>
+    <% elsif @procedure.status_pro_conjoint == "Chef d'entreprise" %>
+      <li>Trois derniers Bilan Entreprise du conjoint </li>
+    <% elsif @procedure.status_pro_conjoint == "Sans emploi" %>
+      <li>Attestation Chômage (check exact document) du conjoint </li>
+    <% elsif @procedure.status_pro_conjoint == "Libéral" %>
+      <li>Trois dernières Déclaration de Revenus professionnels du conjoint </li>
+    <% end %>
+  <% end %>
+
+  <% if !@procedure.bank_account_nb.nil? %>
+    <% if @procedure.bank_account_nb > 0 %>
+      <% for i in 1..(@procedure.bank_account_nb) %>
+        <li>Relevés du <%= i %>er compte bancaire</li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if !@procedure.full_name == "" %>
+    <% if !@procedure[:taxes].nil? %>
+      <li>Trois derniers avis d’imposition</li>
+    <% end %>
+  <% end %>
+
+  <% if !@procedure.owner_nb.nil? %>
+    <% if @procedure.owner_nb > 0 %>
+      <% for i in 1..(@procedure.owner_nb) %>
+        <li>Titre de propriété de la <%= i %>er propriété</li>
+        <li>Revenues Fonciers de la <%= i %>er propriété</li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if !@procedure.renter_nb.nil? %>
+    <% if @procedure.renter_nb > 0 %>
+      <% for i in 1..(@procedure.renter_nb) %>
+        <li>Taxe habitation de la <%= i %>er location</li>
+        <li>Taxe foncière de la <%= i %>er location</li>
+        <li>Quittance Loyer de la <%= i %>er location</li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if !@procedure.vehicle_nb.nil? %>
+    <% if @procedure.vehicle_nb > 0 %>
+      <% for i in 1..(@procedure.vehicle_nb) %>
+        <li>Carte Grise de votre <%= i %>er véhicule</li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if !@procedure.vehicle_nb.nil? %>
+    <li>Assurance véhicule</li>
+  <% end %>
+
+  <% if !@procedure[:bills].nil? %>
+    <li>Factures (EDF, eau, tel…) </li>
+  <% end %>
+
+  <% if !@procedure.child_nb.nil? %>
+    <% if @procedure.child_nb > 0 %>
+      <li>Relevé de la CAF</li>
+    <% end %>
+  <% end %>
+
+
+  <% if !@procedure.child_nb.nil? %>
+    <% if @procedure.child_nb > 0 %>
+      <% for i in 1..(@procedure.child_nb) %>
+        <li>Certificats scolarité du <%= i %>er enfant</li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if !@procedure.insurance_nb.nil? %>
+    <li>Assurance diverse</li>
+  <% end %>
+</ul>

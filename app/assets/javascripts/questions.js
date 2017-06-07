@@ -39,7 +39,7 @@ $(document).ready(function() {
       }
   });
 
-  $("form.edit_procedure").on("submit", function(e) {
+  $("form.questionnaire-form").on("submit", function(e) {
     e.preventDefault();
     return false;
   })

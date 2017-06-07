@@ -75,7 +75,8 @@ $(document).ready(function() {
 
     // Draw the image based on the streaming to a canvas.
     $("#snap").click(function(){
-      var snapshot_field = $(this).data("camera-snapshot-field");
+      var snapshot_field_name = $(this).data("camera-snapshot-field");
+      var snapshot_field = $("#" + snapshot_field_name);
 
       context.drawImage(video, 0, 0, 640, 480);
 
@@ -83,10 +84,13 @@ $(document).ready(function() {
       $datauri = $("#canvas")[0].toDataURL();
 
       // From here you can place it on your hidden field
-     $("#" + snapshot_field).val($datauri);
+      $(snapshot_field).val($datauri);
 
      // [Optional] I prefer to close the modal once this is done.
-      $('#camMod').modal('toggle')
+      $('#camMod').modal('toggle');
+
+      var form = $(snapshot_field).parents("form:first");
+      form.trigger('submit');
     });
 
     $(".camBtn").click(function(){
