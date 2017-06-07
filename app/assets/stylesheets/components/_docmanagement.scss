@@ -16,25 +16,27 @@
   padding-left: 10px;
 }
 
-.doc-nil {
-  position: relative;
-  display: flex;
-  // justify-content: flex-start;
-  align-items: center;
-  justify-content: space-around;
-  margin: 5px;
-  height: 250px;
-  background-color: white;
-  border-radius: 5px;
-  list-style: none;
-  background-color: #60919F;
-  // padding: 10px;
-  border: 1px solid #CCC;
-  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
-  box-sizing: border-box;
-  // cursor: pointer;
-  // border-radius: 3px;
-}
+// .doc-nil {
+//   position: relative;
+//   display: flex;
+//   // justify-content: flex-start;
+//   align-items: center;
+//   justify-content: space-around;
+//   margin: 5px;
+//   height: 250px;
+//   background-color: white;
+//   border-radius: 5px;
+//   list-style: none;
+//   background-color: #60919F;
+//   // padding: 10px;
+//   border: 1px solid #CCC;
+//   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+//   box-sizing: border-box;
+//   // cursor: pointer;
+//   // border-radius: 3px;
+
+
+// }
 
 .doc {
   position: relative;
@@ -56,46 +58,18 @@
   // border-radius: 3px;
 }
 
-.doc-description-nil {
-  position: absolute;
-  top: 0px;
-  font-weight: bold;
-  font-size: 14px;
-  height: 30px;
-  background-color: white;
-  width: 100%;
-  display: flex;
-  padding-left: 10px;
-  align-items: center;
-}
 
-.doc-description {
-  position: absolute;
-  top: 0px;
-  font-weight: bold;
-  font-size: 14px;
-  height: 30px;
-  width: 100%;
-  display: flex;
-  padding-left: 10px;
-  align-items: center;
-  background-color: #60919F;
-}
 
-.state {
-  width: 150px;
-  background-size: cover;
-  height: 150px;
-}
+
 
 
 .add {
   position: absolute;
-  bottom: 0px;
+  bottom: 10px;
   font-weight: bold;
-  font-size: 16px;
-  height: 30px;
-  background-color: white;
+  font-size: 40px;
+  height: 100px;
+  // background-color: white;
   width: 100%;
   display: flex;
   padding-left: 10px;
@@ -113,18 +87,7 @@
   right: 10px;
 }
 
-.doc-preview {
-  position: absolute;
-  top: 40px;
-  align-items: left;
-  align-self: auto;
-  height: 170px;
-  width: 140px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-style: solid;
-  border-width: 1px;
-}
+
 
 // .icon {
 //   color: white;
@@ -193,4 +156,211 @@
   position: absolute;
   bottom: 10px;
 }
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+$animQuick: 0.3s;
+$infoSize: 90px;
+$infoExpanded: 280px;
+$infoMargin: 12px;
+
+
+.cards {
+  width: 100%;
+}
+
+.card-nil {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  height: 250px;
+  background-color: white;
+  border-radius: 5px;
+  list-style: none;
+  background-color: #60919F;
+  border: 1px solid #CCC;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover{
+    .card__preview {
+      -webkit-filter: blur(0);
+    }
+
+    .card__info {
+      transform: translateY(-1 * ($infoExpanded - ($infoSize * 2)));
+    }
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  height: 250px;
+  background-color: black;
+  border-radius: 5px;
+  list-style: none;
+  background-color: #F2F4F7;
+  border: 1px solid #CCC;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover{
+    .card__preview {
+      -webkit-filter: blur(0);
+    }
+
+    .card__info {
+      transform: translateY(-1 * ($infoExpanded - ($infoSize * 2)));
+    }
+  }
+}
+
+
+
+/*------------------------------------*\
+    #Card Preview
+\*------------------------------------*/
+.card__preview {
+  // position: absolute, 0 0 0 0;
+  align-self: center;
+  background-size: cover;
+  background-position: center;
+  opacity: 0,5;
+  width: 150px;
+  background-size: cover;
+  height: 150px;
+  // -webkit-filter: blur(1px);
+}
+
+.doc-description-nil {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  height: 30px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+}
+
+.doc-description {
+  position: absolute;
+  top: 0px;
+  font-size: 14px;
+  height: 30px;
+  width: 100%;
+  background-color: #60919F;
+  color: #F3C600;
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+  align-self: center;
+}
+
+.doc-preview {
+  // position: absolute;
+  // top: 40px;
+  // align-items: left;
+  // align-self: auto;
+  // height: 170px;
+  // width: 140px;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // border-style: solid;
+  // border-width: 1px;
+
+  align-self: center;
+  background-size: cover;
+  background-position: center;
+  opacity: 0,5;
+  width: 140px;
+  background-size: cover;
+  height: 170px;
+}
+
+
+/*------------------------------------*\
+    #Card Info Area
+\*------------------------------------*/
+.card__info {
+
+  position: absolute;
+  bottom: -100px;
+  @include transition(transform $animQuick ease-in-out);
+  height: $infoExpanded;
+  width: 100%;
+  // padding: $infoMargin;
+  background: #fff;
+  border-top: 1px solid #ccc;
+
+  font-weight: bold;
+  font-size: 40px;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+// .card__info.card__info--expanded {
+
+// }
+
+
+// .card__status {
+//   display: none;
+//   position: (absolute, $infoMargin/2 $infoMargin 0 0);
+//   font-size: 20px;
+//   color: #444;
+// }
+
+
+.card__title {
+  calc: width, "100% - #{$infoSize}";
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+// .card__users {
+//   position: absolute, 0 0 0 null;
+//   width: $infoSize - ($infoMargin * 2);
+//   border-radius: $infoSize;
+//   /*border: 1px solid #ccc;
+//   background: #eee;*/
+//   margin: $infoMargin;
+//   overflow: hidden;
+// }
+
+// .card__summary {
+//   calc: width, "100% - #{$infoSize}";
+// }
+
+// .card__date {
+//   line-height: 24px;
+//   font-size: 13px;
+//   color: #444;
+// }
 
