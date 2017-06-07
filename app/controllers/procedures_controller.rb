@@ -39,11 +39,17 @@ class ProceduresController < ApplicationController
     if params[:passport_spouse_from_camera].present?
       @procedure.passport_spouse = convert_data_uri_to_upload(params[:passport_spouse_from_camera])
     end
+    if params[:passport_children_from_camera].present?
+      @procedure.passport_children = convert_data_uri_to_upload(params[:passport_children_from_camera])
+    end
     if params[:identity_from_camera].present?
       @procedure.identity = convert_data_uri_to_upload(params[:identity_from_camera])
     end
     if params[:identity_spouse_from_camera].present?
       @procedure.identity_spouse = convert_data_uri_to_upload(params[:identity_spouse_from_camera])
+    end
+    if params[:identity_children_from_camera].present?
+      @procedure.identity_children = convert_data_uri_to_upload(params[:identity_children_from_camera])
     end
 
     @procedure.update(procedure_params)
