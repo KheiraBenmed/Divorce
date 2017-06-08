@@ -1,5 +1,5 @@
 <div class="map_box">
-  <h3><%= avocat.name %></h3>
+  <h4><%= avocat.name %></h4>
   <p><%= avocat.address %></p>
   <p>Tel: <%= avocat.phone_number%></p>
   <%= link_to 'Envoyer la demande de divorce', avocat_contacts_path(avocat), method: :post, target: :blank, class: "btn btn-call-to-action" %>

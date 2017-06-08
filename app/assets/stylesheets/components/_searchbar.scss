@@ -5,8 +5,8 @@
     min-width: 710px;
     padding: 5px 0;
     position: absolute;
-    bottom: 60px;
-    left: 30px;
+    top: 70px;
+    left: 20px;
     z-index: 300000;
   }
 
@@ -28,11 +28,16 @@
     font-size: 20px;
 }
 
-.btn-search {
+#find .fa-search {
+    font-size: 26px;
+    color: white;
+}
+
+ #find .btn-search {
   background-color: #60919F;
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 27px;
   font-size: bold;
   border: none;
   border-radius: 5px;
