@@ -6,148 +6,140 @@
     <p> Je vous contacte aujourd'hui car je souhaite entamer une procédure de divorce et je vous saurai gré de bien vouloir me réprésenter dans cette démarche.</p>
 
 
-    <p>Veuillez trouver ci-dessous la liste exhaustive des documents fournie par <b>.done</b> dont vous trouverez le détail ci-dessous:
-
+    <p>Veuillez trouver ci-dessous et ci-joint la liste exhaustive des documents fournie par <b>.done</b> dont vous trouverez le détail ci-dessous:
       <ul>
-  <% if !@procedure.full_name.nil? %>
-    <% if !@procedure[:passport].nil? || !@procedure[:passport_spouse].nil? %>
-      <li>Passeport</li>
-      <li>Passeport conjoint</li>
-    <% end %>
-  <% end %>
-  <% if !@procedure.child_nb.nil? %>
-    <% if @procedure.child_nb > 0 %>
-      <% for i in 1..(@procedure.child_nb) %>
-        <li>Passeport du <%= i %>er enfant </li>
-      <% end %>
-    <% end %>
-  <% end %>
-  <!-- ID exemple -->
-  <% if !@procedure.full_name == "" %>
-    <% if !@procedure[:identity].nil? || !@procedure[:identity_spouse].nil? %>
-      <li>Carte d’Identite</li>
-      <li>Carte d’Identite conjoint</li>
-    <% end %>
-  <% end %>
-  <% if !@procedure.child_nb.nil? %>
-    <% if @procedure.child_nb > 0 %>
-      <% for i in 1..(@procedure.child_nb) %>
-        <li>Carte d'identité du <%= i %>er enfant </li>
-      <% end %>
-    <% end %>
-  <% end %>
-  <!-- acte de naissance exemple -->
-  <% if !@procedure.full_name == "" %>
-    <% if !@procedure[:acte_naissance].nil? || !@procedure[:acte_naissance_spouse].nil? %>
-      <li>Acte de Naissance</li>
-      <li>Acte de Naissance conjoint</li>
-    <% end %>
-  <% end %>
-  <% if !@procedure.child_nb.nil? %>
-    <% if @procedure.child_nb > 0 %>
-      <% for i in 1..(@procedure.child_nb) %>
-        <li>Acte de naissance du <%= i %>er enfant </li>
-      <% end %>
-    <% end %>
-  <% end %>
-  <!-- contrat de mariage exemple -->
-  <% if !@procedure.full_name == "" %>
-    <% if !@procedure[:livret].nil? || !@procedure[:acte_mariage].nil? %>
-      <li>Livret de Famille </li>
-      <li>Acte de Mariage</li>
-    <% end %>
-  <% end %>
-  <% if !@procedure.marriage_contract.nil? %>
-    <% if @procedure.marriage_contract == true %>
-      <li>Contrat de Mariage </li>
-    <% end %>
-  <% end %>
-  <!--   listing du revenu -->
-  <% if !@procedure.status_pro == "" %>
-      <% if @procedure.status_pro == "Salarié" %>
-        <li>Dernier Bulletin de Salaire</li>
-        <li>Bulletin de Salaire du mois de décembre de l’année précédente</li>
-      <% elsif @procedure.status_pro == "Chef d'entreprise" %>
-        <li>Trois derniers Bilan Entreprise</li>
-      <% elsif @procedure.status_pro == "Sans emploi" %>
-        <li>Attestation Chômage (check exact document) </li>
-      <% elsif @procedure.status_pro == "Libéral" %>
-        <li>Trois dernières Déclaration de Revenus professionnels </li>
-      <% end %>
-  <% end %>
-  <% if @procedure.status_pro_conjoint == "" %>
-  <% else %>
-    <% if @procedure.status_pro_conjoint == "Salarié" %>
-      <li>Dernier Bulletin de Salaire du conjoint </li>
-      <li>Bulletin de Salaire du mois de décembre de l’année précédente du conjoint </li>
-    <% elsif @procedure.status_pro_conjoint == "Chef d'entreprise" %>
-      <li>Trois derniers Bilan Entreprise du conjoint </li>
-    <% elsif @procedure.status_pro_conjoint == "Sans emploi" %>
-      <li>Attestation Chômage (check exact document) du conjoint </li>
-    <% elsif @procedure.status_pro_conjoint == "Libéral" %>
-      <li>Trois dernières Déclaration de Revenus professionnels du conjoint </li>
-    <% end %>
-  <% end %>
-  <% if !@procedure.bank_account_nb.nil? %>
-    <% if @procedure.bank_account_nb > 0 %>
-      <% for i in 1..(@procedure.bank_account_nb) %>
-        <li>Relevés du <%= i %>er compte bancaire</li>
-      <% end %>
-    <% end %>
-  <% end %>
-  <% if !@procedure.full_name == "" %>
-    <% if !@procedure[:taxes].nil? %>
-      <li>Trois derniers avis d’imposition</li>
-    <% end %>
-  <% end %>
-  <% if !@procedure.owner_nb.nil? %>
-    <% if @procedure.owner_nb > 0 %>
-      <% for i in 1..(@procedure.owner_nb) %>
-        <li>Titre de propriété de la <%= i %>er propriété</li>
-        <li>Revenues Fonciers de la <%= i %>er propriété</li>
-      <% end %>
-    <% end %>
-  <% end %>
-  <% if !@procedure.renter_nb.nil? %>
-    <% if @procedure.renter_nb > 0 %>
-      <% for i in 1..(@procedure.renter_nb) %>
-        <li>Taxe habitation de la <%= i %>er location</li>
-        <li>Taxe foncière de la <%= i %>er location</li>
-        <li>Quittance Loyer de la <%= i %>er location</li>
-      <% end %>
-    <% end %>
-  <% end %>
-  <% if !@procedure.vehicle_nb.nil? %>
-    <% if @procedure.vehicle_nb > 0 %>
-      <% for i in 1..(@procedure.vehicle_nb) %>
-        <li>Carte Grise de votre <%= i %>er véhicule</li>
-      <% end %>
-    <% end %>
-  <% end %>
-  <% if !@procedure.vehicle_nb.nil? %>
-    <li>Assurance véhicule</li>
-  <% end %>
-  <% if !@procedure[:bills].nil? %>
-    <li>Factures (EDF, eau, tel…) </li>
-  <% end %>
-  <% if !@procedure.child_nb.nil? %>
-    <% if @procedure.child_nb > 0 %>
-      <li>Relevé de la CAF</li>
-    <% end %>
-  <% end %>
-  <% if !@procedure.child_nb.nil? %>
-    <% if @procedure.child_nb > 0 %>
-      <% for i in 1..(@procedure.child_nb) %>
-        <li>Certificats scolarité du <%= i %>er enfant</li>
-      <% end %>
-    <% end %>
-  <% end %>
-  <% if !@procedure.insurance_nb.nil? %>
-    <li>Assurance diverse</li>
-  <% end %>
-</ul>
-
-    </p>
+        <% if !@procedure.full_name.nil? %>
+          <% if !@procedure[:passport].nil? || !@procedure[:passport_spouse].nil? %>
+            <li>Passport</li>
+            <li>Passport conjoint</li>
+          <% end %>
+        <% end %>
+        <% if !@procedure.child_nb.nil? %>
+          <% if @procedure.child_nb > 0 %>
+            <% for i in 1..(@procedure.child_nb) %>
+              <li>Passeport du <%= i %>er enfant </li>
+            <% end %>
+          <% end %>
+        <% end %>
+        <!-- ID exemple -->
+        <% if !@procedure.full_name.nil? %>
+          <% if !@procedure[:identity].nil? || !@procedure[:identity_spouse].nil? %>
+            <li>Carte d’Identite</li>
+            <li>Carte d’Identite conjoint</li>
+          <% end %>
+        <% end %>
+        <% if !@procedure.child_nb.nil? %>
+          <% if @procedure.child_nb > 0 %>
+            <% for i in 1..(@procedure.child_nb) %>
+              <li>Carte d'identité du <%= i %>er enfant </li>
+            <% end %>
+          <% end %>
+        <% end %>
+        <!-- acte de naissance exemple -->
+        <% if !@procedure.full_name.nil? %>
+          <% if !@procedure[:acte_naissance].nil? || !@procedure[:acte_naissance_spouse].nil? %>
+            <li>Acte de Naissance</li>
+            <li>Acte de Naissance conjoint</li>
+          <% end %>
+        <% end %>
+        <% if !@procedure.child_nb.nil? %>
+          <% if @procedure.child_nb > 0 %>
+            <% for i in 1..(@procedure.child_nb) %>
+              <li>Acte de naissance du <%= i %>er enfant </li>
+            <% end %>
+          <% end %>
+        <% end %>
+        <!-- contrat de mariage exemple -->
+        <% if !@procedure.full_name.nil? %>
+          <% if !@procedure[:livret].nil? || !@procedure[:acte_mariage].nil? %>
+            <li>Livret de Famille </li>
+            <li>Acte de Mariage</li>
+          <% end %>
+        <% end %>
+        <% if !@procedure.marriage_contract.nil? %>
+          <% if @procedure.marriage_contract == true %>
+            <li>Contrat de Mariage </li>
+          <% end %>
+        <% end %>
+        <!--   listing du revenu -->
+        <% if @procedure.status_pro != "" %>
+            <% if @procedure.status_pro == "Salarié" %>
+              <li>Dernier Bulletin de Salaire</li>
+              <li>Bulletin de Salaire du mois de décembre de l’année précédente</li>
+            <% elsif @procedure.status_pro == "Chef d'entreprise" %>
+              <li>Trois derniers Bilan Entreprise</li>
+            <% elsif @procedure.status_pro == "Sans emploi" %>
+              <li>Attestation Chômage (check exact document) </li>
+            <% elsif @procedure.status_pro == "Libéral" %>
+              <li>Trois dernières Déclaration de Revenus professionnels </li>
+            <% end %>
+        <% end %>
+        <% if @procedure.status_pro_conjoint == "" %>
+        <% else %>
+          <% if @procedure.status_pro_conjoint == "Salarié" %>
+            <li>Dernier Bulletin de Salaire du conjoint </li>
+            <li>Bulletin de Salaire du mois de décembre de l’année précédente du conjoint </li>
+          <% elsif @procedure.status_pro_conjoint == "Chef d'entreprise" %>
+            <li>Trois derniers Bilan Entreprise du conjoint </li>
+          <% elsif @procedure.status_pro_conjoint == "Sans emploi" %>
+            <li>Attestation Chômage (check exact document) du conjoint </li>
+          <% elsif @procedure.status_pro_conjoint == "Libéral" %>
+            <li>Trois dernières Déclaration de Revenus professionnels du conjoint </li>
+          <% end %>
+        <% end %>
+        <% if !@procedure.bank_account_nb.nil? %>
+          <% if @procedure.bank_account_nb > 0 %>
+            <% for i in 1..(@procedure.bank_account_nb) %>
+              <li>Relevés du <%= i %>er compte bancaire</li>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if !@procedure.full_name.nil? %>
+          <% if !@procedure[:taxes].nil? %>
+            <li>Trois derniers avis d’imposition</li>
+          <% end %>
+        <% end %>
+        <% if !@procedure.owner_nb.nil? %>
+          <% if @procedure.owner_nb > 0 %>
+            <% for i in 1..(@procedure.owner_nb) %>
+              <li>Titre de propriété de la <%= i %>er propriété</li>
+              <li>Revenues Fonciers de la <%= i %>er propriété</li>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if !@procedure.renter_nb.nil? %>
+          <% if @procedure.renter_nb > 0 %>
+              <li>Taxe habitation</li>
+              <li>Quittance Loyer</li>
+          <% end %>
+        <% end %>
+        <% if !@procedure.vehicle_nb.nil? %>
+          <% if @procedure.vehicle_nb > 0 %>
+            <% for i in 1..(@procedure.vehicle_nb) %>
+              <li>Carte Grise de votre <%= i %>er véhicule</li>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if !@procedure[:bills].nil? %>
+          <li>Factures (EDF, eau, tel…) </li>
+        <% end %>
+        <% if !@procedure.child_nb.nil? %>
+          <% if @procedure.child_nb > 0 %>
+            <li>Relevé de la CAF</li>
+          <% end %>
+        <% end %>
+        <% if !@procedure.child_nb.nil? %>
+          <% if @procedure.child_nb > 0 %>
+            <% for i in 1..(@procedure.child_nb) %>
+              <li>Certificats scolarité du <%= i %>er enfant</li>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if !@procedure.insurance_nb.nil? %>
+          <li>Votre justificatif d'assurance</li>
+        <% end %>
+      </ul>
+          </p>
 
     <p>Je souhaiterais que ma situation se solutionne au plus vite, je fais donc appel à vos services afin d'être assisté et conseillé.
     Je vous remercie de l’attention que vous porterez à cette demande de représentation et j'espère vous rencontrer rapidement afin que nous puissions entamer les démarches qui s'imposent.</b>.</p>
@@ -155,8 +147,7 @@
     <p>Dans l'attente de votre réponse, je vous prie d'agréer, Maître, l'expression de mes salutations distinguées.</p>
 
     <p><%=@procedure[:full_name] %></p>
-
-
+    <p>email: <%= mail_to @procedure.user.email %></p>
 
   </div>
 </body>
