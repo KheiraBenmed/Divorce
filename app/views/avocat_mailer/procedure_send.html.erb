@@ -8,7 +8,6 @@
 
     <p>Veuillez trouver ci-dessous la liste exhaustive des documents fournie par <b>.done</b> dont vous trouverez le détail ci-dessous:
 
-    <p><%= @procedure.archive.url %></p>
       <ul>
   <% if !@procedure.full_name.nil? %>
     <% if !@procedure[:passport].nil? || !@procedure[:passport_spouse].nil? %>
@@ -156,6 +155,8 @@
     <p>Dans l'attente de votre réponse, je vous prie d'agréer, Maître, l'expression de mes salutations distinguées.</p>
 
     <p><%= @procedure.full_name %></p>
+    <p><%= @procedure.current_user.email %></p>
+
 
 
   </div>
