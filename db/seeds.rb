@@ -18,7 +18,8 @@ html_doc.search('.corps3newannuaire\"').each do |info|
   avocat[:name] = info.search('.lien3').first.search('strong').text
   avocat[:address] = info.search('.newannuair10px')[2].text
   avocat[:phone_number] = info.search('.lien3')[3].text
-  avocat[:email] = info.search('.lien3 a').last.text
+  # avocat[:email] = info.search('.lien3 a').last.text
+  avocat[:email] = "kheira.benmeridja@gmail.com"
   store << avocat
   end
 end
