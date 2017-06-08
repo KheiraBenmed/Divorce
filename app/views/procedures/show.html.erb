@@ -1,62 +1,77 @@
 <div class="container text-center">
   <div class="container_recap">
     <br>
-    <h1 style="color: #60919F; font-size: 22px">RECAPITULATIF DE VOTRE PROCEDURE</h1>
     <div class="recap">
 
-      <div class="progress-wrap progress" data-progress-percent="<%= (12 - @champ_not_done)*100/12 %>">
+      <div class="progress-wrap progress" data-progress-percent="<%= ((12 - @champ_not_done)+@doc_upload)*100/(12 + @doc) %>">
         <div class="progress-bar progress"></div>
       </div>
 
+      <h2 style="color: #60919F; font-size: 22px; text-align: left; padding-left: 35px">RECAPITULATIF DE VOTRE PROCEDURE</h2>
+
+      <% if @champ_not_done != 0 %>
+        <%= link_to "JE COMPLETE MON DOSSIER", edit_procedure_path, class: "btn btn-call-to-action" %>
+      <% else %>
+        <%= link_to "JE TROUVE MON AVOCAT", avocats_path, class: "btn btn-call-to-action", style:"padding-left: 40px; padding-right: 40px" %>
+      <% end %>
+
       <div class="metrics">
-        <div class="metrics-question">
+        <% if @champ_not_done == 0 %>
+          <div class="metrics-question">
+          <i class="fa fa-check" style="font-size: 20px; margin: 5px" aria-hidden="true"></i>
+            <p>Vous avez rempli votre questionnaire</p>
+          </div>
+        <% else %>
+          <div class="metrics-question">
           <i class="fa fa-question" style="font-size: 20px; margin: 5px" aria-hidden="true"></i>
           <p><%= @champ_not_done %> champs à remplir</p>
-        </div>
+          </div>
+        <% end %>
 
         <div class="metrics-document">
           <i class="fa fa-file-text-o" style="font-size: 20px ; margin: 5px" aria-hidden="true"></i>
-          <p><%= @doc_not_upload %> documents uploadés</p>
+          <p><%= @doc_upload * 100/ @doc %> % documents téléchargés</p>
         </div>
       </div>
 
-      <div class="button-questionnaire">
-          <%= link_to "RETOUR AU QUESTIONNAIRE", edit_procedure_path, style: "color: #60919F" %>
-      </div>
-
-
-      <div class="wrapper-progress ">
-        <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-          <li><a href="#tab1" class="active">Situation familiale</a></li>
-          <li><a href="#tab2">Situation financière</a></li>
-          <li><a href="#tab3">Situation foncière</a></li>
-        </ul>
-        <section id="first-tab-group" class="tabgroup">
-          <div id="tab1">
-            <p>Nom: <%= @procedure.full_name %></p>
-            <p>Enfants: <%= @procedure.child_nb %></p>
-            <p>Type de Contrat de Mariage: <%= @procedure.contract_type %></p>
-          </div>
-          <div id="tab2">
-              <p>Votre Siuation Professionnelle: <%= @procedure.status_pro %></p>
-              <p>La Siuation Professionnelle de Votre Conjoint: <%= @procedure.status_pro_conjoint %></p>
-              <p>Relevé bancaire: <%= @procedure.bank_account_nb %></p>
-          </div>
-          <div id="tab3">
-              <p>Logements dont vous êtes locataire: <%= @procedure.renter_nb %></p>
-              <p>Véhicule en votre possession: <%= @procedure.vehicle_nb %></p>
-              <p>Assurance détenue: <%= @procedure.insurance_nb %></p>
-          </div>
-        </section>
+      <div class="row_recap text-left">
+        <div class="col-xs-12 col-sm-6 col-lg-4" style="line-height: 15px">
+            <h3>Situation familiale</h3>
+            <p class="title">Prénom Nom:</p>
+            <p class="answer"><%= @procedure.full_name %></p>
+            <p class="title">Enfants:</p>
+            <p class="answer"><%= @procedure.child_nb %></p>
+            <p class="title">Type de Contrat de Mariage:</p>
+            <p class="answer"><%= @procedure.contract_type %></p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <h3>Situation financière</h3>
+            <p class="title">Situation Professionnel:</p>
+            <p class="answer"><%= @procedure.status_pro %></p>
+            <p class="title">Situation professionnel de votre conjoint:</p>
+            <p class="answer"><%= @procedure.status_pro_conjoint %></p>
+            <p class="title">Nombre de compte bancaire:</p>
+            <p class="answer"><%= @procedure.bank_account_nb %></p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <h3>Situation personnelle</h3>
+            <p class="title">Situation immobilière</p>
+            <% if @procedure.owner_nb %>
+              <p class="answer">Locataire</p>
+            <% end %>
+            <p class="title">Nombre de véhicule:<p>
+            <p class="answer"><%= @procedure.vehicle_nb %></p>
+            <p class="title">Nombre d'assurance:</p>
+            <p class="answer"><%= @procedure.insurance_nb %></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <%= link_to "TROUVER MON AVOCAT", avocats_path, class: "btn btn-call-to-action", style:"padding-left: 40px; padding-right: 40px" %>
-  <%= link_to "TELECHARGER MON DOSSIER", procedure_zipcreate_path(@procedure), class: "btn btn-call-to-action" %>
-
-
   <div class="container_docs text-left">
+    <%= link_to procedure_zipcreate_path(@procedure), class: "btn-zip" do %>
+      <i class="fa fa-file-archive-o" class="btn-zip"></i>
+    <% end %>
     <h4 style="color: #60919F; padding-left: 15px;">MES DOCUMENTS</h4>
     <div class="row">
 
@@ -959,3 +974,4 @@
     </div>
   </div>
 </div>
+

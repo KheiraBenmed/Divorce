@@ -3,7 +3,7 @@
 
 .recap {
   position: relative;
-  height: 360px;
+  height: 400px;
   border-color: #F0F4F8;
   border-radius: 5px;
   border-width: 1px;
@@ -13,11 +13,16 @@
   background-color: white;
   font-size: 14px;
   margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .metrics {
-  display:flex;
-  justify-content: space-around;
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -25,12 +30,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 40px;
 }
 
 .metrics-document {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.row_recap {
+  padding-left: 20px;
 }
 
 .btn-call-to-action {
@@ -43,6 +53,9 @@
   text-decoration: none;
   border-radius: 4px;
   font-size: 14px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
 }
 
 .btn-call-to-action:hover {
@@ -52,11 +65,13 @@
   ;
 }
 
-.button-questionnaire {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
+
+
+// .button-questionnaire {
+//   position: absolute;
+//   bottom: 10px;
+//   right: 10px;
+// }
 
 // progress bar design
 
@@ -77,99 +92,13 @@
   }
 }
 
-// design des tabs
+.title {
+  color: grey;
+}
 
-.wrapper-progress {
-  margin:10px auto;
-  width: 80%;
-  font-family:sans-serif;
+.answer {
   color: #60919F;
-  font-size:14px;
-  line-height:24px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.wrapper-progress  h1 {
-  font-size:20px;
-  font-weight:bold;
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.wrapper-progress  h1 + p {
-  text-align:center;
-  margin:20px 0;
-  font-size:16px;
-}
-.wrapper-progress  ul {
-  padding-left: 0;
-  padding-right: 0;
-  list-style: none;
-}
-
-.tabs {
-  li {
-    float:left;
-    width:33.33%;
-  }
-  a {
-    display:block;
-    text-align:center;
-    text-decoration:none;
-    text-transform:uppercase;
-    color: #60919F;
-    padding:20px 0;
-    // border-bottom: 2px solid #60919F;
-    background:#f7f7f7;
-
-    &:hover, &.active {
-      background:#ddd;
-    }
-  }
-}
-.tabgroup {
-  div {
-    padding:10px;
-  }
-}
-.clearfix:after {
-  content:"";
-  display:table;
-  clear:both;
-}
-
-#tab1 {
-  box-shadow:0 3px 5px rgba(0,0,0,.3);
-  text-align: left;
-  padding-left: 90px;
-}
-
-#tab2 {
-  box-shadow:0 3px 10px rgba(0,0,0,.3);
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
-  // justify-content: space-around;
-  text-align: left;
-  padding-left: 90px;
-}
-
-#tab3 {
-  box-shadow:0 3px 10px rgba(0,0,0,.3);
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
-  // justify-content: space-around;
-  text-align: left;
-  padding-left: 90px;
-}
-
-#bis {
-  display: flex;
-  flex-direction: column;
-  // align-items: left;
-}
-
-#ter {
-  display: flex;
-  flex-direction: column;
-}
