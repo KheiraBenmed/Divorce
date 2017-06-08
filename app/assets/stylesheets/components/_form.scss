@@ -104,7 +104,6 @@ body {
     text-decoration: none;
   }
 }
-
 .question-text {
   color: #f5f5f5;
   font-weight: 600;
@@ -118,4 +117,11 @@ body {
 }
 .card__info i.fa-upload {
   cursor: pointer;
+}
+.question input {
+  display: none;
+}
+.fa-download:before {
+  font-size: 23px;
+  margin-left: 25px;
 }
