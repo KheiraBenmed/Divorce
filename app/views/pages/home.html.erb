@@ -4,7 +4,7 @@
   <div class="tagline">
     <p>Divorcer c'est compliqué. </p>
     <p>Constituez votre dossier et trouvez votre avocat en quelques clics.</p>
-    <a class="btn btn-medium">START</a>
+    <%= link_to "START", procedure_path(current_user.procedure), class: "btn btn-medium" %>
   </div>
     <div class="learn-more">
       <h3>En savoir plus</h3>
@@ -57,7 +57,7 @@
 <!-- </section>
  -->  <div class="container">
     <h2>About .done</h2>
-    <p>.done est un assistant qui vous accompagne dans les procédures administratives en prévision de votre premier rendez-vous avec votre avocat spécialisé en droit de la famille</p>
+    <p>.done est un assistant qui vous accompagne dans la constitution de votre dossier en prévision de votre premier rendez-vous avec votre avocat spécialisé en droit de la famille</p>
   </div>
 </div>
 
