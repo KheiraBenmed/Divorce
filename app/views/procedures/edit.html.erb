@@ -15,11 +15,15 @@
             as: question["field_type"],
             label: false,
             input_html: {
-              data: { column: question["column"] }
+              data: { column: question["column"] },
+              id: "contract_#{i + 1}"
             } %>
           <!-- end of input -->
           <% if question["photo_cache"] %>
-              <%= hidden_field_tag "#{question["column"]}_cache" %>
+              <%= hidden_field_tag("#{question["column"]}_cache") %>
+              <div class="trigger-upload" data-number="<%= i + 1 %>">
+                <i class="fa fa-download"></i>
+              </div>
           <% end %>
           <% unless question["answers"].empty? %>
               <div class="answers text-justify">

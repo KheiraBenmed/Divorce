@@ -91,12 +91,13 @@ $(document).ready(function() {
           }
         });
       }
-
-      // console.log("coucou3");
-      // debugger
-
    });
   }
+    $('.trigger-upload').on('click', function(){
+      var num = $(this).data('number');
+      var id = "#contract_" + num;
+      $(id).click();
+    });
 });
 
 
