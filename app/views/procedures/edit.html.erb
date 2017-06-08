@@ -32,9 +32,9 @@
           <% end %>
         </div>
         <% if i ==  @questions.size - 1 %>
-          <div class="next"><%= link_to "TERMINER", procedure_path, id: "next-finish" %> </div>
+          <div class="next"><%= link_to "TERMINER", procedure_path, class: "next", id: "next-finish" %> </div>
         <% else %>
-          <div class="next"><i class="fa fa-angle-down next" id="next" aria-hidden="true"></i></div>
+          <div class="next"><i class="fa fa-angle-down" id="next" aria-hidden="true"></i></div>
         <% end %>
       </div>
     <% end %>

@@ -66,10 +66,10 @@ body {
 }
 
 
-  #prev {
-    font-size: 40px;
-    font-weight: 500;
-    color: #F3C600;
+#prev {
+  font-size: 40px;
+  font-weight: 500;
+  color: #F3C600;
   }
 #next {
   font-size: 40px;
@@ -77,6 +77,22 @@ body {
   color: #F3C600;
 }
 #next-finish {
+  font-size: 18px;
+  font-weight: 500;
+  color: #F3C600;
+  &:hover {
+    font-size: 40px;
+    font-weight: 500;
+    color: #F3C600;
+    text-decoration: none;
+  }
+}
+.prev {
+  font-size: 40px;
+  font-weight: 500;
+  color: #F3C600;
+  }
+.next {
   font-size: 18px;
   font-weight: 500;
   color: #F3C600;
