@@ -5,7 +5,6 @@
   border-style: solid;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30);
   padding: 20px;
-  margin-top: 30px;
   padding-right: 30px;
   background-color: white;
   font-size: 14px;
@@ -190,8 +189,8 @@ $infoMargin: 12px;
   border-radius: 5px;
   list-style: none;
   background-color: #60919F;
-  border: 1px solid #CCC;
-  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+  // border: 1px solid #CCC;
+  // box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
   cursor: pointer;
   overflow: hidden;
@@ -224,8 +223,13 @@ $infoMargin: 12px;
   cursor: pointer;
   overflow: hidden;
 
+
   &:hover{
     .card__preview {
+      -webkit-filter: blur(6);
+    }
+
+    .card__preview__nil {
       -webkit-filter: blur(0);
     }
 
@@ -245,6 +249,7 @@ $infoMargin: 12px;
   align-self: center;
   background-size: cover;
   background-position: center;
+  align-items:center;
   opacity: 0,5;
   width: 80px;
   background-size: cover;
@@ -257,10 +262,13 @@ $infoMargin: 12px;
   align-self: center;
   background-size: cover;
   background-position: center;
+  align-items:center;
   opacity: 0,5;
   background-size: cover;
-  padding: 60px;
-  padding-bottom: 80px;
+  padding: 40px;
+  padding-top: 0px;
+  height: 100%;
+  width: 100%;
   background-color: #F2F4F7;
   // -webkit-filter: blur(1px);
 }
@@ -334,7 +342,7 @@ $infoMargin: 12px;
   width: 100%;
   padding-bottom: $infoMargin;
   background: #fff;
-  border-top: 1px solid #ccc;
+  // border-top: 1px solid #ccc;
 
   // font-weight: bold;
   font-size: 18px;

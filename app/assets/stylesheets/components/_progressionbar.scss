@@ -3,20 +3,17 @@
 
 .recap {
   position: relative;
-  height: 460px;
+  height: 360px;
   border-color: #F0F4F8;
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30);
   // padding: 20px;
-  margin: 10px;
   background-color: white;
   font-size: 14px;
   margin-top: 10px;
 }
-
-
 
 .metrics {
   display:flex;
@@ -38,8 +35,8 @@
 
 .btn-call-to-action {
   margin: 13px;
-  background-color: #60919F;
-  color: white;
+  color: #60919F;
+  background-color: #F3C600;
   padding: 15px;
   padding-left: 20px;
   padding-right: 20px;
@@ -49,9 +46,10 @@
 }
 
 .btn-call-to-action:hover {
+  background-color: #60919F;
+  color: white;
   text-decoration: none;
-  color: #60919F;
-  background-color: #F3C600;
+  ;
 }
 
 .button-questionnaire {
@@ -140,23 +138,29 @@
 }
 
 #tab1 {
-  box-shadow:0 3px 10px rgba(0,0,0,.3);
+  box-shadow:0 3px 5px rgba(0,0,0,.3);
+  text-align: left;
+  padding-left: 90px;
 }
 
 #tab2 {
   box-shadow:0 3px 10px rgba(0,0,0,.3);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
+  // justify-content: space-around;
+  text-align: left;
+  padding-left: 90px;
 }
 
 #tab3 {
   box-shadow:0 3px 10px rgba(0,0,0,.3);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
+  // justify-content: space-around;
+  text-align: left;
+  padding-left: 90px;
 }
 
 #bis {
