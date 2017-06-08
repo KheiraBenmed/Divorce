@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root to: 'pages#home'
-  resources :procedures
+  resources :procedures do
+    get 'zipcreate' => 'procedures#zipcreate'
+  end
   resources :avocats do
     resources :contacts, only: [:create]
   end

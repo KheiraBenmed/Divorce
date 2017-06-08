@@ -7,9 +7,9 @@ class ContactsController < ApplicationController
 
     if @contact.save
       ZipJob.perform_later(@procedure.id)
-      flash[:notice] = "Votre demande a été envoyé."
+      flash[:notice] = "Votre demande a été envoyée."
     else
-      flash[:alert] = "Votre demande n'a pu être envoyé."
+      flash[:alert] = "Votre demande n'a pu être envoyée."
     end
     # pdf = WickedPdf.new.pdf_from_string(
     #   render_to_string('avocat_mailer/procedure_send', layout: false)

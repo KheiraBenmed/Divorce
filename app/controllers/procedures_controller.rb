@@ -107,6 +107,16 @@ class ProceduresController < ApplicationController
     end
   end
 
+  def zipcreate
+    date = Date.today
+    @procedure = Procedure.find(params[:procedure_id])
+    ProcedureToArchiveService.new(@procedure).call
+    zip_data = open(@procedure.archive.url).read
+    filename = "#{date.strftime('%m_%d_%Y')}_Dossier_Divorce.zip"
+    send_data(zip_data, type: 'application/zip', filename: filename )
+    # redirect_to procedure_path(@procedure)
+  end
+
   def destroy
     @procedure = Procedure.find(params[:id])
     @procedure.destroy
