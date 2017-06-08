@@ -65,18 +65,23 @@ body {
   }
 }
 
-.prev {
-  font-size: 14px;
+
+  #prev {
+    font-size: 40px;
+    font-weight: 500;
+    color: #F3C600;
+  }
+#next {
+  font-size: 40px;
   font-weight: 500;
   color: #F3C600;
 }
-
-.next {
-  font-size: 14px;
+#next-finish {
+  font-size: 18px;
   font-weight: 500;
   color: #F3C600;
   &:hover {
-    font-size: 14px;
+    font-size: 40px;
     font-weight: 500;
     color: #F3C600;
     text-decoration: none;
@@ -84,13 +89,13 @@ body {
 }
 
 .question-text {
-            color: #f5f5f5;
-            font-weight: 600;
-            padding: 10px;
-            margin-bottom: 24px;
-            font-size: 18px;
-            letter-spacing: 0.17em;
-          }
+  color: #f5f5f5;
+  font-weight: 600;
+  padding: 10px;
+  margin-bottom: 24px;
+  font-size: 18px;
+  letter-spacing: 0.17em;
+}
 .text-justify {
   text-align: center;
 }
