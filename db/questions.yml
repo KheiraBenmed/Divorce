@@ -1,5 +1,5 @@
 - column: "full_name"
-  question_text: "QUEL EST VOTRE PRENOM NOM ?"
+  question_text: "QUEL EST VOTRE NOM (PRENOM, NOM) ?"
   field_type: "string"
   answers: []
 - column: "marriage_contract"
@@ -23,12 +23,12 @@
     - input_text: "Participation aux acquêts"
       displayed_text: "Participation aux acquêts"
 - column: "acte_mariage"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE ACTE DE MARIAGE"
+  question_text: "TELECHARGEZ VOTRE ACTE DE MARIAGE"
   field_type: "file"
   answers: []
   photo_cache: true
 - column: "contract_mariage"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE CONTRAT DE MARIAGE"
+  question_text: "TELECHARGEZ VOTRE CONTRAT DE MARIAGE"
   field_type: "file"
   answers: []
   photo_cache: true
@@ -59,52 +59,52 @@
     - input_text: "10"
       displayed_text: "10"
 - column: "passport"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE PASSPORT"
+  question_text: "TELECHARGEZ VOTRE PASSPORT"
   field_type: "file"
   answers: []
   photo_cache: true
 - column: "passport_spouse"
-  question_text: "TELECHARGEZ OU SCANNEZ LE PASSPORT DE VOTRE CONJOINT(E)"
+  question_text: "TELECHARGEZ LE PASSPORT DE VOTRE CONJOINT(E)"
   field_type: "file"
   answers: []
   photo_cache: true
 # - column: "passport_children"
-#   question_text: "TELECHARGEZ OU SCANNEZ LE(S) PASSPORT(S) DE VOTRE(VOS) ENFANT(S)"
+#   question_text: "TELECHARGEZ LE(S) PASSPORT(S) DE VOTRE(VOS) ENFANT(S)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 - column: "identity"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE CARTE D'IDENTITE"
+  question_text: "TELECHARGEZ VOTRE CARTE D'IDENTITE"
   field_type: "file"
   answers: []
   photo_cache: true
 - column: "identity_spouse"
-  question_text: "TELECHARGEZ OU SCANNEZ LA CARTE D'IDENTITE DE VOTRE CONJOINT(E)"
+  question_text: "TELECHARGEZ LA CARTE D'IDENTITE DE VOTRE CONJOINT(E)"
   field_type: "file"
   answers: []
   photo_cache: true
 # - column: "identity_children"
-#   question_text: "TELECHARGEZ OU SCANNEZ LA(LES) CARTE(S) D'IDENTITE DE VOTRE(VOS) ENFANT(S)"
+#   question_text: "TELECHARGEZ LA(LES) CARTE(S) D'IDENTITE DE VOTRE(VOS) ENFANT(S)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 - column: "acte_naissance"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE ACTE DE NAISSANCE"
+  question_text: "TELECHARGEZ VOTRE ACTE DE NAISSANCE"
   field_type: "file"
   answers: []
   photo_cache: true
 - column: "acte_naissance_spouse"
-  question_text: "TELECHARGEZ OU SCANNEZ L'ACTE DE NAISSANCE DE VOTRE CONJOINT(E)"
+  question_text: "TELECHARGEZ L'ACTE DE NAISSANCE DE VOTRE CONJOINT(E)"
   field_type: "file"
   answers: []
   photo_cache: true
 # - column: "acte_naissance_children"
-#   question_text: "TELECHARGEZ OU SCANNEZ L'(LES) ACTE(S) DE NAISSANCE DE VOTRE(VOS) ENFANT(S)"
+#   question_text: "TELECHARGEZ L'(LES) ACTE(S) DE NAISSANCE DE VOTRE(VOS) ENFANT(S)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 - column: "livret"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE LIVRET DE FAMILLE"
+  question_text: "TELECHARGEZ VOTRE LIVRET DE FAMILLE"
   field_type: "file"
   answers: []
   photo_cache: true
@@ -133,12 +133,12 @@
     - input_text: "Sans emploi"
       displayed_text: "SANS EMPLOI"
 - column: "payroll"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE DERNIER BULLETIN DE SALAIRE"
+  question_text: "TELECHARGEZ VOTRE DERNIER BULLETIN DE SALAIRE"
   field_type: "file"
   answers: []
   photo_cache: true
 - column: "payroll_dec"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE BULLETIN DE SALAIRE DU MOIS DE DECEMBRE DE L'ANNEE PASSEE"
+  question_text: "TELECHARGEZ VOTRE BULLETIN DE SALAIRE DU MOIS DE DECEMBRE DE L'ANNEE PASSEE"
   field_type: "file"
   answers: []
   photo_cache: true
@@ -221,12 +221,12 @@
     - input_text: "10"
       displayed_text: "10"
 - column: "rent"
-  question_text: "TELECHARGEZ OU SCANNEZ VOS TROIS DERNIERES QUITTANCES DE LOYER"
+  question_text: "TELECHARGEZ VOS TROIS DERNIERES QUITTANCES DE LOYER"
   field_type: "file"
   answers: []
   photo_cache: true
 - column: "taxe_habitation"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE(VOS) TAXE(S) D'HABITATION"
+  question_text: "TELECHARGEZ VOTRE(VOS) TAXE(S) D'HABITATION"
   field_type: "file"
   answers: []
   photo_cache: true
@@ -283,37 +283,37 @@
     - input_text: "10"
       displayed_text: "10"
 # - column: "taxe_fonciere"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOTRE(VOS) TAXE(S) FONCIERE"
+#   question_text: "TELECHARGEZ VOTRE(VOS) TAXE(S) FONCIERE"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 - column: "bills"
-  question_text: "TELECHARGEZ OU SCANNEZ VOS FACTURES"
+  question_text: "TELECHARGEZ VOS FACTURES"
   field_type: "file"
   answers: []
   photo_cache: true
 # - column: "insurance_vehicle"
-#   question_text: "TELECHARGEZ OU SCANNEZ LES ASSURANCES LIEES A VOTRE(VOS) VEHICULES"
+#   question_text: "TELECHARGEZ LES ASSURANCES LIEES A VOTRE(VOS) VEHICULES"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "life_insurance"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOTRE(VOS) ASSURANCES VIE"
+#   question_text: "TELECHARGEZ VOTRE(VOS) ASSURANCES VIE"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 - column: "insurance_other"
-  question_text: "TELECHARGEZ OU SCANNEZ VOTRE(VOS) AUTRE(S) ASSURANCES"
+  question_text: "TELECHARGEZ VOTRE(VOS) AUTRE(S) ASSURANCES"
   field_type: "file"
   answers: []
   photo_cache: true
 # - column: "scolarite"
-#   question_text: "TELECHARGEZ OU SCANNEZ LE(LES) CERTIFICATS DE SCOLARITE DE VOTRE(VOS) ENFANT(S)"
+#   question_text: "TELECHARGEZ LE(LES) CERTIFICATS DE SCOLARITE DE VOTRE(VOS) ENFANT(S)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "caf"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOTRE ATTESTATION DE LA CAISSE D'ALLOCATION FAMILIALE"
+#   question_text: "TELECHARGEZ VOTRE ATTESTATION DE LA CAISSE D'ALLOCATION FAMILIALE"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
@@ -344,72 +344,72 @@
     - input_text: "10"
       displayed_text: "10"
 # - column: "payroll_spouse"
-#   question_text: "TELECHARGEZ OU SCANNEZ LE DERNIER BULLETIN DE SALAIRE DE VOTRE CONJOINT(E)"
+#   question_text: "TELECHARGEZ LE DERNIER BULLETIN DE SALAIRE DE VOTRE CONJOINT(E)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "payroll_spouse_dec"
-#   question_text: "TELECHARGEZ OU SCANNEZ LE BULLETIN DE SALAIRE DU MOIS DE DECEMBRE DE L'ANNEE PASSEE DE VOTRE CONJOINT(S)"
+#   question_text: "TELECHARGEZ LE BULLETIN DE SALAIRE DU MOIS DE DECEMBRE DE L'ANNEE PASSEE DE VOTRE CONJOINT(S)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "bilan_company"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOTRE DERNIER BILAN D'ENTREPRISE"
+#   question_text: "TELECHARGEZ VOTRE DERNIER BILAN D'ENTREPRISE"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "bilan_company_spouse"
-#   question_text: "TELECHARGEZ OU SCANNEZ LE DERNIER BILAN D'ENTREPRISE DE VOTRE CONJOINT(E)"
+#   question_text: "TELECHARGEZ LE DERNIER BILAN D'ENTREPRISE DE VOTRE CONJOINT(E)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "unemployment"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOTRE ATTESTATION DE DEMANDEUR D'EMPLOI"
+#   question_text: "TELECHARGEZ VOTRE ATTESTATION DE DEMANDEUR D'EMPLOI"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "unemployment_spouse"
-#   question_text: "TELECHARGEZ OU SCANNEZ L'ATTESTATION DE DEMANDEUR D'EMPLOI DE VOTRE CONJOINT(E)"
+#   question_text: "TELECHARGEZ L'ATTESTATION DE DEMANDEUR D'EMPLOI DE VOTRE CONJOINT(E)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "pro_revenu"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOTRE DERNIERE DECLARATION DE REVENU "
+#   question_text: "TELECHARGEZ VOTRE DERNIERE DECLARATION DE REVENU "
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 - column: "pro_revenu_spouse"
-  question_text: "TELECHARGEZ OU SCANNEZ LA DERNIERE DECLARATION DE REVENU DE VOTRE CONJOINT(E)"
+  question_text: "TELECHARGEZ LA DERNIERE DECLARATION DE REVENU DE VOTRE CONJOINT(E)"
   field_type: "file"
   answers: []
   photo_cache: true
 - column: "taxes"
-  question_text: "TELECHARGEZ OU SCANNEZ VOS TROIS DERNIERES DECLARATIONS D'IMPOTS "
+  question_text: "TELECHARGEZ VOS TROIS DERNIERES DECLARATIONS D'IMPOTS "
   field_type: "file"
   answers: []
   photo_cache: true
 # - column: "taxes_spouse"
-#   question_text: "TELECHARGEZ OU SCANNEZ LES TROIS DERNIERES DECLARATIONS D'IMPOTS DE VOTRE CONJOINT(E)"
+#   question_text: "TELECHARGEZ LES TROIS DERNIERES DECLARATIONS D'IMPOTS DE VOTRE CONJOINT(E)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "property"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOS TITRES DE PROPRIETE"
+#   question_text: "TELECHARGEZ VOS TITRES DE PROPRIETE"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 # - column: "revenu_foncier"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOTRE(VOS) REVENUS FONCIERS"
+#   question_text: "TELECHARGEZ VOTRE(VOS) REVENUS FONCIERS"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true
 - column: "bank_account"
-  question_text: "TELECHARGEZ OU SCANNEZ VOS TROIS DERNIERS RELEVES BANCAIRES"
+  question_text: "TELECHARGEZ VOS TROIS DERNIERS RELEVES BANCAIRES"
   field_type: "file"
   answers: []
   photo_cache: true
 # - column: "carte_grise"
-#   question_text: "TELECHARGEZ OU SCANNEZ VOTRE(VOS) CARTE(S) GRISE(S)"
+#   question_text: "TELECHARGEZ VOTRE(VOS) CARTE(S) GRISE(S)"
 #   field_type: "file"
 #   answers: []
 #   photo_cache: true

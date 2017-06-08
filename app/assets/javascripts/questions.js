@@ -1,5 +1,7 @@
 function progressBarEvents() {
   $('.progress-point').on('click', function () {
+    $('.progress-point').removeClass('progress-point-active');
+    $(this).addClass('progress-point-active');
     var question_target = $(this).data('number');
     console.log(question_target);
     var question_current = $('.active').data('number')
@@ -101,14 +103,23 @@ $(document).ready(function() {
 function navigateup() {
   var question = $('.question-container.active');
   $('.active').removeClass('active');
-  question.next().addClass('active');
+  $('.progress-point').removeClass('progress-point-active');
+  var next_question = question.next();
+  next_question.addClass('active');
+  var index = next_question.data('number');
+  $('.progress-point[data-number="'+ index +'"]').addClass('progress-point-active');
   question.slideUp();
 }
 
 function navigatedown() {
   var question = $('.question-container.active');
   $('.active').removeClass('active');
+  $('.progress-point').removeClass('progress-point-active');
+  var prev_question = question.prev();
+  prev_question.addClass('active');
   question.prev().addClass('active');
+  var index = prev_question.data('number');
+  $('.progress-point[data-number="'+ index +'"]').addClass('progress-point-active');
   question.prev().slideDown().css('display', 'flex');
 }
 

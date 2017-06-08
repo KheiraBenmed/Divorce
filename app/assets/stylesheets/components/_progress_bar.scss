@@ -13,6 +13,7 @@
   background-color: #60919f;
   border: none;
   box-shadow: none;
+  align-items: center;
 }
 
 .progress-point {
@@ -22,4 +23,7 @@
   border:none;
   cursor: pointer;
   font-size: 20px;
+  &.progress-point-active {
+    font-size: 25px;
+  }
 }
