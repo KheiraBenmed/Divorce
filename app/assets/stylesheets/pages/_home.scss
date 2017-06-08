@@ -144,6 +144,23 @@ body {
   max-width: 996px;
 }
 
+#about {
+  padding-bottom: 50px;
+  padding-top: 60px;
+}
+
+#about h3 {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 18px;
+    line-height: 110%
+}
+
+
 // // /* ========================
 // // Sections
 // // ======================== */
@@ -368,7 +385,9 @@ body {
   }
 
 .zone-circle p {
-  font-size: 15px;}
+  font-size: 15px;
+  line-height: 150%
+  }
 
   .small_image {
     height: 25%;
