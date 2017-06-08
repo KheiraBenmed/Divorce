@@ -1,4 +1,5 @@
 class AvocatMailer < ApplicationMailer
+
   def procedure_send(procedure, avocat)
     date = Date.today
     @procedure = procedure
