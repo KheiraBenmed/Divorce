@@ -2,7 +2,7 @@
     <div id="find">
       <span class="InputContainer">
         <%= form_tag(avocats_path, :method => :get) do %>
-        <%= text_field_tag :search, params[:search], placeholder: "N° Rue Ville", class: "address-autocomplete" %>
+        <%= text_field_tag :search, params[:search], placeholder: "Votre adresse", class: "address-autocomplete form-control" %>
         <%= submit_tag "Trouvez votre avocat", class:"btn-search" %>
         <% end %>
      </span>

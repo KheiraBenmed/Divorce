@@ -90,11 +90,13 @@ body {
   font-size: 40px;
   font-weight: 500;
   color: #F3C600;
-  }
+  cursor: pointer;
+}
 .next {
   font-size: 18px;
   font-weight: 500;
   color: #F3C600;
+  cursor: pointer;
   &:hover {
     font-size: 40px;
     font-weight: 500;
@@ -113,4 +115,7 @@ body {
 }
 .text-justify {
   text-align: center;
+}
+.card__info i.fa-upload {
+  cursor: pointer;
 }
