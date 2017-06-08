@@ -5,7 +5,11 @@
     <div class="tagline">
       <p>Divorcer c'est compliqué. </p>
       <p>Constituez votre dossier et trouvez votre avocat en quelques clics.</p>
-      <%= link_to "START", procedure_path(current_user.procedure), class: "btn btn-medium" %>
+      <% if user_signed_in? %>
+        <%= link_to "START", procedure_path(current_user.procedure), class: "btn btn-medium" %>
+      <% else %>
+        <%= link_to "S'INSCRIRE", new_user_registration_path, class: "btn btn-medium" %>
+      <% end %>
     </div>
     <div></div>
     <div class="learn-more">
