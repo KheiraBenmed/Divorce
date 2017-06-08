@@ -17,10 +17,10 @@
   justify-content: center;
 }
 .banner h1 {
-  font-size: 50px;
+  font-size: 90px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
+  margin-top: 130px;
 }
 
 .banner h3 {
@@ -35,18 +35,22 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.tagline {
+ padding-bottom: 60px;
+}
 .tagline p {
-  font-size: 20px;
+  font-size: 27px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.7);
-  margin: 20px;
+  margin: 15px;
 }
 .btn-medium {
-  color: #60919f;
+  color: white;
   padding: 10px 15px;
   border-radius: 10px;
   margin-top: 40px;
-  width: 122px;
+  width: 242px;
   background-color: #F3C600;
   font-weight: 600;
   // box-shadow: 1px 0;
@@ -265,7 +269,7 @@ body {
 // // ======================== */
 
 .footer {
-  background-color: #2C3E50;
+  background-color: #343434;
   color:  #fff;
   font-size: 1.5em;
   text-align: center;
@@ -276,8 +280,24 @@ body {
 }
 
 .footer a {
-  color: #fff;
+  color: white;
+  font-size: 25px;
   margin-right: 1em;
+}
+
+.fa-linkedin {
+  color: white;
+  font-size: 25px;
+}
+
+.fa-twitter {
+  color: white;
+  font-size: 25px;
+}
+
+.fa-facebook {
+  color: white;
+  font-size: 25px;
 }
 
 .footer a:last-of-type {
