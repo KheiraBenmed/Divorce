@@ -10,8 +10,8 @@
       <ul>
         <% if !@procedure.full_name.nil? %>
           <% if !@procedure[:passport].nil? || !@procedure[:passport_spouse].nil? %>
-            <li>Passport</li>
-            <li>Passport conjoint</li>
+            <li>Passeport</li>
+            <li>Passeport conjoint</li>
           <% end %>
         <% end %>
         <% if !@procedure.child_nb.nil? %>
@@ -147,7 +147,7 @@
     <p>Dans l'attente de votre réponse, je vous prie d'agréer, Maître, l'expression de mes salutations distinguées.</p>
 
     <p><%=@procedure[:full_name] %></p>
-    <p>email: <%= mail_to @procedure.user.email %></p>
+    <p><%= mail_to @procedure.user.email %></p>
 
   </div>
 </body>
