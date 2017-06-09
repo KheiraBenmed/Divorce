@@ -118,7 +118,7 @@ body {
 .card__info i.fa-upload {
   cursor: pointer;
 }
-.question input {
+.question input[type="file"] {
   display: none;
 }
 .fa-download:before {
