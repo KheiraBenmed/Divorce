@@ -21,21 +21,22 @@
 
 #find input {
     float: left;
-    width: 300px;
+    width: 400px;
     height: 49px;
     margin: 0 0 0 10px;
     padding: 0 10px 0 10px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 #find .fa-search {
     font-size: 26px;
-    color: white;
+    color: #60919F;
 }
 
  #find .btn-search {
-  background-color: #60919F;
-  color: white;
+  background: none;
+  color: #60919F;
+  margin-left: -50px;
   text-decoration: none;
   font-size: 27px;
   font-size: bold;

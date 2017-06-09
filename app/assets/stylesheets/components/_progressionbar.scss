@@ -3,7 +3,7 @@
 
 .recap {
   position: relative;
-  height: 400px;
+  height: 370px;
   border-color: #F0F4F8;
   border-radius: 5px;
   border-width: 1px;
@@ -33,6 +33,7 @@
   margin-right: 40px;
   flex-wrap: wrap;
   width: 150px;
+  line-height: 20px;
 }
 
 .metrics-document {
@@ -41,6 +42,7 @@
   align-items: center;
   flex-wrap: wrap;
   width: 150px;
+  line-height: 20px;
 }
 
 .row_recap {
@@ -98,11 +100,12 @@
 
 .title {
   color: grey;
+  opacity: 0.8;
 }
 
 .answer {
   color: #60919F;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 

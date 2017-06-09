@@ -20,10 +20,26 @@
 
 .btn-zip {
   position: absolute;
-  top: 10px;
-  right: 30px;
-  font-size: 50px;
+  right: 35px;
+  top: 30px;
+  display: flex;
+  align-items: center;
   color: #60919F;
+  &:hover {
+    text-decoration: none;
+    color: #F3C600;
+    .fa {
+      color: #F3C600;
+    }
+  }
+  .fa {
+    font-size: 25px;
+    color: #60919F;
+  }
+  span {
+    margin-right: 15px;
+
+  }
 }
 
 
@@ -269,6 +285,7 @@ $infoMargin: 12px;
   width: 80px;
   background-size: cover;
   height: 80px;
+  opacity: 0.4;
   // -webkit-filter: blur(1px);
 }
 
