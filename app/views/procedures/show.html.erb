@@ -9,11 +9,6 @@
 
       <h2 style="color: #60919F; font-size: 22px; text-align: left; padding-left: 35px">RECAPITULATIF DE VOTRE PROCEDURE</h2>
 
-      <% if @champ_not_done != 0 %>
-        <%= link_to "JE COMPLETE MON DOSSIER", edit_procedure_path, class: "btn btn-call-to-action" %>
-      <% else %>
-        <%= link_to "JE TROUVE MON AVOCAT", avocats_path, class: "btn btn-call-to-action", style:"padding-left: 40px; padding-right: 40px" %>
-      <% end %>
 
       <div class="metrics">
         <% if @champ_not_done == 0 %>
@@ -40,33 +35,51 @@
         </div>
         <% end %>
       </div>
-
-      <div class="row_recap text-left">
-        <div class="col-xs-12 col-sm-6 col-lg-4" style="line-height: 19px; margin-top: 50px">
-            <p class="title">Prénom Nom:</p>
-            <p class="answer"><%= @procedure.full_name %></p>
-            <p class="title">Enfants:</p>
-            <p class="answer"><%= @procedure.child_nb %></p>
-            <p class="title">Type de contrat de mariage:</p>
-            <p class="answer"><%= @procedure.contract_type %></p>
+      <div class="container-fluid">
+        <div class="row no-margin text-left">
+          <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 50px">
+            <div class="box">
+              <p class="title">Nom complet</p>
+              <p class="answer"><%= @procedure.full_name %></p>
+              <p class="title">Enfants</p>
+              <p class="answer"><%= @procedure.child_nb %></p>
+              <p class="title">Contrat de mariage</p>
+              <p class="answer"><%= @procedure.contract_type %></p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 50px">
+            <div class="box">
+              <p class="title">Statut professionnel</p>
+              <p class="answer"><%= @procedure.status_pro %></p>
+              <p class="title">Statut professionnel du conjoint</p>
+              <p class="answer"><%= @procedure.status_pro_conjoint %></p>
+              <p class="title">Comptes bancaires communs</p>
+              <p class="answer"><%= @procedure.bank_account_nb %></p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 50px">
+            <div class="box">
+              <p class="title">Situation immobilière</p>
+              <% if @procedure.owner_nb %>
+                <p class="answer">Locataire</p>
+              <% end %>
+              <p class="title">Véhicules en commun<p>
+              <p class="answer"><%= @procedure.vehicle_nb %></p>
+              <p class="title">Assurances en commun</p>
+              <p class="answer"><%= @procedure.insurance_nb %></p>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 50px">
-            <p class="title">Situation professionnelle:</p>
-            <p class="answer"><%= @procedure.status_pro %></p>
-            <p class="title">Situation professionnelle de votre conjoint:</p>
-            <p class="answer"><%= @procedure.status_pro_conjoint %></p>
-            <p class="title">Nombre de compte bancaire:</p>
-            <p class="answer"><%= @procedure.bank_account_nb %></p>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 50px">
-            <p class="title">Situation immobilière:</p>
-            <% if @procedure.owner_nb %>
-              <p class="answer">Locataire</p>
+      </div>
+      <div class="container-fluid">
+        <div class="row no-margin">
+          <div class="col-lg-4 col-lg-offset-4">
+            <% if @champ_not_done != 0 %>
+              <%= link_to "JE COMPLETE MON DOSSIER", edit_procedure_path, class: "btn btn-call-to-action" %>
+            <% else %>
+              <%= link_to "JE TROUVE MON AVOCAT", avocats_path, class: "btn btn-call-to-action", style:"padding-left: 40px; padding-right: 40px" %>
             <% end %>
-            <p class="title">Nombre de véhicules:<p>
-            <p class="answer"><%= @procedure.vehicle_nb %></p>
-            <p class="title">Nombre d'assurances:</p>
-            <p class="answer"><%= @procedure.insurance_nb %></p>
+          </div>
         </div>
       </div>
     </div>

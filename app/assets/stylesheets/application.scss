@@ -13,3 +13,21 @@
 @import "layout/index";
 @import "components/index";
 @import "pages/index";
+
+.box {
+  height: 220px;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+}
+
+.row-call-to-action {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.no-margin {
+  margin-left: 0;
+  margin-right: 0;
+}
