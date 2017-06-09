@@ -5,12 +5,14 @@
   <div class="banner-content">
     <h1>.done</h1>
     <div class="tagline">
-      <p class="emoji">🙅🤦</p>
+      <p class="emoji">🙅🙇</p>
       <p>Divorcer c'est dur.</p>
       <p>On s'occupe de la paperasse.</p>
+
       <div></div>
       <div></div>
       <% if user_signed_in? %>
+
         <%= link_to "ACCEDER A VOTRE DOSSIER", procedure_path(current_user.procedure), class: "btn btn-medium" %>
       <% else %>
         <%= link_to "S'INSCRIRE", new_user_registration_path, class: "btn btn-medium" %>
