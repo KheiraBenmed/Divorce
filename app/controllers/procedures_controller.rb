@@ -279,9 +279,9 @@ class ProceduresController < ApplicationController
   end
 
   def calcul_doc_a_uploader
-    @doc = 0
+    @doc = 1
     if !@procedure.full_name.nil?
-      @doc += 12
+      @doc += 11
     end
     if !@procedure.vehicle_nb.nil?
       if @procedure.vehicle_nb > 0

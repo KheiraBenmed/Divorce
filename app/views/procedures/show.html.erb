@@ -3,7 +3,7 @@
     <br>
     <div class="recap">
 
-      <div class="progress-wrap progress" data-progress-percent="<%= ((12 - @champ_not_done)+@doc_upload)*100/(12 + @doc) %>">
+      <div class="progress-wrap progress" data-progress-percent="<%= (12 - @champ_not_done)*100/12 %>">
         <div class="progress-bar progress"></div>
       </div>
 
@@ -24,14 +24,21 @@
         <% else %>
           <div class="metrics-question">
           <i class="fa fa-question" style="font-size: 20px; margin: 5px" aria-hidden="true"></i>
-          <p><%= @champ_not_done %> champs à remplir</p>
+          <p><%= (12 - @champ_not_done)*100/12 %> % des champs complétés</p>
           </div>
         <% end %>
 
+        <% if @doc - @doc_upload == 0 %>
+          <div class="metrics-document">
+            <i class="fa fa-check" style="font-size: 20px; margin: 5px" aria-hidden="true"></i>
+            <p>Vous avez téléchargé tous les documents</p>
+          </div>
+        <% else %>
         <div class="metrics-document">
           <i class="fa fa-file-text-o" style="font-size: 20px ; margin: 5px" aria-hidden="true"></i>
           <p><%= @doc_upload * 100/ @doc %> % documents téléchargés</p>
         </div>
+        <% end %>
       </div>
 
       <div class="row_recap text-left">
