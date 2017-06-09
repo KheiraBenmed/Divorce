@@ -24,7 +24,7 @@
         <% else %>
           <div class="metrics-question">
           <i class="fa fa-question" style="font-size: 20px; margin: 5px" aria-hidden="true"></i>
-          <p><%= (12 - @champ_not_done)*100/12 %> % des champs complétés</p>
+          <p><%= (12 - @champ_not_done)*100/12 %> % questions complétées</p>
           </div>
         <% end %>
 
@@ -42,33 +42,30 @@
       </div>
 
       <div class="row_recap text-left">
-        <div class="col-xs-12 col-sm-6 col-lg-4" style="line-height: 19px; margin-top: 20px">
-            <h4>Situation familiale</h4>
+        <div class="col-xs-12 col-sm-6 col-lg-4" style="line-height: 19px; margin-top: 50px">
             <p class="title">Prénom Nom:</p>
             <p class="answer"><%= @procedure.full_name %></p>
             <p class="title">Enfants:</p>
             <p class="answer"><%= @procedure.child_nb %></p>
-            <p class="title">Type de Contrat de Mariage:</p>
+            <p class="title">Type de contrat de mariage:</p>
             <p class="answer"><%= @procedure.contract_type %></p>
         </div>
-        <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 20px">
-            <h4>Situation financière</h4>
-            <p class="title">Situation Professionnel:</p>
+        <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 50px">
+            <p class="title">Situation professionnelle:</p>
             <p class="answer"><%= @procedure.status_pro %></p>
-            <p class="title">Situation professionnel de votre conjoint:</p>
+            <p class="title">Situation professionnelle de votre conjoint:</p>
             <p class="answer"><%= @procedure.status_pro_conjoint %></p>
             <p class="title">Nombre de compte bancaire:</p>
             <p class="answer"><%= @procedure.bank_account_nb %></p>
         </div>
-        <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 20px">
-            <h4>Situation personnelle</h4>
+        <div class="col-xs-12 col-sm-6 col-lg-4" style="margin-top: 50px">
             <p class="title">Situation immobilière:</p>
             <% if @procedure.owner_nb %>
               <p class="answer">Locataire</p>
             <% end %>
-            <p class="title">Nombre de véhicule:<p>
+            <p class="title">Nombre de véhicules:<p>
             <p class="answer"><%= @procedure.vehicle_nb %></p>
-            <p class="title">Nombre d'assurance:</p>
+            <p class="title">Nombre d'assurances:</p>
             <p class="answer"><%= @procedure.insurance_nb %></p>
         </div>
       </div>
@@ -77,7 +74,8 @@
 
   <div class="container_docs text-left">
     <%= link_to procedure_zipcreate_path(@procedure), class: "btn-zip" do %>
-      <i class="fa fa-file-archive-o" class="btn-zip"></i>
+      <span>> télécharger</span>
+      <i class="fa fa-file-archive-o"></i>
     <% end %>
     <h4 style="color: #60919F; padding-left: 15px;">MES DOCUMENTS</h4>
     <div class="row">
