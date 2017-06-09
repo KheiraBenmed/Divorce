@@ -1,9 +1,13 @@
+<%= content_for :flashes do %>
+  <%= render "shared/flashes" %>
+<% end %>
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path("background.jpg") %>');">
   <div class="banner-content">
     <h1>.done</h1>
     <div class="tagline">
-      <p>Divorcer c'est compliqué. </p>
-      <p>Constituez votre dossier et trouvez votre avocat en quelques clics.</p>
+      <p class="emoji">🙅🤦‍♂️</p>
+      <p>Divorcer c'est dur.</p>
+      <p>On s'occupe de la paperasse.</p>
       <div></div>
       <div></div>
       <% if user_signed_in? %>

@@ -28,6 +28,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body class="<%= params[:controller] == "procedures" && params[:action] == "edit" ? "hide-overflow" : ""  %>">
+  <%= yield :flashes %>
   <%= render 'shared/navbar' %>
 
     <%= yield %>

@@ -14,10 +14,10 @@
     <% if user_signed_in? %>
 
       <div id="navbar-links">
-        <%= link_to "Formulaire", edit_procedure_path(current_user.procedure), class: "#{(params[:controller] == "procedures" && params[:action] == "edit") ? "active-nav" : ""}" %>
-        <%= link_to "Mon Dossier", procedure_path(current_user.procedure), class: "#{(params[:controller] == "procedures" && params[:action] == "show") ? "active-nav" : ""}" %>
-        <%= link_to "Avocats", avocats_path, class: "#{(params[:controller] == "avocats" && params[:action] == "index") ? "active-nav" : ""}" %>
-        <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+        <li><%= link_to "Formulaire", edit_procedure_path(current_user.procedure), class: "#{(params[:controller] == "procedures" && params[:action] == "edit") ? "active-nav" : ""}" %></li>
+        <li><%= link_to "Mon Dossier", procedure_path(current_user.procedure), class: "#{(params[:controller] == "procedures" && params[:action] == "show") ? "active-nav" : ""}" %></li>
+        <li><%= link_to "Avocats", avocats_path, class: "#{(params[:controller] == "avocats" && params[:action] == "index") ? "active-nav" : ""}" %></li>
+        <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></li>
       </div>
     <% else %>
 
