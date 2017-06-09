@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       ZipJob.perform_later(@procedure.id)
-      flash[:notice] = "Votre demande a été envoyée."
+      flash[:notice] = "Votre demande a bien été envoyée."
     else
       flash[:alert] = "Votre demande n'a pu être envoyée."
     end
