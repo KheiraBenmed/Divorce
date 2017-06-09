@@ -31,12 +31,16 @@
   flex-direction: column;
   align-items: center;
   margin-right: 40px;
+  flex-wrap: wrap;
+  width: 150px;
 }
 
 .metrics-document {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  width: 150px;
 }
 
 .row_recap {
