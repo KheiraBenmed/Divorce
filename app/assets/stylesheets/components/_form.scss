@@ -104,6 +104,22 @@ body {
     text-decoration: none;
   }
 }
+.finish {
+  font-size: 18px;
+  font-weight: 500;
+  color: #F3C600;
+  cursor: pointer;
+  a {
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+      font-weight: 500;
+      color: #F3C600;
+      text-decoration: none;
+    }
+  }
+
+}
 .question-text {
   color: #f5f5f5;
   font-weight: 600;

@@ -9,7 +9,7 @@
       <div class="question-container <%= i == 0 ? "active" : "" %>" id="question-<%=i %>" data-number="<%= i + 1 %>" >
         <div class="prev"><i class="fa fa-angle-up" id="prev" aria-hidden="true"></i></div>
         <div class="question">
-          <div class="question-text"><%= question["question_text"] %> <span class="pull-right"><%= i + 1 %>/<%= @questions.size %></span></div>
+          <div class="question-text"><%= question["question_text"] %> </div>
           <!-- input -->
           <%= f.input question["column"],
             as: question["field_type"],
@@ -36,7 +36,7 @@
           <% end %>
         </div>
         <% if i ==  @questions.size - 1 %>
-          <div class="next"><%= link_to "TERMINER", procedure_path, class: "next", id: "next-finish" %> </div>
+          <div class="finish"><%= link_to "TERMINER", procedure_path, class: "", id: "" %> </div>
         <% else %>
           <div class="next"><i class="fa fa-angle-down" id="next" aria-hidden="true"></i></div>
         <% end %>
