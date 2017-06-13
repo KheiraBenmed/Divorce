@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # puts 'On clear les avocats'
 
+puts 'On détruit la base de données'
+Contact.destroy_all
+Avocat.destroy_all
 
 puts 'On récupere les adresses des avocats'
 
